@@ -29,11 +29,11 @@ public:
         return { this->data_[0] + v.data_[0], this->data_[1] + v.data_[1], this->data_[2] + v.data_[2] };
     }
 
-    Vec3 operator-(const Vec3 &v) {
+    Vec3 operator-(const Vec3 &v) const {
         return { this->data_[0] - v.data_[0], this->data_[1] - v.data_[1], this->data_[2] - v.data_[2] };
     }
 
-    Vec3 operator*(const Vec3 &v) {
+    Vec3 operator*(const Vec3 &v) const {
         return { this->data_[0] * v.data_[0], this->data_[1] * v.data_[1], this->data_[2] * v.data_[2] };
     }
 
@@ -63,7 +63,7 @@ public:
     friend double dot(const Vec3 &u, const Vec3 &v);
     friend inline Vec3 operator*(double t, const Vec3 &v);
 
-private:
+protected:
     double data_[3];
 };
 

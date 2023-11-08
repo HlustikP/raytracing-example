@@ -9,4 +9,8 @@ add_executable(raytracing src/main.cpp
         src/utils/render.cpp
         src/vec3/vec3.cpp
         src/vec3/vec3.h
-        src/ray/ray.h)
+        src/ray/ray.h
+        src/sphere/sphere.h
+        src/Shape/shape.h
+        src/sphere/sphere.cpp
+        src/Shape/shape_container.h)

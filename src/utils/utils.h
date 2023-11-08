@@ -6,8 +6,16 @@
 #include <string>
 #include <sstream>
 #include <expected>
+#include <cassert>
+
+#include "../vec3/vec3.h"
+#include "../ray/ray.h"
+#include "../sphere/sphere.h"
+#include "../Shape/shape_container.h"
 
 namespace utils {
+
+constexpr double infinity = std::numeric_limits<double>::infinity();
 
 enum class ReadFileError {
     GENERIC,
@@ -43,6 +51,6 @@ std::expected<const fs::path*, WriteFileError> writeFile(const fs::path &path,
     return &path;
 }
 
-int renderImage(int image_width, int image_height, const utils::fs::path& outfile_path);
+int renderImage(int image_width, double aspect_ratio, const utils::fs::path &outfile_path);
 
 } // namespace utils
