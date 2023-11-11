@@ -7,6 +7,7 @@
   },
   "configurePresets": [
     {
+      "name": "windows-base",
       "binaryDir": "${sourceDir}/bin/${presetName}",
       "cacheVariables": {
         "CMAKE_C_COMPILER": "cl.exe",
@@ -20,11 +21,10 @@
       },
       "generator": "Ninja",
       "hidden": true,
-      "installDir": "${sourceDir}/install/${presetName}",
-      "name": "windows-base"
+      "installDir": "${sourceDir}/install/${presetName}"
     },
     {
-      "name": "x64-debug",
+      "name": "win-x64-debug",
       "displayName": "x64 Debug",
       "inherits": "windows-base",
       "architecture": {
@@ -36,23 +36,18 @@
       }
     },
     {
-      "name": "x64-release",
+      "name": "win-x64-release",
       "displayName": "x64 Release",
-      "inherits": "x64-debug",
+      "inherits": "win-x64-debug",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Release"
       }
     },
     {
-      "name": "linux-debug",
-      "displayName": "Linux Debug",
-      "generator": "Ninja",
+      "name": "linux-base",
       "binaryDir": "${sourceDir}/bin/${presetName}",
+      "generator": "Ninja",
       "installDir": "${sourceDir}/install/${presetName}",
-      "cacheVariables": {
-        "CMAKE_BUILD_TYPE": "Debug",
-        "PRESET": "${presetName}"
-      },
       "condition": {
         "type": "equals",
         "lhs": "${hostSystemName}",
@@ -62,27 +57,28 @@
         "microsoft.com/VisualStudioRemoteSettings/CMake/1.0": {
           "sourceDir": "$env{HOME}/.vs/$ms{projectDirName}"
         }
+      },
+      "architecture": {
+        "value": "x64",
+        "strategy": "external"
       }
     },
     {
-      "name": "linux-release",
+      "name": "linux-x64-debug",
+      "displayName": "Linux Debug",
+      "inherits": "linux-base",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "PRESET": "${presetName}"
+      }
+    },
+    {
+      "name": "linux-x64-release",
       "displayName": "Linux Release",
-      "generator": "Ninja",
-      "binaryDir": "${sourceDir}/bin/${presetName}",
-      "installDir": "${sourceDir}/install/${presetName}",
+      "inherits": "linux-x64-debug",
       "cacheVariables": {
         "CMAKE_BUILD_TYPE": "Release",
         "PRESET": "${presetName}"
-      },
-      "condition": {
-        "type": "equals",
-        "lhs": "${hostSystemName}",
-        "rhs": "Linux"
-      },
-      "vendor": {
-        "microsoft.com/VisualStudioRemoteSettings/CMake/1.0": {
-          "sourceDir": "$env{HOME}/.vs/$ms{projectDirName}"
-        }
       }
     }
   ]

@@ -2,8 +2,7 @@
 
 #include "../vec3/vec3.h"
 #include "../ray/ray.h"
-
-namespace raytracer {
+#include "../ray/interval.h"
 
 class Intersection {
 public:
@@ -25,7 +24,5 @@ class Shape {
 public:
     virtual ~Shape() = default;
 
-    virtual std::optional<Intersection> isIntersecting(const Ray& r, double ray_tmin, double ray_tmax) const = 0;
+    virtual std::optional<Intersection> isIntersecting(const Ray& ray, Interval interval) const = 0;
 };
-
-} // namespace raytracer

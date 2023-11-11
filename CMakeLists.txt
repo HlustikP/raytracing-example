@@ -3,14 +3,12 @@ project(raytracing)
 
 set(CMAKE_CXX_STANDARD 23)
 
-add_executable(raytracing src/main.cpp
-        src/utils/utils.h
+include_directories(src)
+
+add_executable(raytracing
+        src/main.cpp
         src/utils/fileio.cpp
-        src/utils/render.cpp
         src/vec3/vec3.cpp
-        src/vec3/vec3.h
-        src/ray/ray.h
-        src/sphere/sphere.h
-        src/Shape/shape.h
-        src/sphere/sphere.cpp
-        src/Shape/shape_container.h)
+        src/shapes/sphere.cpp
+        src/camera/camera.cpp
+        src/renderer/renderer.cpp)

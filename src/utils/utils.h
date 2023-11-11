@@ -4,18 +4,15 @@
 #include <filesystem>
 #include <fstream>
 #include <string>
-#include <sstream>
 #include <expected>
-#include <cassert>
-
-#include "../vec3/vec3.h"
-#include "../ray/ray.h"
-#include "../sphere/sphere.h"
-#include "../Shape/shape_container.h"
 
 namespace utils {
 
 constexpr double infinity = std::numeric_limits<double>::infinity();
+constexpr auto pi = 3.1415926535897932385;
+inline double degrees_to_radians(double degrees) {
+    return degrees * pi / 180.0;
+}
 
 enum class ReadFileError {
     GENERIC,
@@ -51,6 +48,36 @@ std::expected<const fs::path*, WriteFileError> writeFile(const fs::path &path,
     return &path;
 }
 
-int renderImage(int image_width, double aspect_ratio, const utils::fs::path &outfile_path);
+int renderImage(int image_width, double aspect_ratio, const fs::path &outfile_path);
+
+// Overload std::cout to print ReadFileError
+inline std::ostream &operator<<(std::ostream &os, const ReadFileError &error) {
+    switch (error) {
+        case ReadFileError::GENERIC:
+            os << "GENERIC (Code 0)";
+            break;
+        case ReadFileError::FILE_DOES_NOT_EXIST:
+            os << "FILE_DOES_NOT_EXIST (Code 1)";
+            break;
+        default:
+            os << "UNKNOWN_ERROR";
+    }
+    return os;
+}
+
+// Overload std::cout to print WriteFileError
+inline std::ostream &operator<<(std::ostream &os, const WriteFileError &error) {
+    switch (error) {
+        case WriteFileError::GENERIC:
+            os << "GENERIC (Code 0)";
+            break;
+        case WriteFileError::CANNOT_OPEN_FILE_STREAM:
+            os << "CANNOT_OPEN_FILE_STREAM (Code 1)";
+            break;
+        default:
+            os << "UNKNOWN_ERROR";
+    }
+    return os;
+}
 
 } // namespace utils

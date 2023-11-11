@@ -1,8 +1,6 @@
 #pragma once
 #include "../vec3/vec3.h"
 
-namespace raytracer {
-
 class Ray {
 public:
     Ray() = delete;
@@ -18,5 +16,3 @@ private:
     Point3 orig {};
     Vec3 dir {};
 };
-
-} // namespace raytracer

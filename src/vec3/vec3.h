@@ -2,8 +2,6 @@
 #include <cmath>
 #include <iostream>
 
-namespace raytracer {
-
 using std::sqrt;
 
 class Vec3 {
@@ -83,5 +81,3 @@ inline double dot(const Vec3 &u, const Vec3 &v) {
 inline Vec3 operator*(double t, const Vec3 &v) {
     return { t*v.data_[0], t*v.data_[1], t*v.data_[2] };
 }
-
-} // namespace vec3

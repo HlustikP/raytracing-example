@@ -5,9 +5,7 @@
 
 #include "shape.h"
 
-namespace raytracer {
-
-class ShapeContainer : public Shape {
+class ShapeContainer final : public Shape {
 public:
     std::vector<std::shared_ptr<Shape>> objects;
 
@@ -20,22 +18,19 @@ public:
         objects.push_back(object);
     }
 
-    [[nodiscard]] std::optional<Intersection> isIntersecting(const Ray& ray, double ray_tmin, double ray_tmax) const override {
+    [[nodiscard]] std::optional<Intersection> isIntersecting(const Ray& ray, Interval interval) const override {
         bool hit_anything = false;
-        auto closest_so_far = ray_tmax;
+        auto closest_so_far = interval.max();
         Intersection intersection;
 
         for (const auto& object : objects) {
-            const auto result = object->isIntersecting(ray, ray_tmin, closest_so_far);
-            if (result.has_value()) {
+            if (const auto result = object->isIntersecting(ray, Interval {interval.min(), closest_so_far}); result.has_value()) {
                 hit_anything = true;
                 closest_so_far = intersection.t;
                 intersection = result.value();
             }
         }
 
-        return hit_anything ? std::optional<Intersection>(intersection) : std::nullopt;
+        return hit_anything ? std::optional(intersection) : std::nullopt;
     }
 };
-
-} // namespace raytracer
