@@ -10,10 +10,17 @@ int main(int argc, char** argv) {
     world.add(std::make_shared<Sphere>(Point3(0, 0, -1), 0.5));
     world.add(std::make_shared<Sphere>(Point3(0, -100.5, -1), 100));
 
+    const auto now = std::chrono::high_resolution_clock::now();
+
     Camera camera(default_image_width, default_image_height);
     const auto renderResult = camera.renderImage(world);
 
+    const auto end = std::chrono::high_resolution_clock::now();
+    const auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - now).count();
+
     if (renderResult.has_value()) {
+        std::cout << "Rendered image in " << duration << "ms" << std::endl;
+
         const auto writeResult = utils::writeFile(default_outfile,
             renderResult.value().data(), renderResult.value().size());
         if (writeResult.has_value()) {

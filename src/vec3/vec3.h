@@ -1,6 +1,7 @@
 #pragma once
 #include <cmath>
 #include <iostream>
+#include <utils/utils.h>
 
 using std::sqrt;
 
@@ -35,26 +36,49 @@ public:
         return { this->data_[0] * v.data_[0], this->data_[1] * v.data_[1], this->data_[2] * v.data_[2] };
     }
 
-    Vec3 operator*(double t) const {
+    Vec3 operator*(const double t) const {
         return t * *this;
     }
 
-    Vec3 operator/(double t) const {
-        return (1/t) * *this;
+    Vec3 operator/(const double t) const {
+        return (1 / t) * *this;
     }
 
-    [[nodiscard]] double length() const { return sqrt(length_squared()); }
+    [[nodiscard]] double length() const { return sqrt(lengthSquared()); }
 
-    [[nodiscard]] double length_squared() const { return data_[0]*data_[0] + data_[1]*data_[1] + data_[2]*data_[2]; }
+    [[nodiscard]] double lengthSquared() const { return data_[0]*data_[0] + data_[1]*data_[1] + data_[2]*data_[2]; }
 
-    [[nodiscard]] Vec3 cross(const Vec3 &v) {
+    [[nodiscard]] Vec3 cross(const Vec3 &v) const {
         return { this->data_[1] * v.data_[2] - this->data_[2] * v.data_[1],
                     this->data_[2] * v.data_[0] - this->data_[0] * v.data_[2],
                     this->data_[0] * v.data_[1] - this->data_[1] * v.data_[0] };
     }
 
-    [[nodiscard]] Vec3 unit_vector() const {
-        return *this / this->length();
+    [[nodiscard]] static Vec3 generateRandomVec3() {
+        return { utils::getRandomNormalDouble(), utils::getRandomNormalDouble(), utils::getRandomNormalDouble() };
+    }
+
+    [[nodiscard]] static Vec3 generateRandomVec3(const double min, const double max) {
+        return { utils::getRandomDouble(min, max), utils::getRandomDouble(min, max), utils::getRandomDouble(min, max) };
+    }
+
+    // Generate a random vector in the unit sphere using the rejection method (brute force)
+    [[nodiscard]] static Vec3 generateRandomVec3InUnitSphere();
+
+    [[nodiscard]] static Vec3 getUnitVector(const Vec3 vec) {
+        return vec / vec.length();
+    }
+
+    [[nodiscard]] static Vec3 generateRandomUnitVector() {
+        return { getUnitVector(generateRandomVec3InUnitSphere()) };
+    }
+
+    [[nodiscard]] static Vec3 generateRandomVec3InHemisphere(const Vec3 normal) {
+        if (const auto on_unit_sphere = generateRandomUnitVector(); dot(on_unit_sphere, normal) > 0.0)
+            return on_unit_sphere;
+        else
+            // Need to flip the direction of the vector if it's not in the same hemisphere as the normal
+            return -on_unit_sphere;
     }
 
     friend std::ostream& operator<<(std::ostream &out, const Vec3 &v);

@@ -13,3 +13,11 @@ Vec3 &Vec3::operator*=(double t) {
     data_[2] *= t;
     return *this;
 }
+
+Vec3 Vec3::generateRandomVec3InUnitSphere() {
+    while (true) {
+        if (auto vecCandidate = generateRandomVec3(-1,1); vecCandidate.lengthSquared() < 1) {
+            return vecCandidate;
+        }
+    }
+}

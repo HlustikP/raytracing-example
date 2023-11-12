@@ -29,13 +29,14 @@ public:
     [[nodiscard]] std::expected<std::string, RenderError> renderImage(const ShapeContainer& world);
     void resize(int image_width, int image_height) noexcept;
     void setSamplesPerPixel(const int samples_per_pixel) noexcept { samples_per_pixel_ = samples_per_pixel; }
+    void setMaxDepth(const int max_depth) noexcept { max_depth_ = max_depth; }
 
     // Image Infos
     inline constexpr static auto header_size = 9;
     inline constexpr static auto bytes_per_pixel = 3;
 private:
     std::expected<void, PrerenderError>prepareRendering() noexcept;
-    [[nodiscard]] static Color rayColor(const Ray& ray, const Shape& shape);
+    [[nodiscard]] static Color rayColor(const Ray& ray, int depth, const Shape& shape);
     void calculateAndWritePixel(Color pixel, std::string& outfile) const;
     // Get a randomly sampled camera ray for the pixel at location (x, y)
     [[nodiscard]] Ray shootRay(int x, int y) const;
@@ -50,6 +51,7 @@ private:
     Vec3   pixel_delta_u_ {};  // Offset to pixel to the right
     Vec3   pixel_delta_v_ {};  // Offset to pixel below
     int samples_per_pixel_ = 10;
+    int max_depth_ = 50; // Maximum number of ray bounces into scene
 };
 
 // Overload std::cout to print RenderError

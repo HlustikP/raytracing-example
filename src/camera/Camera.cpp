@@ -1,5 +1,7 @@
 #include "Camera.h"
 
+#include <stack>
+
 std::expected<std::string, RenderError> Camera::renderImage(const ShapeContainer& world) {
     const auto prerenderResult = prepareRendering();
 
@@ -29,7 +31,7 @@ std::expected<std::string, RenderError> Camera::renderImage(const ShapeContainer
             Color unscaled_pixel_color(0,0,0);
             for (int sample = 0; sample < samples_per_pixel_; ++sample) {
                 const auto ray = shootRay(x, y);
-                unscaled_pixel_color += rayColor(ray, world);
+                unscaled_pixel_color += rayColor(ray, max_depth_, world);
             }
             calculateAndWritePixel(unscaled_pixel_color, outfile);
         }
@@ -73,12 +75,23 @@ std::expected<void, PrerenderError> Camera::prepareRendering() noexcept {
     return {};
 }
 
-Color Camera::rayColor(const Ray& ray, const Shape& shape) {
-    if (const auto result = shape.isIntersecting(ray, Interval{ 0, utils::infinity }); result.has_value()) {
-        return 0.5 * (result.value().normal + Color(1, 1, 1));
+Color Camera::rayColor(const Ray& ray, const int depth, const Shape& shape) {
+    // If we've exceeded the ray bounce limit, no light is reflected.
+    if (depth <= 0) {
+        return Color { 0, 0, 0 };
     }
 
-    const Vec3 unit_direction = ray.direction().unit_vector();
+    // Define 0.001 as the minimum considered interval to avoid shadow acne.
+    constexpr auto min_interval = 0.001;
+    constexpr auto reflectance = 0.1;
+
+    if (const auto result = shape.isIntersecting(ray, Interval{ min_interval, utils::infinity }); result.has_value()) {
+        // Scatter light rays towards a random direction, skewed towards the normal.
+        const auto direction = result.value().normal + Vec3::generateRandomUnitVector();
+        return reflectance * rayColor({ result.value().p, direction }, depth - 1, shape);
+    }
+
+    const Vec3 unit_direction = Vec3::getUnitVector(ray.direction());
     const auto a = 0.5 * (unit_direction.y() + 1.0);
     return (1.0 - a) * Color(1.0, 1.0, 1.0) + a * Color(0.5, 0.7, 1.0);
 }
@@ -90,10 +103,11 @@ void Camera::calculateAndWritePixel(Color pixel, std::string& outfile) const {
     auto g = pixel.y();
     auto b = pixel.z();
 
+    // Divide the color by the number of samples and gamma-correct for gamma=2.0.
     const auto scale = 1.0 / samples_per_pixel_;
-    r *= scale;
-    g *= scale;
-    b *= scale;
+    r = sqrt(r * scale);
+    g = sqrt(g * scale);
+    b = sqrt(b * scale);
 
     // Write the translated [0,255] value of each color component.
     static const Interval intensity(0.000, 0.999);

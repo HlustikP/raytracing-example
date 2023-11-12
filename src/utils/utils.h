@@ -1,5 +1,6 @@
 #pragma once
 
+#include <cassert>
 #include <iostream>
 #include <filesystem>
 #include <fstream>
@@ -57,6 +58,12 @@ inline static std::mt19937 generator { static_cast<std::mt19937::result_type>(
 // Returns a random real in the range [0, 1]
 inline double getRandomNormalDouble() {
     return distribution(generator);
+}
+
+// Returns a random real in the range [min, max]
+inline double getRandomDouble(const double min, const double max) {
+    assert(min < max);
+    return min + (max - min) * getRandomNormalDouble();
 }
 
 int renderImage(int image_width, double aspect_ratio, const fs::path &outfile_path);
