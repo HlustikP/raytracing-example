@@ -1,7 +1,5 @@
 #include "renderer.h"
 
-#include <utility>
-
 Renderer::Renderer(const int image_width, const int image_height, fs::path&& outfile) : image_width_{image_width},
                                                                                         image_height_{image_height},
                                                                                         camera_ { image_width, image_height },

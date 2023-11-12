@@ -28,6 +28,7 @@ public:
 
     [[nodiscard]] std::expected<std::string, RenderError> renderImage(const ShapeContainer& world);
     void resize(int image_width, int image_height) noexcept;
+    void setSamplesPerPixel(const int samples_per_pixel) noexcept { samples_per_pixel_ = samples_per_pixel; }
 
     // Image Infos
     inline constexpr static auto header_size = 9;
@@ -35,6 +36,12 @@ public:
 private:
     std::expected<void, PrerenderError>prepareRendering() noexcept;
     [[nodiscard]] static Color rayColor(const Ray& ray, const Shape& shape);
+    void calculateAndWritePixel(Color pixel, std::string& outfile) const;
+    // Get a randomly sampled camera ray for the pixel at location (x, y)
+    [[nodiscard]] Ray shootRay(int x, int y) const;
+    // Returns a random point in the square surrounding a pixel at the origin.
+    [[nodiscard]] Vec3 generatePixelSample() const;
+
 
     int image_width_;
     int image_height_;
@@ -42,6 +49,7 @@ private:
     Point3 pixel00_loc_ {};    // Location of pixel [0, 0]
     Vec3   pixel_delta_u_ {};  // Offset to pixel to the right
     Vec3   pixel_delta_v_ {};  // Offset to pixel below
+    int samples_per_pixel_ = 10;
 };
 
 // Overload std::cout to print RenderError

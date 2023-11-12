@@ -5,6 +5,7 @@
 #include <fstream>
 #include <string>
 #include <expected>
+#include <random>
 
 namespace utils {
 
@@ -46,6 +47,16 @@ std::expected<const fs::path*, WriteFileError> writeFile(const fs::path &path,
     }
 
     return &path;
+}
+
+inline static std::uniform_real_distribution distribution(0.0, 1.0);
+inline static std::mt19937 generator { static_cast<std::mt19937::result_type>(
+    std::chrono::steady_clock::now().time_since_epoch().count()
+) };
+
+// Returns a random real in the range [0, 1]
+inline double getRandomNormalDouble() {
+    return distribution(generator);
 }
 
 int renderImage(int image_width, double aspect_ratio, const fs::path &outfile_path);

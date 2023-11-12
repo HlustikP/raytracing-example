@@ -16,6 +16,13 @@ public:
         return min_ < x && x < max_;
     }
 
+    // Clamp the value to the interval
+    [[nodiscard]] double clamp(const double x) const {
+        if (x < min_) return min_;
+        if (x > max_) return max_;
+        return x;
+    }
+
     [[nodiscard]] double min() const {
         return min_;
     }

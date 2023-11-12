@@ -23,21 +23,15 @@ std::expected<std::string, RenderError> Camera::renderImage(const ShapeContainer
     header << "P3\n" << image_width_ << " " << image_height_ << "\n255\n";
     outfile.append(header.str());
 
-    for (int j = 0; j < image_height_; ++j) {
-        std::cout << "\rScanlines remaining: " << (image_height_ - j) << ' ' << std::flush;
-        for (int i = 0; i < image_width_; ++i) {
-            auto pixel_center = pixel00_loc_ + (i * pixel_delta_u_) + (j * pixel_delta_v_);
-            auto ray_direction = pixel_center - camera_center_;
-            Ray ray(camera_center_, ray_direction);
-
-            const auto pixel = rayColor(ray, world);
-
-            std::stringstream pixel_chunk;
-            pixel_chunk << static_cast<int>(255.999 * pixel.x()) <<
-                        " " << static_cast<int>(255.999 * pixel.y()) <<
-                        " " << static_cast<int>(255.999 * pixel.z()) << "\n";
-
-            outfile.append(pixel_chunk.str());
+    for (int y = 0; y < image_height_; ++y) {
+        std::cout << "\rScanlines remaining: " << (image_height_ - y) << ' ' << std::flush;
+        for (int x = 0; x < image_width_; ++x) {
+            Color unscaled_pixel_color(0,0,0);
+            for (int sample = 0; sample < samples_per_pixel_; ++sample) {
+                const auto ray = shootRay(x, y);
+                unscaled_pixel_color += rayColor(ray, world);
+            }
+            calculateAndWritePixel(unscaled_pixel_color, outfile);
         }
     }
 
@@ -87,4 +81,41 @@ Color Camera::rayColor(const Ray& ray, const Shape& shape) {
     const Vec3 unit_direction = ray.direction().unit_vector();
     const auto a = 0.5 * (unit_direction.y() + 1.0);
     return (1.0 - a) * Color(1.0, 1.0, 1.0) + a * Color(0.5, 0.7, 1.0);
+}
+
+void Camera::calculateAndWritePixel(Color pixel, std::string& outfile) const {
+    std::stringstream pixel_chunk;
+
+    auto r = pixel.x();
+    auto g = pixel.y();
+    auto b = pixel.z();
+
+    const auto scale = 1.0 / samples_per_pixel_;
+    r *= scale;
+    g *= scale;
+    b *= scale;
+
+    // Write the translated [0,255] value of each color component.
+    static const Interval intensity(0.000, 0.999);
+    pixel_chunk << static_cast<int>(256 * intensity.clamp(r)) << ' '
+                << static_cast<int>(256 * intensity.clamp(g)) << ' '
+                << static_cast<int>(256 * intensity.clamp(b)) << '\n';
+
+    outfile.append(pixel_chunk.str());
+}
+
+Ray Camera::shootRay(const int x, const int y) const {
+    const auto pixel_center = pixel00_loc_ + (x * pixel_delta_u_) + (y * pixel_delta_v_);
+    const auto pixel_sample = pixel_center + generatePixelSample();
+
+    auto ray_origin = camera_center_;
+    auto ray_direction = pixel_sample - ray_origin;
+
+    return { ray_origin, ray_direction };
+}
+
+Vec3 Camera::generatePixelSample() const {
+    const auto x = -0.5 + utils::getRandomNormalDouble();
+    const auto y = -0.5 + utils::getRandomNormalDouble();
+    return (x * pixel_delta_u_) + (y * pixel_delta_v_);
 }
