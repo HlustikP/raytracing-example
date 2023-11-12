@@ -26,6 +26,7 @@ std::optional<Intersection> Sphere::isIntersecting(const Ray &ray, Interval inte
     intersect.p = ray.at(intersect.t);
     const auto outward_normal = (intersect.p - center_) / radius_;
     intersect.setFaceNormal(ray, outward_normal);
+    intersect.material = material_;
 
     return intersect;
 }

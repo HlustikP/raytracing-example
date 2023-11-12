@@ -1,6 +1,6 @@
 #pragma once
+
 #include <cmath>
-#include <iostream>
 #include <utils/utils.h>
 
 using std::sqrt;
@@ -47,6 +47,15 @@ public:
     [[nodiscard]] double length() const { return sqrt(lengthSquared()); }
 
     [[nodiscard]] double lengthSquared() const { return data_[0]*data_[0] + data_[1]*data_[1] + data_[2]*data_[2]; }
+
+    // Returns true if the vector is close to zero in all dimensions.
+    [[nodiscard]] bool isNearZero() const {
+        return (fabs(data_[0]) < 1e-8) && (fabs(data_[1]) < 1e-8) && (fabs(data_[2]) < 1e-8);
+    }
+
+    [[nodiscard]] Vec3 reflect(const Vec3 unit_vec) const {
+        return *this - 2 * dot(*this, unit_vec) * unit_vec;
+    }
 
     [[nodiscard]] Vec3 cross(const Vec3 &v) const {
         return { this->data_[1] * v.data_[2] - this->data_[2] * v.data_[1],

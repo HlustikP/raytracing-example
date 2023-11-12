@@ -83,12 +83,14 @@ Color Camera::rayColor(const Ray& ray, const int depth, const Shape& shape) {
 
     // Define 0.001 as the minimum considered interval to avoid shadow acne.
     constexpr auto min_interval = 0.001;
-    constexpr auto reflectance = 0.1;
 
+    // Handle Collision of Ray with Shape
     if (const auto result = shape.isIntersecting(ray, Interval{ min_interval, utils::infinity }); result.has_value()) {
-        // Scatter light rays towards a random direction, skewed towards the normal.
-        const auto direction = result.value().normal + Vec3::generateRandomUnitVector();
-        return reflectance * rayColor({ result.value().p, direction }, depth - 1, shape);
+        const auto scatter_result = result.value().material->scatter(ray, result.value().normal, result.value().p);
+        if (scatter_result.has_value()) {
+            return scatter_result.value().attenuation * rayColor(scatter_result.value().scattered_ray, depth - 1, shape);
+        }
+        return Color { 0, 0, 0 };
     }
 
     const Vec3 unit_direction = Vec3::getUnitVector(ray.direction());

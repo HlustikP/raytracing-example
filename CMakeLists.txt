@@ -11,4 +11,6 @@ add_executable(raytracing
         src/vec3/vec3.cpp
         src/shapes/sphere.cpp
         src/camera/camera.cpp
-        src/renderer/renderer.cpp)
+        src/renderer/renderer.cpp
+        src/materials/lambertian.cpp
+        src/materials/metal.cpp)
