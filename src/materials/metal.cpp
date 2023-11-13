@@ -1,11 +1,13 @@
 #include "metal.h"
+#include "../shapes/intersection.h"
 
-std::optional<ScatterResult> Metal::scatter(Ray incoming_ray, Vec3 intersection_normal, Point3 intersection_point) const {
-    const Vec3 reflected = incoming_ray.direction().reflect(intersection_normal);
-    const Ray scattered = { intersection_point, reflected + fuzziness_ * Vec3::generateRandomUnitVector() };
+std::optional<ScatterResult> Metal::scatter(const Ray incoming_ray, const Intersection intersect) const {
+    const Vec3 reflected = Vec3::getUnitVector(incoming_ray.direction()).reflect(intersect.normal);
 
-    if (dot(scattered.direction(), intersection_normal) > 0) {
-        return std::optional<ScatterResult>({ albedo_, scattered });
+    if (const Ray scattered = { intersect.p, reflected + fuzziness_ * Vec3::generateRandomUnitVector() };
+            dot(scattered.direction(), intersect.normal) > 0) {
+
+        return ScatterResult{ albedo_, scattered };
     }
     return std::nullopt;
-};
+}

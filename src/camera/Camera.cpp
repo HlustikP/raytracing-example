@@ -86,7 +86,7 @@ Color Camera::rayColor(const Ray& ray, const int depth, const Shape& shape) {
 
     // Handle Collision of Ray with Shape
     if (const auto result = shape.isIntersecting(ray, Interval{ min_interval, utils::infinity }); result.has_value()) {
-        const auto scatter_result = result.value().material->scatter(ray, result.value().normal, result.value().p);
+        const auto scatter_result = result.value().material->scatter(ray, result.value());
         if (scatter_result.has_value()) {
             return scatter_result.value().attenuation * rayColor(scatter_result.value().scattered_ray, depth - 1, shape);
         }

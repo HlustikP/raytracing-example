@@ -63,6 +63,8 @@ public:
                     this->data_[0] * v.data_[1] - this->data_[1] * v.data_[0] };
     }
 
+    [[nodiscard]] static Vec3 refract(Vec3 unit_vec, Vec3 normal_vec, double etai_over_etat);
+
     [[nodiscard]] static Vec3 generateRandomVec3() {
         return { utils::getRandomNormalDouble(), utils::getRandomNormalDouble(), utils::getRandomNormalDouble() };
     }
