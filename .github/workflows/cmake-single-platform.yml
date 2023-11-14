@@ -1,7 +1,7 @@
 name: raytracing-ci
 on:
   push:
-    branches: [ "master", "Workflow" ]
+    branches: [ "master", "Workflows" ]
   pull_request:
     branches: [ "master" ]
 
