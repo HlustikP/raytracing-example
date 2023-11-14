@@ -23,5 +23,8 @@ jobs:
     - name: Configure CMake
       run: cmake --preset linux-x64-release
 
+    - name: Get gcc version
+      run: g++ -v
+
     - name: Build
       run: ninja -C ./bin/linux-x64-release
