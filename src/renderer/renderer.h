@@ -1,5 +1,5 @@
 #pragma once
-#include <camera/Camera.h>
+#include <camera/camera.h>
 #include <shapes/shape_container.h>
 
 namespace fs = std::filesystem;
