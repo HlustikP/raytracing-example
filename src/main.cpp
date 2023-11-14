@@ -1,7 +1,7 @@
 #include <numeric>
 #include <materials/dielectric.h>
 
-#include "camera/Camera.h"
+#include "camera/camera.h"
 #include "materials/lambertian.h"
 #include "materials/metal.h"
 #include "utils/utils.h"
