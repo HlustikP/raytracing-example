@@ -30,6 +30,7 @@ public:
     void resize(int image_width, int image_height) noexcept;
     void setSamplesPerPixel(const int samples_per_pixel) noexcept { samples_per_pixel_ = samples_per_pixel; }
     void setMaxDepth(const int max_depth) noexcept { max_depth_ = max_depth; }
+    void move(Vec3 look_from, Vec3 look_at, const Vec3&v_up, double fov) noexcept;
 
     // Image Infos
     inline constexpr static auto header_size = 9;
@@ -52,6 +53,13 @@ private:
     Vec3   pixel_delta_v_ {};  // Offset to pixel below
     int samples_per_pixel_ = 10;
     int max_depth_ = 50; // Maximum number of ray bounces into scene
+    double fov_ = 90;  // Vertical view angle (field of view)
+    Point3 look_from_ = Point3(0, 0, -1); // Point camera is looking from
+    Point3 look_at_ = Point3(0, 0, 0); // Point camera is looking at
+    Vec3 v_up_ = Vec3(0, 1, 0); // Camera-relative "up" direction
+    Vec3 u_ {}; //
+    Vec3 v_ {}; // Camera frame basis vectors
+    Vec3 w_ {}; //
 };
 
 // Overload std::cout to print RenderError

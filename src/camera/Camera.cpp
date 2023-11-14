@@ -45,6 +45,13 @@ void Camera::resize(const int image_width, const int image_height) noexcept {
     image_height_ = image_height;
 }
 
+void Camera::move(const Vec3 look_from, const Vec3 look_at, const Vec3&v_up, const double fov) noexcept {
+    look_from_ = look_from;
+    look_at_ = look_at;
+    v_up_ = v_up;
+    fov_ = fov;
+}
+
 std::expected<void, PrerenderError> Camera::prepareRendering() noexcept {
     // Calculate the image height
     if (image_width_ < 1) {
@@ -55,21 +62,28 @@ std::expected<void, PrerenderError> Camera::prepareRendering() noexcept {
     }
 
     // Image
-    constexpr auto focal_length = 1.0;
-    constexpr auto viewport_height = 2.0;
+    const auto focal_length = (look_from_ - look_at_).length();
+    camera_center_ = look_from_;
+    const auto theta = utils::degrees_to_radians(fov_);
+    const auto h = tan(theta / 2);
+    const auto viewport_height = 2 * h * focal_length;
     const auto viewport_width = viewport_height * (static_cast<double>(image_width_) / image_height_);
-    camera_center_ = Point3(0, 0, 0);
+
+    // Calculate the u_, v_, w_ unit basis vectors for the camera coordinate frame.
+    w_ = Vec3::getUnitVector(look_from_ - look_at_);
+    u_ = Vec3::getUnitVector(v_up_.cross(w_));
+    v_ = w_.cross(u_);
 
     // Calculate the vectors across the horizontal and down the vertical viewport edges.
-    const auto viewport_u = Vec3(viewport_width, 0, 0);
-    const auto viewport_v = Vec3(0, -viewport_height, 0);
+    const auto viewport_u = viewport_width * u_;    // Vector across viewport horizontal edge
+    const auto viewport_v = viewport_height * -v_;  // Vector down viewport vertical edge
 
     // Calculate the horizontal and vertical delta vectors from pixel to pixel.
     pixel_delta_u_ = viewport_u / image_width_;
     pixel_delta_v_ = viewport_v / image_height_;
 
     // Calculate the location of the upper left pixel.
-    const auto viewport_upper_left = camera_center_ - Vec3(0, 0, focal_length) - viewport_u / 2 - viewport_v / 2;
+    const auto viewport_upper_left = camera_center_ - (focal_length * w_) - viewport_u / 2 - viewport_v / 2;
     pixel00_loc_ = viewport_upper_left + 0.5 * (pixel_delta_u_ + pixel_delta_v_);
 
     return {};
