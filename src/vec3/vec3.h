@@ -92,6 +92,15 @@ public:
             return -on_unit_sphere;
     }
 
+    [[nodiscard]] static Vec3 generate_random_vec_in_unit_sphere() {
+        while (true) {
+            if (const auto result = Vec3(utils::getRandomDouble(-1, 1), utils::getRandomDouble(-1, 1), 0);
+                    result.lengthSquared() < 1) {
+                return result;
+            }
+        }
+    }
+
     friend std::ostream& operator<<(std::ostream &out, const Vec3 &v);
     friend double dot(const Vec3 &u, const Vec3 &v);
     friend inline Vec3 operator*(double t, const Vec3 &v);

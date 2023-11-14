@@ -52,6 +52,11 @@ void Camera::move(const Vec3 look_from, const Vec3 look_at, const Vec3&v_up, con
     fov_ = fov;
 }
 
+Vec3 Camera::generateDefocusDiskSample() const {
+    auto const sample = Vec3::generate_random_vec_in_unit_sphere();
+    return camera_center_ + (sample[0] * defocus_disk_horizental_radius_) + (sample[1] * defocus_disk_vertical_radius_);
+}
+
 std::expected<void, PrerenderError> Camera::prepareRendering() noexcept {
     // Calculate the image height
     if (image_width_ < 1) {
@@ -62,11 +67,10 @@ std::expected<void, PrerenderError> Camera::prepareRendering() noexcept {
     }
 
     // Image
-    const auto focal_length = (look_from_ - look_at_).length();
     camera_center_ = look_from_;
     const auto theta = utils::degrees_to_radians(fov_);
     const auto h = tan(theta / 2);
-    const auto viewport_height = 2 * h * focal_length;
+    const auto viewport_height = 2 * h * focus_distance_;
     const auto viewport_width = viewport_height * (static_cast<double>(image_width_) / image_height_);
 
     // Calculate the u_, v_, w_ unit basis vectors for the camera coordinate frame.
@@ -83,8 +87,13 @@ std::expected<void, PrerenderError> Camera::prepareRendering() noexcept {
     pixel_delta_v_ = viewport_v / image_height_;
 
     // Calculate the location of the upper left pixel.
-    const auto viewport_upper_left = camera_center_ - (focal_length * w_) - viewport_u / 2 - viewport_v / 2;
+    const auto viewport_upper_left = camera_center_ - (focus_distance_ * w_) - viewport_u / 2 - viewport_v / 2;
     pixel00_loc_ = viewport_upper_left + 0.5 * (pixel_delta_u_ + pixel_delta_v_);
+
+    // Calculate the camera defocus disk basis vectors.
+    const auto defocus_radius = focus_distance_ * tan(utils::degrees_to_radians(defocus_angle_ / 2));
+    defocus_disk_horizental_radius_ = u_ * defocus_radius;
+    defocus_disk_vertical_radius_ = v_ * defocus_radius;
 
     return {};
 }
@@ -138,7 +147,7 @@ Ray Camera::shootRay(const int x, const int y) const {
     const auto pixel_center = pixel00_loc_ + (x * pixel_delta_u_) + (y * pixel_delta_v_);
     const auto pixel_sample = pixel_center + generatePixelSample();
 
-    auto ray_origin = camera_center_;
+    auto ray_origin = (defocus_angle_ <= 0) ? camera_center_ : generateDefocusDiskSample();
     auto ray_direction = pixel_sample - ray_origin;
 
     return { ray_origin, ray_direction };

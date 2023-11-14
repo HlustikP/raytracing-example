@@ -7,6 +7,7 @@
 #include <string>
 #include <expected>
 #include <random>
+#include <utility>
 
 namespace utils {
 
@@ -97,5 +98,51 @@ inline std::ostream &operator<<(std::ostream &os, const WriteFileError &error) {
     }
     return os;
 }
+
+template <typename T>
+class InputHelper {
+public:
+    explicit InputHelper(std::string  question, const T& defaultValue = T{})
+        : question(std::move(question)), defaultValue(defaultValue) {}
+
+    std::optional<T> get() const {
+        std::cout << question << " (Press Enter for Default: " << defaultValue << "): ";
+
+        std::string userInput;
+        std::getline(std::cin, userInput);
+
+        if (userInput.empty()) {
+            return defaultValue;
+        }
+
+        try {
+            T result = parseInput(userInput);
+            return result;
+        } catch (...) {
+            // Error parsing input
+            return std::nullopt;
+        }
+    }
+
+private:
+    std::string question;
+    T defaultValue;
+
+    T parseInput(const std::string& userInput) const {
+        if constexpr (std::is_same_v<T, int>) {
+            return std::stoi(userInput);
+        } else if constexpr (std::is_same_v<T, double>) {
+            return std::stod(userInput);
+        } else if constexpr (std::is_same_v<T, std::string>) {
+            return userInput;
+        } else if constexpr (std::is_same_v<T, const char*>) {
+            return userInput.c_str();
+        } else {
+            static_assert(std::is_same_v<T, int> || std::is_same_v<T, double> || std::is_same_v<T, std::string> ||
+                          std::is_same_v<T, const char*>, "Unsupported type. Only int, double, std::string, and const char* are supported.");
+            return;
+        }
+    }
+};
 
 } // namespace utils

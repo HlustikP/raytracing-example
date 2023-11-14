@@ -31,6 +31,8 @@ public:
     void setSamplesPerPixel(const int samples_per_pixel) noexcept { samples_per_pixel_ = samples_per_pixel; }
     void setMaxDepth(const int max_depth) noexcept { max_depth_ = max_depth; }
     void move(Vec3 look_from, Vec3 look_at, const Vec3&v_up, double fov) noexcept;
+    // Returns a random point in the camera defocus disk.
+    [[nodiscard]] Vec3 generateDefocusDiskSample() const;
 
     // Image Infos
     inline constexpr static auto header_size = 9;
@@ -39,7 +41,7 @@ private:
     std::expected<void, PrerenderError>prepareRendering() noexcept;
     [[nodiscard]] static Color rayColor(const Ray& ray, int depth, const Shape& shape);
     void calculateAndWritePixel(Color pixel, std::string& outfile) const;
-    // Get a randomly sampled camera ray for the pixel at location (x, y)
+    // Get a randomly sampled camera ray for the pixel at location (x, y), originating from the defocused camera lens.
     [[nodiscard]] Ray shootRay(int x, int y) const;
     // Returns a random point in the square surrounding a pixel at the origin.
     [[nodiscard]] Vec3 generatePixelSample() const;
@@ -47,19 +49,27 @@ private:
 
     int image_width_;
     int image_height_;
+
     Point3 camera_center_ {};
     Point3 pixel00_loc_ {};    // Location of pixel [0, 0]
     Vec3   pixel_delta_u_ {};  // Offset to pixel to the right
     Vec3   pixel_delta_v_ {};  // Offset to pixel below
     int samples_per_pixel_ = 10;
     int max_depth_ = 50; // Maximum number of ray bounces into scene
+
     double fov_ = 90;  // Vertical view angle (field of view)
     Point3 look_from_ = Point3(0, 0, -1); // Point camera is looking from
     Point3 look_at_ = Point3(0, 0, 0); // Point camera is looking at
+
     Vec3 v_up_ = Vec3(0, 1, 0); // Camera-relative "up" direction
-    Vec3 u_ {}; //
-    Vec3 v_ {}; // Camera frame basis vectors
-    Vec3 w_ {}; //
+    Vec3 u_ {}; // Camera horizontal frame basis vectors
+    Vec3 v_ {}; // Camera vertical frame basis vectors
+    Vec3 w_ {}; // Camera look direction frame basis vectors
+
+    double defocus_angle_ = 0.6; // Variation angle of rays through each pixel
+    double focus_distance_ = 10.0; // Distance from camera look_from_ point to plane of perfect focus
+    Vec3 defocus_disk_horizental_radius_ {};
+    Vec3 defocus_disk_vertical_radius_ {};
 };
 
 // Overload std::cout to print RenderError
