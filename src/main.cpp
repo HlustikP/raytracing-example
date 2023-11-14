@@ -20,7 +20,7 @@ int main(int argc, char** argv) {
     ShapeContainer world {};
 
     world.add(std::make_shared<Sphere>(Point3{ 0.0, 0.0, -1.0 }, 0.5, material_center));
-    world.add(std::make_shared<Sphere>(Point3{ -1.0, 0.0, -1.0 }, 0.5, material_left));
+    world.add(std::make_shared<Sphere>(Point3{ -1.0, 0.0, -1.0 }, -0.4, material_left));
     world.add(std::make_shared<Sphere>(Point3{ 1.0, 0.0, -1.0 }, 0.5, material_right));
     world.add(std::make_shared<Sphere>(Point3{ 0.0, -100.5, -1.0 }, 100.0, material_ground));
 
@@ -35,9 +35,8 @@ int main(int argc, char** argv) {
     if (renderResult.has_value()) {
         std::cout << "\nRendered image in " << duration << "ms" << std::endl;
 
-        const auto writeResult = utils::writeFile(default_outfile,
-            renderResult.value().data(), renderResult.value().size());
-        if (writeResult.has_value()) {
+        if (const auto writeResult = utils::writeFile(default_outfile,
+                                                      renderResult.value().data(), renderResult.value().size()); writeResult.has_value()) {
             std::cout << "Successfully wrote image to " << default_outfile << std::endl;
             return 0;
         }

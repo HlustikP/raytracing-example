@@ -9,5 +9,7 @@ public:
     [[nodiscard]] std::optional<ScatterResult> scatter(Ray incoming_ray, Intersection intersect) const override;
 
 private:
+    static double reflectance(double cosine, double reflectance_ratio);
+
     double refractive_index_ {};
 };
