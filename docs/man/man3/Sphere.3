@@ -1,0 +1,103 @@
+.TH "Sphere" 3 "raytracing-example" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Sphere \- Class representing a spherical object in the scene\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <sphere\&.h>\fP
+.PP
+Inherits \fBShape\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBSphere\fP ()=delete"
+.br
+.ti -1c
+.RI "\fBSphere\fP (const \fBPoint3\fP &\fBcenter\fP, double \fBradius\fP, const std::shared_ptr< \fBMaterial\fP > &material)"
+.br
+.ti -1c
+.RI "const \fBPoint3\fP & \fBcenter\fP () const"
+.br
+.ti -1c
+.RI "double \fBradius\fP () const"
+.br
+.ti -1c
+.RI "std::optional< \fBIntersection\fP > \fBisIntersecting\fP (const \fBRay\fP &ray, \fBInterval\fP interval) const override"
+.br
+.RI "Checks whether a given ray is intersecting with the sphere within a given interval\&. "
+.in -1c
+
+Public Member Functions inherited from \fBShape\fP
+.in +1c
+.ti -1c
+.RI "virtual \fB~Shape\fP ()=0"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+
+
+Public Attributes inherited from \fBShape\fP
+.in +1c
+.ti -1c
+.RI "std::shared_ptr< \fBMaterial\fP > \fBmaterial_\fP {}"
+.br
+.RI "The material of the shape\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Class representing a spherical object in the scene\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Sphere::Sphere ()\fC [delete]\fP"
+
+.SS "Sphere::Sphere (const \fBPoint3\fP & center, double radius, const std::shared_ptr< \fBMaterial\fP > & material)\fC [inline]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "const \fBPoint3\fP & Sphere::center () const\fC [inline]\fP"
+
+.PP
+\fBReturns\fP
+.RS 4
+the center of the sphere 
+.RE
+.PP
+
+.SS "std::optional< \fBIntersection\fP > Sphere::isIntersecting (const \fBRay\fP & ray, \fBInterval\fP interval) const\fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+Checks whether a given ray is intersecting with the sphere within a given interval\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIray\fP the ray to check 
+.br
+\fIinterval\fP the interval in which to check for intersections 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The \fBIntersection\fP on success, otherwise std::nullopt if no intersection was found 
+.RE
+.PP
+
+.PP
+Implements \fBShape\fP\&.
+.SS "double Sphere::radius () const\fC [inline]\fP"
+
+.PP
+\fBReturns\fP
+.RS 4
+the radius of the sphere 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for raytracing-example from the source code\&.

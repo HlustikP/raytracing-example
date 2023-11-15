@@ -1,0 +1,192 @@
+\doxysection{utils Namespace Reference}
+\hypertarget{namespaceutils}{}\label{namespaceutils}\index{utils@{utils}}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classutils_1_1_input_helper}{Input\+Helper}}
+\begin{DoxyCompactList}\small\item\em Helper Class to handle user input. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{namespaceutils_aadc74b32d6e8046a9510b3f421eb6726}{Read\+File\+Error}} \{ \mbox{\hyperlink{namespaceutils_aadc74b32d6e8046a9510b3f421eb6726ac942dc2a9f958acddc67e11472d3ca0b}{GENERIC}}
+, \mbox{\hyperlink{namespaceutils_aadc74b32d6e8046a9510b3f421eb6726a3299de72583a027be04a2353d9c7c21f}{FILE\+\_\+\+DOES\+\_\+\+NOT\+\_\+\+EXIST}}
+ \}
+\begin{DoxyCompactList}\small\item\em Error codes for read\+File. \end{DoxyCompactList}\item 
+enum class \mbox{\hyperlink{namespaceutils_a6ab435f4a4c3a0e7d6970420c915ee2b}{Write\+File\+Error}} \{ \mbox{\hyperlink{namespaceutils_a6ab435f4a4c3a0e7d6970420c915ee2bac942dc2a9f958acddc67e11472d3ca0b}{GENERIC}}
+, \mbox{\hyperlink{namespaceutils_a6ab435f4a4c3a0e7d6970420c915ee2bafe950f1e98b0f48a4ee866835de503ae}{CANNOT\+\_\+\+OPEN\+\_\+\+FILE\+\_\+\+STREAM}}
+ \}
+\begin{DoxyCompactList}\small\item\em Error codes for write\+File. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::expected$<$ std\+::string, \mbox{\hyperlink{namespaceutils_aadc74b32d6e8046a9510b3f421eb6726}{Read\+File\+Error}} $>$ \mbox{\hyperlink{namespaceutils_a58c7b168427d1c1b2c717eda2dc5baf8}{read\+File}} (const fs\+::path \&path) noexcept
+\begin{DoxyCompactList}\small\item\em Read a file from the filesystem. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{namespaceutils_a83c64cce7223d64100b68f4f8d1e7279}{degrees\+\_\+to\+\_\+radians}} (const double degrees)
+\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::expected$<$ const fs\+::path \texorpdfstring{$\ast$}{*}, \mbox{\hyperlink{namespaceutils_a6ab435f4a4c3a0e7d6970420c915ee2b}{Write\+File\+Error}} $>$ \mbox{\hyperlink{namespaceutils_a2db6f93cef34a652546139b1c6a91299}{write\+File}} (const fs\+::path \&path, const T \texorpdfstring{$\ast$}{*}content, size\+\_\+t characters\+\_\+count) noexcept
+\begin{DoxyCompactList}\small\item\em Write a file to the filesystem. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{namespaceutils_a34af35b56cc248a4db026f98bf540dcc}{get\+Random\+Normal\+Double}} ()
+\item 
+double \mbox{\hyperlink{namespaceutils_abeb620f828e93060f676eb00ffdbc336}{get\+Random\+Double}} (const double min, const double max)
+\item 
+std\+::ostream \& \mbox{\hyperlink{namespaceutils_aea79a3613f3e21c6590c27160ecdad9a}{operator$<$$<$}} (std\+::ostream \&os, const \mbox{\hyperlink{namespaceutils_aadc74b32d6e8046a9510b3f421eb6726}{Read\+File\+Error}} \&error)
+\item 
+std\+::ostream \& \mbox{\hyperlink{namespaceutils_a83a895dbbb24d3a2425b9a54262c5a68}{operator$<$$<$}} (std\+::ostream \&os, const \mbox{\hyperlink{namespaceutils_a6ab435f4a4c3a0e7d6970420c915ee2b}{Write\+File\+Error}} \&error)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+constexpr double \mbox{\hyperlink{namespaceutils_a5e8d40c8386117059e95319eae8c744e}{infinity}} = std\+::numeric\+\_\+limits$<$double$>$\+::infinity()
+\item 
+constexpr auto \mbox{\hyperlink{namespaceutils_a5b96afe53673a6b13845a6ea24faa32c}{pi}} = 3.\+1415926535897932385
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{namespaceutils_aadc74b32d6e8046a9510b3f421eb6726}\label{namespaceutils_aadc74b32d6e8046a9510b3f421eb6726} 
+\index{utils@{utils}!ReadFileError@{ReadFileError}}
+\index{ReadFileError@{ReadFileError}!utils@{utils}}
+\doxysubsubsection{\texorpdfstring{ReadFileError}{ReadFileError}}
+{\footnotesize\ttfamily enum class \mbox{\hyperlink{namespaceutils_aadc74b32d6e8046a9510b3f421eb6726}{utils\+::\+Read\+File\+Error}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+Error codes for read\+File. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GENERIC@{GENERIC}!utils@{utils}}\index{utils@{utils}!GENERIC@{GENERIC}}}\Hypertarget{namespaceutils_aadc74b32d6e8046a9510b3f421eb6726ac942dc2a9f958acddc67e11472d3ca0b}\label{namespaceutils_aadc74b32d6e8046a9510b3f421eb6726ac942dc2a9f958acddc67e11472d3ca0b} 
+GENERIC&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FILE\_DOES\_NOT\_EXIST@{FILE\_DOES\_NOT\_EXIST}!utils@{utils}}\index{utils@{utils}!FILE\_DOES\_NOT\_EXIST@{FILE\_DOES\_NOT\_EXIST}}}\Hypertarget{namespaceutils_aadc74b32d6e8046a9510b3f421eb6726a3299de72583a027be04a2353d9c7c21f}\label{namespaceutils_aadc74b32d6e8046a9510b3f421eb6726a3299de72583a027be04a2353d9c7c21f} 
+FILE\+\_\+\+DOES\+\_\+\+NOT\+\_\+\+EXIST&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{namespaceutils_a6ab435f4a4c3a0e7d6970420c915ee2b}\label{namespaceutils_a6ab435f4a4c3a0e7d6970420c915ee2b} 
+\index{utils@{utils}!WriteFileError@{WriteFileError}}
+\index{WriteFileError@{WriteFileError}!utils@{utils}}
+\doxysubsubsection{\texorpdfstring{WriteFileError}{WriteFileError}}
+{\footnotesize\ttfamily enum class \mbox{\hyperlink{namespaceutils_a6ab435f4a4c3a0e7d6970420c915ee2b}{utils\+::\+Write\+File\+Error}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+Error codes for write\+File. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GENERIC@{GENERIC}!utils@{utils}}\index{utils@{utils}!GENERIC@{GENERIC}}}\Hypertarget{namespaceutils_a6ab435f4a4c3a0e7d6970420c915ee2bac942dc2a9f958acddc67e11472d3ca0b}\label{namespaceutils_a6ab435f4a4c3a0e7d6970420c915ee2bac942dc2a9f958acddc67e11472d3ca0b} 
+GENERIC&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CANNOT\_OPEN\_FILE\_STREAM@{CANNOT\_OPEN\_FILE\_STREAM}!utils@{utils}}\index{utils@{utils}!CANNOT\_OPEN\_FILE\_STREAM@{CANNOT\_OPEN\_FILE\_STREAM}}}\Hypertarget{namespaceutils_a6ab435f4a4c3a0e7d6970420c915ee2bafe950f1e98b0f48a4ee866835de503ae}\label{namespaceutils_a6ab435f4a4c3a0e7d6970420c915ee2bafe950f1e98b0f48a4ee866835de503ae} 
+CANNOT\+\_\+\+OPEN\+\_\+\+FILE\+\_\+\+STREAM&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{namespaceutils_a83c64cce7223d64100b68f4f8d1e7279}\label{namespaceutils_a83c64cce7223d64100b68f4f8d1e7279} 
+\index{utils@{utils}!degrees\_to\_radians@{degrees\_to\_radians}}
+\index{degrees\_to\_radians@{degrees\_to\_radians}!utils@{utils}}
+\doxysubsubsection{\texorpdfstring{degrees\_to\_radians()}{degrees\_to\_radians()}}
+{\footnotesize\ttfamily double utils\+::degrees\+\_\+to\+\_\+radians (\begin{DoxyParamCaption}\item[{const double}]{degrees }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{namespaceutils_abeb620f828e93060f676eb00ffdbc336}\label{namespaceutils_abeb620f828e93060f676eb00ffdbc336} 
+\index{utils@{utils}!getRandomDouble@{getRandomDouble}}
+\index{getRandomDouble@{getRandomDouble}!utils@{utils}}
+\doxysubsubsection{\texorpdfstring{getRandomDouble()}{getRandomDouble()}}
+{\footnotesize\ttfamily double utils\+::get\+Random\+Double (\begin{DoxyParamCaption}\item[{const double}]{min,  }\item[{const double}]{max }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em min} & the minimum value \\
+\hline
+{\em max} & the maximum value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a random real in the inclusive range \mbox{[}min, max\mbox{]} 
+\end{DoxyReturn}
+\Hypertarget{namespaceutils_a34af35b56cc248a4db026f98bf540dcc}\label{namespaceutils_a34af35b56cc248a4db026f98bf540dcc} 
+\index{utils@{utils}!getRandomNormalDouble@{getRandomNormalDouble}}
+\index{getRandomNormalDouble@{getRandomNormalDouble}!utils@{utils}}
+\doxysubsubsection{\texorpdfstring{getRandomNormalDouble()}{getRandomNormalDouble()}}
+{\footnotesize\ttfamily double utils\+::get\+Random\+Normal\+Double (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyReturn}{Returns}
+a random real in the range \mbox{[}0, 1\mbox{]} 
+\end{DoxyReturn}
+\Hypertarget{namespaceutils_aea79a3613f3e21c6590c27160ecdad9a}\label{namespaceutils_aea79a3613f3e21c6590c27160ecdad9a} 
+\index{utils@{utils}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!utils@{utils}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::ostream \& utils\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{const \mbox{\hyperlink{namespaceutils_aadc74b32d6e8046a9510b3f421eb6726}{Read\+File\+Error}} \&}]{error }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{namespaceutils_a83a895dbbb24d3a2425b9a54262c5a68}\label{namespaceutils_a83a895dbbb24d3a2425b9a54262c5a68} 
+\index{utils@{utils}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!utils@{utils}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::ostream \& utils\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{const \mbox{\hyperlink{namespaceutils_a6ab435f4a4c3a0e7d6970420c915ee2b}{Write\+File\+Error}} \&}]{error }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{namespaceutils_a58c7b168427d1c1b2c717eda2dc5baf8}\label{namespaceutils_a58c7b168427d1c1b2c717eda2dc5baf8} 
+\index{utils@{utils}!readFile@{readFile}}
+\index{readFile@{readFile}!utils@{utils}}
+\doxysubsubsection{\texorpdfstring{readFile()}{readFile()}}
+{\footnotesize\ttfamily std\+::expected$<$ std\+::string, \mbox{\hyperlink{namespaceutils_aadc74b32d6e8046a9510b3f421eb6726}{Read\+File\+Error}} $>$ utils\+::read\+File (\begin{DoxyParamCaption}\item[{const fs\+::path \&}]{path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Read a file from the filesystem. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & the path to the file \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the file contents on success, or an error code on failure 
+\end{DoxyReturn}
+\Hypertarget{namespaceutils_a2db6f93cef34a652546139b1c6a91299}\label{namespaceutils_a2db6f93cef34a652546139b1c6a91299} 
+\index{utils@{utils}!writeFile@{writeFile}}
+\index{writeFile@{writeFile}!utils@{utils}}
+\doxysubsubsection{\texorpdfstring{writeFile()}{writeFile()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::expected$<$ const fs\+::path \texorpdfstring{$\ast$}{*}, \mbox{\hyperlink{namespaceutils_a6ab435f4a4c3a0e7d6970420c915ee2b}{Write\+File\+Error}} $>$ utils\+::write\+File (\begin{DoxyParamCaption}\item[{const fs\+::path \&}]{path,  }\item[{const T \texorpdfstring{$\ast$}{*}}]{content,  }\item[{size\+\_\+t}]{characters\+\_\+count }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Write a file to the filesystem. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & the type of the content \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em path} & the path to the file \\
+\hline
+{\em content} & a pointer to the content \\
+\hline
+{\em characters\+\_\+count} & the number of characters to write \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the path to the file on success, or an error code on failure 
+\end{DoxyReturn}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{namespaceutils_a5e8d40c8386117059e95319eae8c744e}\label{namespaceutils_a5e8d40c8386117059e95319eae8c744e} 
+\index{utils@{utils}!infinity@{infinity}}
+\index{infinity@{infinity}!utils@{utils}}
+\doxysubsubsection{\texorpdfstring{infinity}{infinity}}
+{\footnotesize\ttfamily constexpr double utils\+::infinity = std\+::numeric\+\_\+limits$<$double$>$\+::infinity()\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+\Hypertarget{namespaceutils_a5b96afe53673a6b13845a6ea24faa32c}\label{namespaceutils_a5b96afe53673a6b13845a6ea24faa32c} 
+\index{utils@{utils}!pi@{pi}}
+\index{pi@{pi}!utils@{utils}}
+\doxysubsubsection{\texorpdfstring{pi}{pi}}
+{\footnotesize\ttfamily constexpr auto utils\+::pi = 3.\+1415926535897932385\hspace{0.3cm}{\ttfamily [constexpr]}}
+

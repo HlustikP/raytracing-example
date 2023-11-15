@@ -1,0 +1,152 @@
+.TH "Camera" 3 "raytracing-example" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Camera \- \fBCamera\fP class to handle ray casting and image generation\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <camera\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBCamera\fP ()=delete"
+.br
+.ti -1c
+.RI "\fBCamera\fP (const int image_width, const int image_height)"
+.br
+.ti -1c
+.RI "std::expected< std::string, \fBRenderError\fP > \fBrenderImage\fP (const \fBShapeContainer\fP &world)"
+.br
+.RI "Renders an image by shooting rays into the scene\&. "
+.ti -1c
+.RI "void \fBresize\fP (int image_width, int image_height) noexcept"
+.br
+.RI "Changes the size of the image to be rendered\&. "
+.ti -1c
+.RI "void \fBsetSamplesPerPixel\fP (const int samples_per_pixel) noexcept"
+.br
+.RI "Sets the number of samples per pixel\&. "
+.ti -1c
+.RI "void \fBsetMaxDepth\fP (const int max_depth) noexcept"
+.br
+.RI "Sets the maximum number of ray bounces into the scene\&. "
+.ti -1c
+.RI "void \fBmove\fP (\fBVec3\fP look_from, \fBVec3\fP look_at, const \fBVec3\fP &v_up, double fov) noexcept"
+.br
+.RI "Moves the camera to a new position\&. "
+.ti -1c
+.RI "\fBVec3\fP \fBgenerateDefocusDiskSample\fP () const"
+.br
+.in -1c
+.SS "Static Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "static constexpr auto \fBheader_size\fP = 9"
+.br
+.ti -1c
+.RI "static constexpr auto \fBbytes_per_pixel\fP = 3"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBCamera\fP class to handle ray casting and image generation\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Camera::Camera ()\fC [delete]\fP"
+
+.SS "Camera::Camera (const int image_width, const int image_height)\fC [inline]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBVec3\fP Camera::generateDefocusDiskSample () const"
+
+.PP
+\fBReturns\fP
+.RS 4
+a random point in the camera defocus disk\&. 
+.RE
+.PP
+
+.SS "void Camera::move (\fBVec3\fP look_from, \fBVec3\fP look_at, const \fBVec3\fP & v_up, double fov)\fC [noexcept]\fP"
+
+.PP
+Moves the camera to a new position\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIlook_from\fP Sets the camera position 
+.br
+\fIlook_at\fP Sets the point the camera is looking at 
+.br
+\fIv_up\fP Sets the camera-relative 'up' direction 
+.br
+\fIfov\fP Sets the vertical view angle (field of view) 
+.RE
+.PP
+
+.SS "std::expected< std::string, \fBRenderError\fP > Camera::renderImage (const \fBShapeContainer\fP & world)"
+
+.PP
+Renders an image by shooting rays into the scene\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIworld\fP the scene with it's objects to render 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the rendered image as a string in the ppm format on success, an error code on failure 
+.RE
+.PP
+
+.SS "void Camera::resize (int image_width, int image_height)\fC [noexcept]\fP"
+
+.PP
+Changes the size of the image to be rendered\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIimage_width\fP the new width of the image 
+.br
+\fIimage_height\fP the new height of the image 
+.RE
+.PP
+
+.SS "void Camera::setMaxDepth (const int max_depth)\fC [inline]\fP, \fC [noexcept]\fP"
+
+.PP
+Sets the maximum number of ray bounces into the scene\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fImax_depth\fP the maximum number of ray bounces into the scene 
+.RE
+.PP
+
+.SS "void Camera::setSamplesPerPixel (const int samples_per_pixel)\fC [inline]\fP, \fC [noexcept]\fP"
+
+.PP
+Sets the number of samples per pixel\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIsamples_per_pixel\fP the number of samples per pixel 
+.RE
+.PP
+
+.SH "Member Data Documentation"
+.PP 
+.SS "constexpr auto Camera::bytes_per_pixel = 3\fC [inline]\fP, \fC [static]\fP, \fC [constexpr]\fP"
+
+.SS "constexpr auto Camera::header_size = 9\fC [inline]\fP, \fC [static]\fP, \fC [constexpr]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for raytracing-example from the source code\&.

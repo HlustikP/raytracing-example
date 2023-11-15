@@ -1,0 +1,113 @@
+\doxysection{Interval Class Reference}
+\hypertarget{class_interval}{}\label{class_interval}\index{Interval@{Interval}}
+
+
+{\ttfamily \#include $<$interval.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_interval_ae48b9a9e9f672f81977627b609e32429}{Interval}} ()
+\item 
+\mbox{\hyperlink{class_interval_a903a31cf1d752615c26d02ea0bfcb072}{Interval}} (const double \mbox{\hyperlink{class_interval_aef7617c3f081657db789a2f95a9306af}{min}}, const double \mbox{\hyperlink{class_interval_ad61e1eabb44b4bbe36487bd0315e3d12}{max}})
+\item 
+bool \mbox{\hyperlink{class_interval_a648af282d15e768bc1c83c08d98de48e}{contains}} (const double x) const
+\item 
+bool \mbox{\hyperlink{class_interval_a16e4d2ee38eb96d1f219118d74f4159e}{surrounds}} (const double x) const
+\item 
+double \mbox{\hyperlink{class_interval_aa7190871983e4dfd1d0c4c8ed5db9b54}{clamp}} (const double x) const
+\begin{DoxyCompactList}\small\item\em Clamp a value to the interval. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_interval_aef7617c3f081657db789a2f95a9306af}{min}} () const
+\item 
+double \mbox{\hyperlink{class_interval_ad61e1eabb44b4bbe36487bd0315e3d12}{max}} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class representing an interval. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_interval_ae48b9a9e9f672f81977627b609e32429}\label{class_interval_ae48b9a9e9f672f81977627b609e32429} 
+\index{Interval@{Interval}!Interval@{Interval}}
+\index{Interval@{Interval}!Interval@{Interval}}
+\doxysubsubsection{\texorpdfstring{Interval()}{Interval()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Interval\+::\+Interval (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_interval_a903a31cf1d752615c26d02ea0bfcb072}\label{class_interval_a903a31cf1d752615c26d02ea0bfcb072} 
+\index{Interval@{Interval}!Interval@{Interval}}
+\index{Interval@{Interval}!Interval@{Interval}}
+\doxysubsubsection{\texorpdfstring{Interval()}{Interval()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Interval\+::\+Interval (\begin{DoxyParamCaption}\item[{const double}]{min,  }\item[{const double}]{max }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_interval_aa7190871983e4dfd1d0c4c8ed5db9b54}\label{class_interval_aa7190871983e4dfd1d0c4c8ed5db9b54} 
+\index{Interval@{Interval}!clamp@{clamp}}
+\index{clamp@{clamp}!Interval@{Interval}}
+\doxysubsubsection{\texorpdfstring{clamp()}{clamp()}}
+{\footnotesize\ttfamily double Interval\+::clamp (\begin{DoxyParamCaption}\item[{const double}]{x }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Clamp a value to the interval. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & the value to clamp \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+x if x is in the interval, min if x \texorpdfstring{$<$}{<} min, max if x \texorpdfstring{$>$}{>} max 
+\end{DoxyReturn}
+\Hypertarget{class_interval_a648af282d15e768bc1c83c08d98de48e}\label{class_interval_a648af282d15e768bc1c83c08d98de48e} 
+\index{Interval@{Interval}!contains@{contains}}
+\index{contains@{contains}!Interval@{Interval}}
+\doxysubsubsection{\texorpdfstring{contains()}{contains()}}
+{\footnotesize\ttfamily bool Interval\+::contains (\begin{DoxyParamCaption}\item[{const double}]{x }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & the value to check \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the interval contains x (inclusive), false otherwise 
+\end{DoxyReturn}
+\Hypertarget{class_interval_ad61e1eabb44b4bbe36487bd0315e3d12}\label{class_interval_ad61e1eabb44b4bbe36487bd0315e3d12} 
+\index{Interval@{Interval}!max@{max}}
+\index{max@{max}!Interval@{Interval}}
+\doxysubsubsection{\texorpdfstring{max()}{max()}}
+{\footnotesize\ttfamily double Interval\+::max (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyReturn}{Returns}
+the maximum value of the interval 
+\end{DoxyReturn}
+\Hypertarget{class_interval_aef7617c3f081657db789a2f95a9306af}\label{class_interval_aef7617c3f081657db789a2f95a9306af} 
+\index{Interval@{Interval}!min@{min}}
+\index{min@{min}!Interval@{Interval}}
+\doxysubsubsection{\texorpdfstring{min()}{min()}}
+{\footnotesize\ttfamily double Interval\+::min (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyReturn}{Returns}
+the minimum value of the interval 
+\end{DoxyReturn}
+\Hypertarget{class_interval_a16e4d2ee38eb96d1f219118d74f4159e}\label{class_interval_a16e4d2ee38eb96d1f219118d74f4159e} 
+\index{Interval@{Interval}!surrounds@{surrounds}}
+\index{surrounds@{surrounds}!Interval@{Interval}}
+\doxysubsubsection{\texorpdfstring{surrounds()}{surrounds()}}
+{\footnotesize\ttfamily bool Interval\+::surrounds (\begin{DoxyParamCaption}\item[{const double}]{x }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & the value to check \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the interval surrounds x (exclusive), false otherwise 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/ray/\mbox{\hyperlink{interval_8h}{interval.\+h}}\end{DoxyCompactItemize}

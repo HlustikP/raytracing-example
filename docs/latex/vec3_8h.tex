@@ -1,0 +1,53 @@
+\doxysection{src/vec3/vec3.h File Reference}
+\hypertarget{vec3_8h}{}\label{vec3_8h}\index{src/vec3/vec3.h@{src/vec3/vec3.h}}
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$utils/utils.\+h$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_vec3}{Vec3}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{vec3_8h_aeef95635e817fbf8cf22cd14c8d88fc5}{Point3}} = \mbox{\hyperlink{class_vec3}{Vec3}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \mbox{\hyperlink{vec3_8h_abec2f2292177914c3697541000f05c65}{operator$<$$<$}} (std\+::ostream \&out, const \mbox{\hyperlink{class_vec3}{Vec3}} \&v)
+\item 
+double \mbox{\hyperlink{vec3_8h_a1934dc329a0b663fb009e8032b65a496}{dot}} (const \mbox{\hyperlink{class_vec3}{Vec3}} \&u, const \mbox{\hyperlink{class_vec3}{Vec3}} \&v)
+\item 
+\mbox{\hyperlink{class_vec3}{Vec3}} \mbox{\hyperlink{vec3_8h_a4ec7b2bacb0f7294b62b8138bb7e8409}{operator\texorpdfstring{$\ast$}{*}}} (double t, const \mbox{\hyperlink{class_vec3}{Vec3}} \&v)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\Hypertarget{vec3_8h_aeef95635e817fbf8cf22cd14c8d88fc5}\label{vec3_8h_aeef95635e817fbf8cf22cd14c8d88fc5} 
+\index{vec3.h@{vec3.h}!Point3@{Point3}}
+\index{Point3@{Point3}!vec3.h@{vec3.h}}
+\doxysubsubsection{\texorpdfstring{Point3}{Point3}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{vec3_8h_aeef95635e817fbf8cf22cd14c8d88fc5}{Point3}} =  \mbox{\hyperlink{class_vec3}{Vec3}}}
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{vec3_8h_a1934dc329a0b663fb009e8032b65a496}\label{vec3_8h_a1934dc329a0b663fb009e8032b65a496} 
+\index{vec3.h@{vec3.h}!dot@{dot}}
+\index{dot@{dot}!vec3.h@{vec3.h}}
+\doxysubsubsection{\texorpdfstring{dot()}{dot()}}
+{\footnotesize\ttfamily double dot (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_vec3}{Vec3}} \&}]{u,  }\item[{const \mbox{\hyperlink{class_vec3}{Vec3}} \&}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{vec3_8h_a4ec7b2bacb0f7294b62b8138bb7e8409}\label{vec3_8h_a4ec7b2bacb0f7294b62b8138bb7e8409} 
+\index{vec3.h@{vec3.h}!operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}}
+\index{operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}!vec3.h@{vec3.h}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}()}{operator*()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_vec3}{Vec3}} operator\texorpdfstring{$\ast$}{*} (\begin{DoxyParamCaption}\item[{double}]{t,  }\item[{const \mbox{\hyperlink{class_vec3}{Vec3}} \&}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{vec3_8h_abec2f2292177914c3697541000f05c65}\label{vec3_8h_abec2f2292177914c3697541000f05c65} 
+\index{vec3.h@{vec3.h}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!vec3.h@{vec3.h}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}}
+{\footnotesize\ttfamily std\+::ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{out,  }\item[{const \mbox{\hyperlink{class_vec3}{Vec3}} \&}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+

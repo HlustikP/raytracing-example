@@ -1,0 +1,21 @@
+\doxysection{dielectric.\+h}
+\hypertarget{dielectric_8h_source}{}\label{dielectric_8h_source}\index{src/materials/dielectric.h@{src/materials/dielectric.h}}
+\mbox{\hyperlink{dielectric_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{material_8h}{material.h}}"{}}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_dielectric}{Dielectric}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_material}{Material}}\ \{}
+\DoxyCodeLine{00009\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_dielectric_a9090bdaa73931c58e2ad6939d5743458}{Dielectric}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ refractive\_index)\ :\ refractive\_index\_(refractive\_index)\ \{\}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \ \ \ \ [[nodiscard]]\ std::optional<ScatterResult>\ \mbox{\hyperlink{class_dielectric_af99f2bea626a2999ba31010d992b1947}{scatter}}(\mbox{\hyperlink{class_ray}{Ray}}\ incoming\_ray,\ \mbox{\hyperlink{class_intersection}{Intersection}}\ intersect)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{double}\ reflectance(\textcolor{keywordtype}{double}\ cosine,\ \textcolor{keywordtype}{double}\ reflectance\_ratio);}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{double}\ refractive\_index\_\ \{\};}
+\DoxyCodeLine{00024\ \};}
+
+\end{DoxyCode}

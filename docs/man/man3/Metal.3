@@ -1,0 +1,64 @@
+.TH "Metal" 3 "raytracing-example" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Metal \- Class representing a metal material\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <metal\&.h>\fP
+.PP
+Inherits \fBMaterial\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBMetal\fP (const \fBColor\fP &color, double fuzziness)"
+.br
+.ti -1c
+.RI "std::optional< \fBScatterResult\fP > \fBscatter\fP (\fBRay\fP incoming_ray, \fBIntersection\fP intersect) const override"
+.br
+.RI "Calculates the color and scattered ray of a given input ray hitting a shape with a certain material\&. "
+.in -1c
+
+Public Member Functions inherited from \fBMaterial\fP
+.in +1c
+.ti -1c
+.RI "virtual \fB~Material\fP ()=default"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Class representing a metal material\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Metal::Metal (const \fBColor\fP & color, double fuzziness)\fC [inline]\fP, \fC [explicit]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "std::optional< \fBScatterResult\fP > Metal::scatter (\fBRay\fP incoming_ray, \fBIntersection\fP intersect) const\fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+Calculates the color and scattered ray of a given input ray hitting a shape with a certain material\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIincoming_ray\fP the incoming ray 
+.br
+\fIintersect\fP the intersection between the incoming ray and the shape 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the color and scattered ray on success, otherwise std::nullopt if no scatter could be calculated 
+.RE
+.PP
+
+.PP
+Implements \fBMaterial\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for raytracing-example from the source code\&.

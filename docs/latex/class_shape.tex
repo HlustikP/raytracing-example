@@ -1,0 +1,86 @@
+\doxysection{Shape Class Reference}
+\hypertarget{class_shape}{}\label{class_shape}\index{Shape@{Shape}}
+
+
+Abstract class representing a shape.  
+
+
+
+
+{\ttfamily \#include $<$shape.\+h$>$}
+
+Inheritance diagram for Shape\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_shape}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{class_shape_ac1c78e0b4ce976224029814bd4aacffe}{\texorpdfstring{$\sim$}{\string~}\+Shape}} ()=0
+\item 
+virtual std\+::optional$<$ \mbox{\hyperlink{class_intersection}{Intersection}} $>$ \mbox{\hyperlink{class_shape_a541d861456a00cbcb55931d230d7ef30}{is\+Intersecting}} (const \mbox{\hyperlink{class_ray}{Ray}} \&ray, \mbox{\hyperlink{class_interval}{Interval}} interval) const =0
+\begin{DoxyCompactList}\small\item\em Checks whether the shape is intersecting with a given ray. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_material}{Material}} $>$ \mbox{\hyperlink{class_shape_a967d06cb16c061a18b421e59e742938a}{material\+\_\+}} \{\}
+\begin{DoxyCompactList}\small\item\em The material of the shape. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Abstract class representing a shape. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_shape_ac1c78e0b4ce976224029814bd4aacffe}\label{class_shape_ac1c78e0b4ce976224029814bd4aacffe} 
+\index{Shape@{Shape}!````~Shape@{\texorpdfstring{$\sim$}{\string~}Shape}}
+\index{````~Shape@{\texorpdfstring{$\sim$}{\string~}Shape}!Shape@{Shape}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Shape()}{\string~Shape()}}
+{\footnotesize\ttfamily virtual Shape\+::\texorpdfstring{$\sim$}{\string~}\+Shape (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_shape_a541d861456a00cbcb55931d230d7ef30}\label{class_shape_a541d861456a00cbcb55931d230d7ef30} 
+\index{Shape@{Shape}!isIntersecting@{isIntersecting}}
+\index{isIntersecting@{isIntersecting}!Shape@{Shape}}
+\doxysubsubsection{\texorpdfstring{isIntersecting()}{isIntersecting()}}
+{\footnotesize\ttfamily virtual std\+::optional$<$ \mbox{\hyperlink{class_intersection}{Intersection}} $>$ Shape\+::is\+Intersecting (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_ray}{Ray}} \&}]{ray,  }\item[{\mbox{\hyperlink{class_interval}{Interval}}}]{interval }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Checks whether the shape is intersecting with a given ray. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ray} & the ray to check \\
+\hline
+{\em interval} & the interval in which to check for intersections \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+an \doxylink{class_intersection}{Intersection} on success, otherwise std\+::nullopt if no intersection was found 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_shape_container_abfe06fa0fcdc63301e75d58d7748b2d3}{Shape\+Container}}, and \mbox{\hyperlink{class_sphere_a13530809cae5e02fce814e56452ebe98}{Sphere}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_shape_a967d06cb16c061a18b421e59e742938a}\label{class_shape_a967d06cb16c061a18b421e59e742938a} 
+\index{Shape@{Shape}!material\_@{material\_}}
+\index{material\_@{material\_}!Shape@{Shape}}
+\doxysubsubsection{\texorpdfstring{material\_}{material\_}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_material}{Material}}$>$ Shape\+::material\+\_\+ \{\}}
+
+
+
+The material of the shape. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/shapes/\mbox{\hyperlink{shape_8h}{shape.\+h}}\end{DoxyCompactItemize}

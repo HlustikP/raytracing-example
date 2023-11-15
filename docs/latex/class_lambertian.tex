@@ -1,0 +1,74 @@
+\doxysection{Lambertian Class Reference}
+\hypertarget{class_lambertian}{}\label{class_lambertian}\index{Lambertian@{Lambertian}}
+
+
+Class representing a lambertian material.  
+
+
+
+
+{\ttfamily \#include $<$lambertian.\+h$>$}
+
+Inheritance diagram for Lambertian\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_lambertian}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_lambertian_a928f533a46095039f17ce9402f383dd5}{Lambertian}} (const \mbox{\hyperlink{camera_8h_a2375f6915278a56faa971290b63119ab}{Color}} \&color)
+\item 
+std\+::optional$<$ \mbox{\hyperlink{struct_scatter_result}{Scatter\+Result}} $>$ \mbox{\hyperlink{class_lambertian_afc345a5e293aab39adf3cf98c66b04d4}{scatter}} (\mbox{\hyperlink{class_ray}{Ray}} incoming\+\_\+ray, \mbox{\hyperlink{class_intersection}{Intersection}} intersect) const override
+\begin{DoxyCompactList}\small\item\em Calculates the color and scattered ray of a given input ray hitting a shape with a certain material. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_material}{Material}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{class_material_a255ba20d0325e6b78ff68ac739df40de}{\texorpdfstring{$\sim$}{\string~}\+Material}} ()=default
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class representing a lambertian material. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_lambertian_a928f533a46095039f17ce9402f383dd5}\label{class_lambertian_a928f533a46095039f17ce9402f383dd5} 
+\index{Lambertian@{Lambertian}!Lambertian@{Lambertian}}
+\index{Lambertian@{Lambertian}!Lambertian@{Lambertian}}
+\doxysubsubsection{\texorpdfstring{Lambertian()}{Lambertian()}}
+{\footnotesize\ttfamily Lambertian\+::\+Lambertian (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{camera_8h_a2375f6915278a56faa971290b63119ab}{Color}} \&}]{color }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_lambertian_afc345a5e293aab39adf3cf98c66b04d4}\label{class_lambertian_afc345a5e293aab39adf3cf98c66b04d4} 
+\index{Lambertian@{Lambertian}!scatter@{scatter}}
+\index{scatter@{scatter}!Lambertian@{Lambertian}}
+\doxysubsubsection{\texorpdfstring{scatter()}{scatter()}}
+{\footnotesize\ttfamily std\+::optional$<$ \mbox{\hyperlink{struct_scatter_result}{Scatter\+Result}} $>$ Lambertian\+::scatter (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_ray}{Ray}}}]{incoming\+\_\+ray,  }\item[{\mbox{\hyperlink{class_intersection}{Intersection}}}]{intersect }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Calculates the color and scattered ray of a given input ray hitting a shape with a certain material. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em incoming\+\_\+ray} & the incoming ray \\
+\hline
+{\em intersect} & the intersection between the incoming ray and the shape \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the color and scattered ray on success, otherwise std\+::nullopt if no scatter could be calculated 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_material_aece65bb241712d192286989e2f0ee59e}{Material}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/materials/\mbox{\hyperlink{lambertian_8h}{lambertian.\+h}}\item 
+src/materials/\mbox{\hyperlink{lambertian_8cpp}{lambertian.\+cpp}}\end{DoxyCompactItemize}

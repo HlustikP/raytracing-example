@@ -1,0 +1,150 @@
+\doxysection{utils.\+h}
+\hypertarget{utils_8h_source}{}\label{utils_8h_source}\index{src/utils/utils.h@{src/utils/utils.h}}
+\mbox{\hyperlink{utils_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <cassert>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <filesystem>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <expected>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <random>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <utility>}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceutils}{utils}}\ \{}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{namespaceutils_a5e8d40c8386117059e95319eae8c744e}{infinity}}\ =\ std::numeric\_limits<double>::infinity();}
+\DoxyCodeLine{00015\ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceutils_a5b96afe53673a6b13845a6ea24faa32c}{pi}}\ =\ 3.1415926535897932385;}
+\DoxyCodeLine{00016\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{namespaceutils_a83c64cce7223d64100b68f4f8d1e7279}{degrees\_to\_radians}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ degrees)\ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordflow}{return}\ degrees\ *\ \mbox{\hyperlink{namespaceutils_a5b96afe53673a6b13845a6ea24faa32c}{pi}}\ /\ 180.0;}
+\DoxyCodeLine{00018\ \}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{namespaceutils_aadc74b32d6e8046a9510b3f421eb6726}{ReadFileError}}\ \{}
+\DoxyCodeLine{00024\ \ \ \ \ \mbox{\hyperlink{namespaceutils_aadc74b32d6e8046a9510b3f421eb6726ac942dc2a9f958acddc67e11472d3ca0b}{GENERIC}},}
+\DoxyCodeLine{00025\ \ \ \ \ \mbox{\hyperlink{namespaceutils_aadc74b32d6e8046a9510b3f421eb6726a3299de72583a027be04a2353d9c7c21f}{FILE\_DOES\_NOT\_EXIST}}}
+\DoxyCodeLine{00026\ \};}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00031\ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{namespaceutils_a6ab435f4a4c3a0e7d6970420c915ee2b}{WriteFileError}}\ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \mbox{\hyperlink{namespaceutils_aadc74b32d6e8046a9510b3f421eb6726ac942dc2a9f958acddc67e11472d3ca0b}{GENERIC}},}
+\DoxyCodeLine{00033\ \ \ \ \ \mbox{\hyperlink{namespaceutils_a6ab435f4a4c3a0e7d6970420c915ee2bafe950f1e98b0f48a4ee866835de503ae}{CANNOT\_OPEN\_FILE\_STREAM}}}
+\DoxyCodeLine{00034\ \};}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{keyword}{namespace\ }fs\ =\ std::filesystem;}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00043\ [[nodiscard]]\ std::expected<std::string,\ ReadFileError>\ \mbox{\hyperlink{namespaceutils_a58c7b168427d1c1b2c717eda2dc5baf8}{readFile}}(\textcolor{keyword}{const}\ fs::path\ \&path)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00053\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00054\ std::expected<const\ fs::path*,\ WriteFileError>\ \mbox{\hyperlink{namespaceutils_a2db6f93cef34a652546139b1c6a91299}{writeFile}}(\textcolor{keyword}{const}\ fs::path\ \&path,}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ T\ *content,}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ characters\_count)\ \textcolor{keyword}{noexcept}\ \{}
+\DoxyCodeLine{00057\ \ \ \ \ std::ofstream\ stream(path,\ std::ios::out\ |\ std::ios::binary);}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordflow}{if}\ (!stream.is\_open())\ \{}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}[ERROR]\ [FILE]\ Unable\ to\ create\ file"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::unexpected(\mbox{\hyperlink{namespaceutils_a6ab435f4a4c3a0e7d6970420c915ee2bafe950f1e98b0f48a4ee866835de503ae}{WriteFileError::CANNOT\_OPEN\_FILE\_STREAM}});}
+\DoxyCodeLine{00061\ \ \ \ \ \}}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ stream.write(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const\ }\textcolor{keywordtype}{char}\ *\textcolor{keyword}{>}(content),\ \textcolor{keyword}{sizeof}(T)\ *\ characters\_count);}
+\DoxyCodeLine{00065\ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (\textcolor{keyword}{const}\ std::exception\ \&e)\ \{}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}[ERROR]\ [FILE]\ "{}}\ <<\ e.what()\ <<\ std::endl;}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::unexpected(\mbox{\hyperlink{namespaceutils_a6ab435f4a4c3a0e7d6970420c915ee2bac942dc2a9f958acddc67e11472d3ca0b}{WriteFileError::GENERIC}});}
+\DoxyCodeLine{00068\ \ \ \ \ \}}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordflow}{return}\ \&path;}
+\DoxyCodeLine{00071\ \}}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ std::uniform\_real\_distribution\ distribution(0.0,\ 1.0);}
+\DoxyCodeLine{00074\ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ std::mt19937\ generator\ \{\ \textcolor{keyword}{static\_cast<}std::mt19937::result\_type\textcolor{keyword}{>}(}
+\DoxyCodeLine{00075\ \ \ \ \ std::chrono::steady\_clock::now().time\_since\_epoch().count()}
+\DoxyCodeLine{00076\ )\ \};}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00081\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{namespaceutils_a34af35b56cc248a4db026f98bf540dcc}{getRandomNormalDouble}}()\ \{}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordflow}{return}\ distribution(generator);}
+\DoxyCodeLine{00083\ \}}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00090\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{namespaceutils_abeb620f828e93060f676eb00ffdbc336}{getRandomDouble}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ min,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ max)\ \{}
+\DoxyCodeLine{00091\ \ \ \ \ assert(min\ <\ max);}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordflow}{return}\ min\ +\ (max\ -\/\ min)\ *\ \mbox{\hyperlink{namespaceutils_a34af35b56cc248a4db026f98bf540dcc}{getRandomNormalDouble}}();}
+\DoxyCodeLine{00093\ \}}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \textcolor{comment}{//\ Overload\ std::cout\ to\ print\ ReadFileError}}
+\DoxyCodeLine{00096\ \textcolor{keyword}{inline}\ std::ostream\ \&\mbox{\hyperlink{namespaceutils_aea79a3613f3e21c6590c27160ecdad9a}{operator<<}}(std::ostream\ \&os,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceutils_aadc74b32d6e8046a9510b3f421eb6726}{ReadFileError}}\ \&error)\ \{}
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keywordflow}{switch}\ (error)\ \{}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{namespaceutils_aadc74b32d6e8046a9510b3f421eb6726ac942dc2a9f958acddc67e11472d3ca0b}{ReadFileError::GENERIC}}:}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}GENERIC\ (Code\ 0)"{}};}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{namespaceutils_aadc74b32d6e8046a9510b3f421eb6726a3299de72583a027be04a2353d9c7c21f}{ReadFileError::FILE\_DOES\_NOT\_EXIST}}:}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}FILE\_DOES\_NOT\_EXIST\ (Code\ 1)"{}};}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}UNKNOWN\_ERROR"{}};}
+\DoxyCodeLine{00106\ \ \ \ \ \}}
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keywordflow}{return}\ os;}
+\DoxyCodeLine{00108\ \}}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \textcolor{comment}{//\ Overload\ std::cout\ to\ print\ WriteFileError}}
+\DoxyCodeLine{00111\ \textcolor{keyword}{inline}\ std::ostream\ \&\mbox{\hyperlink{namespaceutils_aea79a3613f3e21c6590c27160ecdad9a}{operator<<}}(std::ostream\ \&os,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceutils_a6ab435f4a4c3a0e7d6970420c915ee2b}{WriteFileError}}\ \&error)\ \{}
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keywordflow}{switch}\ (error)\ \{}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{namespaceutils_a6ab435f4a4c3a0e7d6970420c915ee2bac942dc2a9f958acddc67e11472d3ca0b}{WriteFileError::GENERIC}}:}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}GENERIC\ (Code\ 0)"{}};}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{namespaceutils_a6ab435f4a4c3a0e7d6970420c915ee2bafe950f1e98b0f48a4ee866835de503ae}{WriteFileError::CANNOT\_OPEN\_FILE\_STREAM}}:}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}CANNOT\_OPEN\_FILE\_STREAM\ (Code\ 1)"{}};}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}UNKNOWN\_ERROR"{}};}
+\DoxyCodeLine{00121\ \ \ \ \ \}}
+\DoxyCodeLine{00122\ \ \ \ \ \textcolor{keywordflow}{return}\ os;}
+\DoxyCodeLine{00123\ \}}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00129\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00130\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classutils_1_1_input_helper}{InputHelper}}\ \{}
+\DoxyCodeLine{00131\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classutils_1_1_input_helper_ac3d633612438c559d265e7c469471577}{InputHelper}}(std::string\ \ question,\ \textcolor{keyword}{const}\ T\&\ defaultValue\ =\ T\{\})}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ :\ question(std::move(question)),\ defaultValue(defaultValue)\ \{\}}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00138\ \ \ \ \ std::optional<T>\ \mbox{\hyperlink{classutils_1_1_input_helper_abcfc23393dbf8ecddc482536df36e243}{get}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ std::cout\ <<\ question\ <<\ \textcolor{stringliteral}{"{}\ (Press\ Enter\ for\ Default:\ "{}}\ <<\ defaultValue\ <<\ \textcolor{stringliteral}{"{}):\ "{}};}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ std::string\ userInput;}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ std::getline(std::cin,\ userInput);}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (userInput.empty())\ \{}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ defaultValue;}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \ \ \ \ T\ result\ =\ parseInput(userInput);}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (...)\ \{}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Error\ parsing\ input}}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::nullopt;}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00155\ \ \ \ \ \}}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00157\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00158\ \ \ \ \ std::string\ question;}
+\DoxyCodeLine{00159\ \ \ \ \ T\ defaultValue;}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00167\ \ \ \ \ T\ parseInput(\textcolor{keyword}{const}\ std::string\&\ userInput)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (std::is\_same\_v<T,\ int>)\ \{}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::stoi(userInput);}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (std::is\_same\_v<T,\ double>)\ \{}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::stod(userInput);}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (std::is\_same\_v<T,\ std::string>)\ \{}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ userInput;}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (std::is\_same\_v<T,\ const\ char*>)\ \{}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ userInput.c\_str();}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_assert}(std::is\_same\_v<T,\ int>\ ||\ std::is\_same\_v<T,\ double>\ ||\ std::is\_same\_v<T,\ std::string>\ ||}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::is\_same\_v<T,\ const\ char*>,\ \textcolor{stringliteral}{"{}Unsupported\ type.\ Only\ int,\ double,\ std::string,\ and\ const\ char*\ are\ supported."{}});}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00181\ \ \ \ \ \}}
+\DoxyCodeLine{00182\ \};}
+\DoxyCodeLine{00183\ }
+\DoxyCodeLine{00184\ \}\ \textcolor{comment}{//\ namespace\ utils}}
+
+\end{DoxyCode}

@@ -1,0 +1,79 @@
+\doxysection{Renderer Class Reference}
+\hypertarget{class_renderer}{}\label{class_renderer}\index{Renderer@{Renderer}}
+
+
+Class to render an image.  
+
+
+
+
+{\ttfamily \#include $<$renderer.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_renderer_accd958c024da7addffb21d265a2da50f}{Renderer}} ()=delete
+\item 
+\mbox{\hyperlink{class_renderer_ab68cf50dfb4ab3c3ef948ed5c23c9da5}{Renderer}} (int image\+\_\+width, int image\+\_\+height, fs\+::path \&\&outfile)
+\item 
+int \mbox{\hyperlink{class_renderer_a1c05dd1886beec944a16671a81c5f20c}{render\+Image}} () noexcept
+\begin{DoxyCompactList}\small\item\em Renders an image. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_renderer_abda30405c71f3697c95f0c537ba4b994}{resize}} (int image\+\_\+width, int image\+\_\+height) noexcept
+\begin{DoxyCompactList}\small\item\em Change the size of the image to be rendered. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class to render an image. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_renderer_accd958c024da7addffb21d265a2da50f}\label{class_renderer_accd958c024da7addffb21d265a2da50f} 
+\index{Renderer@{Renderer}!Renderer@{Renderer}}
+\index{Renderer@{Renderer}!Renderer@{Renderer}}
+\doxysubsubsection{\texorpdfstring{Renderer()}{Renderer()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Renderer\+::\+Renderer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{class_renderer_ab68cf50dfb4ab3c3ef948ed5c23c9da5}\label{class_renderer_ab68cf50dfb4ab3c3ef948ed5c23c9da5} 
+\index{Renderer@{Renderer}!Renderer@{Renderer}}
+\index{Renderer@{Renderer}!Renderer@{Renderer}}
+\doxysubsubsection{\texorpdfstring{Renderer()}{Renderer()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Renderer\+::\+Renderer (\begin{DoxyParamCaption}\item[{int}]{image\+\_\+width,  }\item[{int}]{image\+\_\+height,  }\item[{fs\+::path \&\&}]{outfile }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_renderer_a1c05dd1886beec944a16671a81c5f20c}\label{class_renderer_a1c05dd1886beec944a16671a81c5f20c} 
+\index{Renderer@{Renderer}!renderImage@{renderImage}}
+\index{renderImage@{renderImage}!Renderer@{Renderer}}
+\doxysubsubsection{\texorpdfstring{renderImage()}{renderImage()}}
+{\footnotesize\ttfamily int Renderer\+::render\+Image (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Renders an image. 
+
+\begin{DoxyReturn}{Returns}
+0 on success, 1 on failure 
+\end{DoxyReturn}
+\Hypertarget{class_renderer_abda30405c71f3697c95f0c537ba4b994}\label{class_renderer_abda30405c71f3697c95f0c537ba4b994} 
+\index{Renderer@{Renderer}!resize@{resize}}
+\index{resize@{resize}!Renderer@{Renderer}}
+\doxysubsubsection{\texorpdfstring{resize()}{resize()}}
+{\footnotesize\ttfamily void Renderer\+::resize (\begin{DoxyParamCaption}\item[{int}]{image\+\_\+width,  }\item[{int}]{image\+\_\+height }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Change the size of the image to be rendered. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em image\+\_\+width} & the new width of the image \\
+\hline
+{\em image\+\_\+height} & the new height of the image \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/renderer/\mbox{\hyperlink{renderer_8h}{renderer.\+h}}\item 
+src/renderer/\mbox{\hyperlink{renderer_8cpp}{renderer.\+cpp}}\end{DoxyCompactItemize}

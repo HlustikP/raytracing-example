@@ -1,0 +1,68 @@
+.TH "Renderer" 3 "raytracing-example" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Renderer \- Class to render an image\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <renderer\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBRenderer\fP ()=delete"
+.br
+.ti -1c
+.RI "\fBRenderer\fP (int image_width, int image_height, fs::path &&outfile)"
+.br
+.ti -1c
+.RI "int \fBrenderImage\fP () noexcept"
+.br
+.RI "Renders an image\&. "
+.ti -1c
+.RI "void \fBresize\fP (int image_width, int image_height) noexcept"
+.br
+.RI "Change the size of the image to be rendered\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Class to render an image\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Renderer::Renderer ()\fC [delete]\fP"
+
+.SS "Renderer::Renderer (int image_width, int image_height, fs::path && outfile)"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "int Renderer::renderImage ()\fC [noexcept]\fP"
+
+.PP
+Renders an image\&. 
+.PP
+\fBReturns\fP
+.RS 4
+0 on success, 1 on failure 
+.RE
+.PP
+
+.SS "void Renderer::resize (int image_width, int image_height)\fC [noexcept]\fP"
+
+.PP
+Change the size of the image to be rendered\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIimage_width\fP the new width of the image 
+.br
+\fIimage_height\fP the new height of the image 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for raytracing-example from the source code\&.

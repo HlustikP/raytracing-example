@@ -1,0 +1,47 @@
+\doxysection{interval.\+h}
+\hypertarget{interval_8h_source}{}\label{interval_8h_source}\index{src/ray/interval.h@{src/ray/interval.h}}
+\mbox{\hyperlink{interval_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}../utils/utils.h"{}}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_interval}{Interval}}\ \{}
+\DoxyCodeLine{00009\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00010\ \ \ \ \ \mbox{\hyperlink{class_interval_ae48b9a9e9f672f81977627b609e32429}{Interval}}()\ :\ min\_(+\mbox{\hyperlink{namespaceutils}{utils}}::infinity),\ max\_(-\/\mbox{\hyperlink{namespaceutils}{utils}}::infinity)\ \{\}\ \textcolor{comment}{//\ Default\ interval\ is\ empty}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \ \ \ \ \mbox{\hyperlink{class_interval_a903a31cf1d752615c26d02ea0bfcb072}{Interval}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_interval_aef7617c3f081657db789a2f95a9306af}{min}},\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_interval_ad61e1eabb44b4bbe36487bd0315e3d12}{max}})\ :\ min\_(\mbox{\hyperlink{class_interval_aef7617c3f081657db789a2f95a9306af}{min}}),\ max\_(\mbox{\hyperlink{class_interval_ad61e1eabb44b4bbe36487bd0315e3d12}{max}})\ \{\}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00018\ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_interval_a648af282d15e768bc1c83c08d98de48e}{contains}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ x)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ min\_\ <=\ x\ \&\&\ x\ <=\ max\_;}
+\DoxyCodeLine{00020\ \ \ \ \ \}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00026\ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_interval_a16e4d2ee38eb96d1f219118d74f4159e}{surrounds}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ x)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ min\_\ <\ x\ \&\&\ x\ <\ max\_;}
+\DoxyCodeLine{00028\ \ \ \ \ \}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00035\ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_interval_aa7190871983e4dfd1d0c4c8ed5db9b54}{clamp}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ x)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (x\ <\ min\_)\ \textcolor{keywordflow}{return}\ min\_;}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (x\ >\ max\_)\ \textcolor{keywordflow}{return}\ max\_;}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ x;}
+\DoxyCodeLine{00039\ \ \ \ \ \}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00044\ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_interval_aef7617c3f081657db789a2f95a9306af}{min}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ min\_;}
+\DoxyCodeLine{00046\ \ \ \ \ \}}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00051\ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_interval_ad61e1eabb44b4bbe36487bd0315e3d12}{max}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ max\_;}
+\DoxyCodeLine{00053\ \ \ \ \ \}}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{double}\ min\_\ \{\};}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{double}\ max\_\ \{\};}
+\DoxyCodeLine{00058\ \};}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \textcolor{comment}{//\ Empty\ Interval}}
+\DoxyCodeLine{00061\ \textcolor{keyword}{const}\ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_interval}{Interval}}\ empty\ \ \ (+\mbox{\hyperlink{namespaceutils_a5e8d40c8386117059e95319eae8c744e}{utils::infinity}},\ -\/\mbox{\hyperlink{namespaceutils_a5e8d40c8386117059e95319eae8c744e}{utils::infinity}});}
+\DoxyCodeLine{00062\ \textcolor{comment}{//\ Universe\ Interval\ (all\ real\ numbers\ are\ in\ this\ interval)}}
+\DoxyCodeLine{00063\ \textcolor{keyword}{const}\ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_interval}{Interval}}\ universe(-\/\mbox{\hyperlink{namespaceutils_a5e8d40c8386117059e95319eae8c744e}{utils::infinity}},\ +\mbox{\hyperlink{namespaceutils_a5e8d40c8386117059e95319eae8c744e}{utils::infinity}});}
+
+\end{DoxyCode}

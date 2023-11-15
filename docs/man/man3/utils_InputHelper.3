@@ -1,0 +1,55 @@
+.TH "utils::InputHelper< T >" 3 "raytracing-example" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+utils::InputHelper< T > \- Helper Class to handle user input\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <utils\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBInputHelper\fP (std::string question, const T &defaultValue=T{})"
+.br
+.ti -1c
+.RI "std::optional< T > \fBget\fP () const"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.SS "template<typename T>
+.br
+class utils::InputHelper< T >"Helper Class to handle user input\&. 
+
+
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIT\fP the type to convert the input to 
+.RE
+.PP
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "template<typename T > \fButils::InputHelper\fP< T >::InputHelper (std::string question, const T & defaultValue = \fCT{}\fP)\fC [inline]\fP, \fC [explicit]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "template<typename T > std::optional< T > \fButils::InputHelper\fP< T >::get () const\fC [inline]\fP"
+
+.PP
+\fBReturns\fP
+.RS 4
+the user input converted to type T, or std::nullopt if the input could not be converted 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for raytracing-example from the source code\&.

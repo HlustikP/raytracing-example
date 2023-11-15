@@ -1,0 +1,113 @@
+.TH "Interval" 3 "raytracing-example" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Interval
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <interval\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBInterval\fP ()"
+.br
+.ti -1c
+.RI "\fBInterval\fP (const double \fBmin\fP, const double \fBmax\fP)"
+.br
+.ti -1c
+.RI "bool \fBcontains\fP (const double x) const"
+.br
+.ti -1c
+.RI "bool \fBsurrounds\fP (const double x) const"
+.br
+.ti -1c
+.RI "double \fBclamp\fP (const double x) const"
+.br
+.RI "Clamp a value to the interval\&. "
+.ti -1c
+.RI "double \fBmin\fP () const"
+.br
+.ti -1c
+.RI "double \fBmax\fP () const"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Class representing an interval\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Interval::Interval ()\fC [inline]\fP"
+
+.SS "Interval::Interval (const double min, const double max)\fC [inline]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "double Interval::clamp (const double x) const\fC [inline]\fP"
+
+.PP
+Clamp a value to the interval\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIx\fP the value to clamp 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+x if x is in the interval, min if x < min, max if x > max 
+.RE
+.PP
+
+.SS "bool Interval::contains (const double x) const\fC [inline]\fP"
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIx\fP the value to check 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+true if the interval contains x (inclusive), false otherwise 
+.RE
+.PP
+
+.SS "double Interval::max () const\fC [inline]\fP"
+
+.PP
+\fBReturns\fP
+.RS 4
+the maximum value of the interval 
+.RE
+.PP
+
+.SS "double Interval::min () const\fC [inline]\fP"
+
+.PP
+\fBReturns\fP
+.RS 4
+the minimum value of the interval 
+.RE
+.PP
+
+.SS "bool Interval::surrounds (const double x) const\fC [inline]\fP"
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIx\fP the value to check 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+true if the interval surrounds x (exclusive), false otherwise 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for raytracing-example from the source code\&.

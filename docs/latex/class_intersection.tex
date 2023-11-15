@@ -1,0 +1,90 @@
+\doxysection{Intersection Class Reference}
+\hypertarget{class_intersection}{}\label{class_intersection}\index{Intersection@{Intersection}}
+
+
+Class representing an intersection between a ray and a shape.  
+
+
+
+
+{\ttfamily \#include $<$intersection.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_intersection_ad0496bbdba6be90b12dbb9c2e8927181}{set\+Face\+Normal}} (const \mbox{\hyperlink{class_ray}{Ray}} \&ray, const \mbox{\hyperlink{class_vec3}{Vec3}} \&outward\+\_\+normal)
+\begin{DoxyCompactList}\small\item\em Sets the hit record normal vector. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{vec3_8h_aeef95635e817fbf8cf22cd14c8d88fc5}{Point3}} \mbox{\hyperlink{class_intersection_a5518161e8e147120405907eb0baea818}{p}} \{\}
+\item 
+\mbox{\hyperlink{class_vec3}{Vec3}} \mbox{\hyperlink{class_intersection_a114a38d6cbda5361b113096701cdf0ba}{normal}} \{\}
+\item 
+double \mbox{\hyperlink{class_intersection_a033072b1892bec18444dbb580063b00a}{t}} \{\}
+\item 
+bool \mbox{\hyperlink{class_intersection_ae0ea17cf468cca1505a6753d2901d86f}{front\+\_\+face}} \{\}
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_material}{Material}} $>$ \mbox{\hyperlink{class_intersection_a2e0b46c76dbd5b5ca8ef2a9eb81c991d}{material}} \{\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class representing an intersection between a ray and a shape. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_intersection_ad0496bbdba6be90b12dbb9c2e8927181}\label{class_intersection_ad0496bbdba6be90b12dbb9c2e8927181} 
+\index{Intersection@{Intersection}!setFaceNormal@{setFaceNormal}}
+\index{setFaceNormal@{setFaceNormal}!Intersection@{Intersection}}
+\doxysubsubsection{\texorpdfstring{setFaceNormal()}{setFaceNormal()}}
+{\footnotesize\ttfamily void Intersection\+::set\+Face\+Normal (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_ray}{Ray}} \&}]{ray,  }\item[{const \mbox{\hyperlink{class_vec3}{Vec3}} \&}]{outward\+\_\+normal }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets the hit record normal vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ray} & the ray that hit the shape \\
+\hline
+{\em outward\+\_\+normal} & the normal vector of the shape at the hit point. It is assumed that the outward\+\_\+normal has unit length. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_intersection_ae0ea17cf468cca1505a6753d2901d86f}\label{class_intersection_ae0ea17cf468cca1505a6753d2901d86f} 
+\index{Intersection@{Intersection}!front\_face@{front\_face}}
+\index{front\_face@{front\_face}!Intersection@{Intersection}}
+\doxysubsubsection{\texorpdfstring{front\_face}{front\_face}}
+{\footnotesize\ttfamily bool Intersection\+::front\+\_\+face \{\}}
+
+\Hypertarget{class_intersection_a2e0b46c76dbd5b5ca8ef2a9eb81c991d}\label{class_intersection_a2e0b46c76dbd5b5ca8ef2a9eb81c991d} 
+\index{Intersection@{Intersection}!material@{material}}
+\index{material@{material}!Intersection@{Intersection}}
+\doxysubsubsection{\texorpdfstring{material}{material}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_material}{Material}}$>$ Intersection\+::material \{\}}
+
+\Hypertarget{class_intersection_a114a38d6cbda5361b113096701cdf0ba}\label{class_intersection_a114a38d6cbda5361b113096701cdf0ba} 
+\index{Intersection@{Intersection}!normal@{normal}}
+\index{normal@{normal}!Intersection@{Intersection}}
+\doxysubsubsection{\texorpdfstring{normal}{normal}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_vec3}{Vec3}} Intersection\+::normal \{\}}
+
+\Hypertarget{class_intersection_a5518161e8e147120405907eb0baea818}\label{class_intersection_a5518161e8e147120405907eb0baea818} 
+\index{Intersection@{Intersection}!p@{p}}
+\index{p@{p}!Intersection@{Intersection}}
+\doxysubsubsection{\texorpdfstring{p}{p}}
+{\footnotesize\ttfamily \mbox{\hyperlink{vec3_8h_aeef95635e817fbf8cf22cd14c8d88fc5}{Point3}} Intersection\+::p \{\}}
+
+\Hypertarget{class_intersection_a033072b1892bec18444dbb580063b00a}\label{class_intersection_a033072b1892bec18444dbb580063b00a} 
+\index{Intersection@{Intersection}!t@{t}}
+\index{t@{t}!Intersection@{Intersection}}
+\doxysubsubsection{\texorpdfstring{t}{t}}
+{\footnotesize\ttfamily double Intersection\+::t \{\}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/shapes/\mbox{\hyperlink{intersection_8h}{intersection.\+h}}\end{DoxyCompactItemize}

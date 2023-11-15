@@ -1,0 +1,372 @@
+.TH "Vec3" 3 "raytracing-example" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Vec3
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <vec3\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBVec3\fP ()"
+.br
+.ti -1c
+.RI "\fBVec3\fP (double e0, double e1, double e2)"
+.br
+.ti -1c
+.RI "double \fBx\fP () const"
+.br
+.ti -1c
+.RI "double \fBy\fP () const"
+.br
+.ti -1c
+.RI "double \fBz\fP () const"
+.br
+.ti -1c
+.RI "\fBVec3\fP \fBoperator\-\fP () const"
+.br
+.ti -1c
+.RI "double \fBoperator[]\fP (int i) const"
+.br
+.ti -1c
+.RI "double & \fBoperator[]\fP (int i)"
+.br
+.ti -1c
+.RI "\fBVec3\fP & \fBoperator+=\fP (const \fBVec3\fP &v)"
+.br
+.ti -1c
+.RI "\fBVec3\fP & \fBoperator*=\fP (double t)"
+.br
+.ti -1c
+.RI "\fBVec3\fP & \fBoperator/=\fP (double t)"
+.br
+.ti -1c
+.RI "\fBVec3\fP \fBoperator+\fP (const \fBVec3\fP &v) const"
+.br
+.ti -1c
+.RI "\fBVec3\fP \fBoperator\-\fP (const \fBVec3\fP &v) const"
+.br
+.ti -1c
+.RI "\fBVec3\fP \fBoperator*\fP (const \fBVec3\fP &v) const"
+.br
+.ti -1c
+.RI "\fBVec3\fP \fBoperator*\fP (const double t) const"
+.br
+.ti -1c
+.RI "\fBVec3\fP \fBoperator/\fP (const double t) const"
+.br
+.ti -1c
+.RI "double \fBlength\fP () const"
+.br
+.ti -1c
+.RI "double \fBlengthSquared\fP () const"
+.br
+.ti -1c
+.RI "bool \fBisNearZero\fP () const"
+.br
+.RI "approximate 0-equality check "
+.ti -1c
+.RI "\fBVec3\fP \fBreflect\fP (const \fBVec3\fP unit_vec) const"
+.br
+.RI "Calculate the reflection of this vector off a surface with the given normal\&. "
+.ti -1c
+.RI "\fBVec3\fP \fBcross\fP (const \fBVec3\fP &v) const"
+.br
+.RI "Calculate the cross product of the vector with another vector\&. "
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBVec3\fP \fBrefract\fP (\fBVec3\fP unit_vec, \fBVec3\fP normal_vec, double etai_over_etat)"
+.br
+.RI "Calculate the refraction of this vector off a surface\&. "
+.ti -1c
+.RI "static \fBVec3\fP \fBgenerateRandomVec3\fP ()"
+.br
+.ti -1c
+.RI "static \fBVec3\fP \fBgenerateRandomVec3\fP (const double min, const double max)"
+.br
+.ti -1c
+.RI "static \fBVec3\fP \fBgenerateRandomVec3InUnitSphere\fP ()"
+.br
+.RI "Generate a random vector in the unit sphere using the rejection method (brute force) "
+.ti -1c
+.RI "static \fBVec3\fP \fBgetUnitVector\fP (const \fBVec3\fP vec)"
+.br
+.ti -1c
+.RI "static \fBVec3\fP \fBgenerateRandomUnitVector\fP ()"
+.br
+.ti -1c
+.RI "static \fBVec3\fP \fBgenerateRandomVec3InHemisphere\fP (const \fBVec3\fP normal)"
+.br
+.RI "Generate a random vector in the unit hemisphere using the rejection method (brute force) "
+.ti -1c
+.RI "static \fBVec3\fP \fBgenerate_random_vec_in_unit_sphere\fP ()"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "double \fBdata_\fP [3]"
+.br
+.in -1c
+.SS "Friends"
+
+.in +1c
+.ti -1c
+.RI "std::ostream & \fBoperator<<\fP (std::ostream &out, const \fBVec3\fP &v)"
+.br
+.ti -1c
+.RI "double \fBdot\fP (const \fBVec3\fP &u, const \fBVec3\fP &v)"
+.br
+.ti -1c
+.RI "\fBVec3\fP \fBoperator*\fP (double t, const \fBVec3\fP &v)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Class representing a 3D vector\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Vec3::Vec3 ()\fC [inline]\fP"
+
+.SS "Vec3::Vec3 (double e0, double e1, double e2)\fC [inline]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBVec3\fP Vec3::cross (const \fBVec3\fP & v) const\fC [inline]\fP"
+
+.PP
+Calculate the cross product of the vector with another vector\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIv\fP the other vector 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the cross product 
+.RE
+.PP
+
+.SS "static \fBVec3\fP Vec3::generate_random_vec_in_unit_sphere ()\fC [inline]\fP, \fC [static]\fP"
+
+.PP
+\fBReturns\fP
+.RS 4
+a random vector in the unit sphere using the rejection method (brute force) 
+.RE
+.PP
+
+.SS "static \fBVec3\fP Vec3::generateRandomUnitVector ()\fC [inline]\fP, \fC [static]\fP"
+
+.PP
+\fBReturns\fP
+.RS 4
+a random unit vector 
+.RE
+.PP
+
+.SS "static \fBVec3\fP Vec3::generateRandomVec3 ()\fC [inline]\fP, \fC [static]\fP"
+
+.PP
+\fBReturns\fP
+.RS 4
+a random vector with each component in the range [0, 1] 
+.RE
+.PP
+
+.SS "static \fBVec3\fP Vec3::generateRandomVec3 (const double min, const double max)\fC [inline]\fP, \fC [static]\fP"
+
+.PP
+\fBParameters\fP
+.RS 4
+\fImin\fP the minimum value for each component 
+.br
+\fImax\fP the maximum value for each component 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+a random vector with each component in the inclusive range [min, max] 
+.RE
+.PP
+
+.SS "static \fBVec3\fP Vec3::generateRandomVec3InHemisphere (const \fBVec3\fP normal)\fC [inline]\fP, \fC [static]\fP"
+
+.PP
+Generate a random vector in the unit hemisphere using the rejection method (brute force) 
+.PP
+\fBParameters\fP
+.RS 4
+\fInormal\fP the normal vector of the sphere 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the random vector in the unit hemisphere 
+.RE
+.PP
+
+.SS "\fBVec3\fP Vec3::generateRandomVec3InUnitSphere ()\fC [static]\fP"
+
+.PP
+Generate a random vector in the unit sphere using the rejection method (brute force) 
+.PP
+\fBReturns\fP
+.RS 4
+a random vector in the unit sphere 
+.RE
+.PP
+
+.SS "static \fBVec3\fP Vec3::getUnitVector (const \fBVec3\fP vec)\fC [inline]\fP, \fC [static]\fP"
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIvec\fP the vector to get the unit vector of 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the unit vector of the given vector 
+.RE
+.PP
+
+.SS "bool Vec3::isNearZero () const\fC [inline]\fP"
+
+.PP
+approximate 0-equality check 
+.PP
+\fBReturns\fP
+.RS 4
+true if the vector is near zero in all dimensions 
+.RE
+.PP
+
+.SS "double Vec3::length () const\fC [inline]\fP"
+
+.PP
+\fBReturns\fP
+.RS 4
+the length of the vector 
+.RE
+.PP
+
+.SS "double Vec3::lengthSquared () const\fC [inline]\fP"
+
+.PP
+\fBReturns\fP
+.RS 4
+the squared length of the vector 
+.RE
+.PP
+
+.SS "\fBVec3\fP Vec3::operator* (const double t) const\fC [inline]\fP"
+
+.SS "\fBVec3\fP Vec3::operator* (const \fBVec3\fP & v) const\fC [inline]\fP"
+
+.SS "\fBVec3\fP & Vec3::operator*= (double t)"
+
+.SS "\fBVec3\fP Vec3::operator+ (const \fBVec3\fP & v) const\fC [inline]\fP"
+
+.SS "\fBVec3\fP & Vec3::operator+= (const \fBVec3\fP & v)"
+
+.SS "\fBVec3\fP Vec3::operator\- () const\fC [inline]\fP"
+
+.SS "\fBVec3\fP Vec3::operator\- (const \fBVec3\fP & v) const\fC [inline]\fP"
+
+.SS "\fBVec3\fP Vec3::operator/ (const double t) const\fC [inline]\fP"
+
+.SS "\fBVec3\fP & Vec3::operator/= (double t)\fC [inline]\fP"
+
+.SS "double & Vec3::operator[] (int i)\fC [inline]\fP"
+
+.SS "double Vec3::operator[] (int i) const\fC [inline]\fP"
+
+.SS "\fBVec3\fP Vec3::reflect (const \fBVec3\fP unit_vec) const\fC [inline]\fP"
+
+.PP
+Calculate the reflection of this vector off a surface with the given normal\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIunit_vec\fP the unit vector to reflect off of 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the vector representing the reflection 
+.RE
+.PP
+
+.SS "\fBVec3\fP Vec3::refract (\fBVec3\fP unit_vec, \fBVec3\fP normal_vec, double etai_over_etat)\fC [static]\fP"
+
+.PP
+Calculate the refraction of this vector off a surface\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIunit_vec\fP the unit vector to refract off of 
+.br
+\fInormal_vec\fP the normal vector of the surface 
+.br
+\fIetai_over_etat\fP the ratio of the refractive indices of the material 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the vector representing the refraction 
+.RE
+.PP
+
+.SS "double Vec3::x () const\fC [inline]\fP"
+
+.PP
+\fBReturns\fP
+.RS 4
+the x component of the vector 
+.RE
+.PP
+
+.SS "double Vec3::y () const\fC [inline]\fP"
+
+.PP
+\fBReturns\fP
+.RS 4
+the y component of the vector 
+.RE
+.PP
+
+.SS "double Vec3::z () const\fC [inline]\fP"
+
+.PP
+\fBReturns\fP
+.RS 4
+the z component of the vector 
+.RE
+.PP
+
+.SH "Friends And Related Symbol Documentation"
+.PP 
+.SS "double dot (const \fBVec3\fP & u, const \fBVec3\fP & v)\fC [friend]\fP"
+
+.SS "\fBVec3\fP operator* (double t, const \fBVec3\fP & v)\fC [friend]\fP"
+
+.SS "std::ostream & operator<< (std::ostream & out, const \fBVec3\fP & v)\fC [friend]\fP"
+
+.SH "Member Data Documentation"
+.PP 
+.SS "double Vec3::data_[3]\fC [protected]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for raytracing-example from the source code\&.

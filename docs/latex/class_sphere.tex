@@ -1,0 +1,110 @@
+\doxysection{Sphere Class Reference}
+\hypertarget{class_sphere}{}\label{class_sphere}\index{Sphere@{Sphere}}
+
+
+Class representing a spherical object in the scene.  
+
+
+
+
+{\ttfamily \#include $<$sphere.\+h$>$}
+
+Inheritance diagram for Sphere\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_sphere}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sphere_a72b6b1074fae244e6cc7bf8e2cfbdb49}{Sphere}} ()=delete
+\item 
+\mbox{\hyperlink{class_sphere_a1c371b067e2c18d092091f7d18d8be97}{Sphere}} (const \mbox{\hyperlink{vec3_8h_aeef95635e817fbf8cf22cd14c8d88fc5}{Point3}} \&\mbox{\hyperlink{class_sphere_a66b991e7103dde0fd0457432026362a5}{center}}, double \mbox{\hyperlink{class_sphere_a4b363219a3ea099c4d6e59959dcd04ab}{radius}}, const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_material}{Material}} $>$ \&material)
+\item 
+const \mbox{\hyperlink{vec3_8h_aeef95635e817fbf8cf22cd14c8d88fc5}{Point3}} \& \mbox{\hyperlink{class_sphere_a66b991e7103dde0fd0457432026362a5}{center}} () const
+\item 
+double \mbox{\hyperlink{class_sphere_a4b363219a3ea099c4d6e59959dcd04ab}{radius}} () const
+\item 
+std\+::optional$<$ \mbox{\hyperlink{class_intersection}{Intersection}} $>$ \mbox{\hyperlink{class_sphere_a13530809cae5e02fce814e56452ebe98}{is\+Intersecting}} (const \mbox{\hyperlink{class_ray}{Ray}} \&ray, \mbox{\hyperlink{class_interval}{Interval}} interval) const override
+\begin{DoxyCompactList}\small\item\em Checks whether a given ray is intersecting with the sphere within a given interval. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_shape}{Shape}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{class_shape_ac1c78e0b4ce976224029814bd4aacffe}{\texorpdfstring{$\sim$}{\string~}\+Shape}} ()=0
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{class_shape}{Shape}}}
+\begin{DoxyCompactItemize}
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_material}{Material}} $>$ \mbox{\hyperlink{class_shape_a967d06cb16c061a18b421e59e742938a}{material\+\_\+}} \{\}
+\begin{DoxyCompactList}\small\item\em The material of the shape. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class representing a spherical object in the scene. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_sphere_a72b6b1074fae244e6cc7bf8e2cfbdb49}\label{class_sphere_a72b6b1074fae244e6cc7bf8e2cfbdb49} 
+\index{Sphere@{Sphere}!Sphere@{Sphere}}
+\index{Sphere@{Sphere}!Sphere@{Sphere}}
+\doxysubsubsection{\texorpdfstring{Sphere()}{Sphere()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Sphere\+::\+Sphere (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{class_sphere_a1c371b067e2c18d092091f7d18d8be97}\label{class_sphere_a1c371b067e2c18d092091f7d18d8be97} 
+\index{Sphere@{Sphere}!Sphere@{Sphere}}
+\index{Sphere@{Sphere}!Sphere@{Sphere}}
+\doxysubsubsection{\texorpdfstring{Sphere()}{Sphere()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Sphere\+::\+Sphere (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{vec3_8h_aeef95635e817fbf8cf22cd14c8d88fc5}{Point3}} \&}]{center,  }\item[{double}]{radius,  }\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_material}{Material}} $>$ \&}]{material }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_sphere_a66b991e7103dde0fd0457432026362a5}\label{class_sphere_a66b991e7103dde0fd0457432026362a5} 
+\index{Sphere@{Sphere}!center@{center}}
+\index{center@{center}!Sphere@{Sphere}}
+\doxysubsubsection{\texorpdfstring{center()}{center()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{vec3_8h_aeef95635e817fbf8cf22cd14c8d88fc5}{Point3}} \& Sphere\+::center (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyReturn}{Returns}
+the center of the sphere 
+\end{DoxyReturn}
+\Hypertarget{class_sphere_a13530809cae5e02fce814e56452ebe98}\label{class_sphere_a13530809cae5e02fce814e56452ebe98} 
+\index{Sphere@{Sphere}!isIntersecting@{isIntersecting}}
+\index{isIntersecting@{isIntersecting}!Sphere@{Sphere}}
+\doxysubsubsection{\texorpdfstring{isIntersecting()}{isIntersecting()}}
+{\footnotesize\ttfamily std\+::optional$<$ \mbox{\hyperlink{class_intersection}{Intersection}} $>$ Sphere\+::is\+Intersecting (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_ray}{Ray}} \&}]{ray,  }\item[{\mbox{\hyperlink{class_interval}{Interval}}}]{interval }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Checks whether a given ray is intersecting with the sphere within a given interval. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ray} & the ray to check \\
+\hline
+{\em interval} & the interval in which to check for intersections \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The \doxylink{class_intersection}{Intersection} on success, otherwise std\+::nullopt if no intersection was found 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_shape_a541d861456a00cbcb55931d230d7ef30}{Shape}}.
+
+\Hypertarget{class_sphere_a4b363219a3ea099c4d6e59959dcd04ab}\label{class_sphere_a4b363219a3ea099c4d6e59959dcd04ab} 
+\index{Sphere@{Sphere}!radius@{radius}}
+\index{radius@{radius}!Sphere@{Sphere}}
+\doxysubsubsection{\texorpdfstring{radius()}{radius()}}
+{\footnotesize\ttfamily double Sphere\+::radius (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyReturn}{Returns}
+the radius of the sphere 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/shapes/\mbox{\hyperlink{sphere_8h}{sphere.\+h}}\item 
+src/shapes/\mbox{\hyperlink{sphere_8cpp}{sphere.\+cpp}}\end{DoxyCompactItemize}

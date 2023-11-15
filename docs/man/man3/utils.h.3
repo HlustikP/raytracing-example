@@ -1,0 +1,92 @@
+.TH "src/utils/utils.h" 3 "raytracing-example" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src/utils/utils.h
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <cassert>\fP
+.br
+\fC#include <iostream>\fP
+.br
+\fC#include <filesystem>\fP
+.br
+\fC#include <fstream>\fP
+.br
+\fC#include <string>\fP
+.br
+\fC#include <expected>\fP
+.br
+\fC#include <random>\fP
+.br
+\fC#include <utility>\fP
+.br
+
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "class \fButils::InputHelper< T >\fP"
+.br
+.RI "Helper Class to handle user input\&. "
+.in -1c
+.SS "Namespaces"
+
+.in +1c
+.ti -1c
+.RI "namespace \fButils\fP"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum class \fButils::ReadFileError\fP { \fButils::GENERIC\fP, \fButils::FILE_DOES_NOT_EXIST\fP }"
+.br
+.RI "Error codes for readFile\&. "
+.ti -1c
+.RI "enum class \fButils::WriteFileError\fP { \fButils::GENERIC\fP, \fButils::CANNOT_OPEN_FILE_STREAM\fP }"
+.br
+.RI "Error codes for writeFile\&. "
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "double \fButils::degrees_to_radians\fP (const double degrees)"
+.br
+.ti -1c
+.RI "std::expected< std::string, \fBReadFileError\fP > \fButils::readFile\fP (const fs::path &path) noexcept"
+.br
+.RI "Read a file from the filesystem\&. "
+.ti -1c
+.RI "template<typename T > std::expected< const fs::path *, \fBWriteFileError\fP > \fButils::writeFile\fP (const fs::path &path, const T *content, size_t characters_count) noexcept"
+.br
+.RI "Write a file to the filesystem\&. "
+.ti -1c
+.RI "double \fButils::getRandomNormalDouble\fP ()"
+.br
+.ti -1c
+.RI "double \fButils::getRandomDouble\fP (const double min, const double max)"
+.br
+.ti -1c
+.RI "std::ostream & \fButils::operator<<\fP (std::ostream &os, const \fBReadFileError\fP &error)"
+.br
+.ti -1c
+.RI "std::ostream & \fButils::operator<<\fP (std::ostream &os, const \fBWriteFileError\fP &error)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "constexpr double \fButils::infinity\fP = std::numeric_limits<double>::infinity()"
+.br
+.ti -1c
+.RI "constexpr auto \fButils::pi\fP = 3\&.1415926535897932385"
+.br
+.in -1c
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for raytracing-example from the source code\&.

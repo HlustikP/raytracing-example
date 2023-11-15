@@ -1,0 +1,112 @@
+\doxysection{src/camera/camera.h File Reference}
+\hypertarget{camera_8h}{}\label{camera_8h}\index{src/camera/camera.h@{src/camera/camera.h}}
+{\ttfamily \#include "{}../ray/ray.\+h"{}}\newline
+{\ttfamily \#include "{}../vec3/vec3.\+h"{}}\newline
+{\ttfamily \#include "{}../shapes/sphere.\+h"{}}\newline
+{\ttfamily \#include "{}../shapes/shape.\+h"{}}\newline
+{\ttfamily \#include "{}../shapes/shape\+\_\+container.\+h"{}}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_camera}{Camera}}
+\begin{DoxyCompactList}\small\item\em \doxylink{class_camera}{Camera} class to handle ray casting and image generation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{camera_8h_a2375f6915278a56faa971290b63119ab}{Color}} = \mbox{\hyperlink{class_vec3}{Vec3}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{camera_8h_a83577ddc5c34728476f8c0e2e5096e92}{Prerender\+Error}} \{ \mbox{\hyperlink{camera_8h_a83577ddc5c34728476f8c0e2e5096e92aebdaebdc4d4c8ee9be6feeea8ee74da6}{GENERAL\+\_\+\+ERROR}}
+, \mbox{\hyperlink{camera_8h_a83577ddc5c34728476f8c0e2e5096e92a364660995e041e97491da4b6b55ff275}{INVALID\+\_\+\+IMAGE\+\_\+\+HEIGHT}}
+, \mbox{\hyperlink{camera_8h_a83577ddc5c34728476f8c0e2e5096e92a9305b1144f51887ff38279c2aecdbf54}{INVALID\+\_\+\+IMAGE\+\_\+\+WIDTH}}
+ \}
+\begin{DoxyCompactList}\small\item\em Error codes for the pre-\/rendering phase. \end{DoxyCompactList}\item 
+enum class \mbox{\hyperlink{camera_8h_a5d9d3c726beb2bcb0d9da2ca9c7cbf97}{Render\+Error}} \{ \mbox{\hyperlink{camera_8h_a5d9d3c726beb2bcb0d9da2ca9c7cbf97aebdaebdc4d4c8ee9be6feeea8ee74da6}{GENERAL\+\_\+\+ERROR}}
+, \mbox{\hyperlink{camera_8h_a5d9d3c726beb2bcb0d9da2ca9c7cbf97a364660995e041e97491da4b6b55ff275}{INVALID\+\_\+\+IMAGE\+\_\+\+HEIGHT}}
+, \mbox{\hyperlink{camera_8h_a5d9d3c726beb2bcb0d9da2ca9c7cbf97a9305b1144f51887ff38279c2aecdbf54}{INVALID\+\_\+\+IMAGE\+\_\+\+WIDTH}}
+ \}
+\begin{DoxyCompactList}\small\item\em Error codes for the rendering phase. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \mbox{\hyperlink{camera_8h_af716f8205b0ee3111646ce1bae73533e}{operator$<$$<$}} (std\+::ostream \&os, const \mbox{\hyperlink{camera_8h_a5d9d3c726beb2bcb0d9da2ca9c7cbf97}{Render\+Error}} \&error)
+\item 
+std\+::ostream \& \mbox{\hyperlink{camera_8h_a74c6422ef1ef6d0728fb33e836c75433}{operator$<$$<$}} (std\+::ostream \&os, const \mbox{\hyperlink{camera_8h_a83577ddc5c34728476f8c0e2e5096e92}{Prerender\+Error}} \&error)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\Hypertarget{camera_8h_a2375f6915278a56faa971290b63119ab}\label{camera_8h_a2375f6915278a56faa971290b63119ab} 
+\index{camera.h@{camera.h}!Color@{Color}}
+\index{Color@{Color}!camera.h@{camera.h}}
+\doxysubsubsection{\texorpdfstring{Color}{Color}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{camera_8h_a2375f6915278a56faa971290b63119ab}{Color}} =  \mbox{\hyperlink{class_vec3}{Vec3}}}
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{camera_8h_a83577ddc5c34728476f8c0e2e5096e92}\label{camera_8h_a83577ddc5c34728476f8c0e2e5096e92} 
+\index{camera.h@{camera.h}!PrerenderError@{PrerenderError}}
+\index{PrerenderError@{PrerenderError}!camera.h@{camera.h}}
+\doxysubsubsection{\texorpdfstring{PrerenderError}{PrerenderError}}
+{\footnotesize\ttfamily enum class \mbox{\hyperlink{camera_8h_a83577ddc5c34728476f8c0e2e5096e92}{Prerender\+Error}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+Error codes for the pre-\/rendering phase. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GENERAL\_ERROR@{GENERAL\_ERROR}!camera.h@{camera.h}}\index{camera.h@{camera.h}!GENERAL\_ERROR@{GENERAL\_ERROR}}}\Hypertarget{camera_8h_a83577ddc5c34728476f8c0e2e5096e92aebdaebdc4d4c8ee9be6feeea8ee74da6}\label{camera_8h_a83577ddc5c34728476f8c0e2e5096e92aebdaebdc4d4c8ee9be6feeea8ee74da6} 
+GENERAL\+\_\+\+ERROR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{INVALID\_IMAGE\_HEIGHT@{INVALID\_IMAGE\_HEIGHT}!camera.h@{camera.h}}\index{camera.h@{camera.h}!INVALID\_IMAGE\_HEIGHT@{INVALID\_IMAGE\_HEIGHT}}}\Hypertarget{camera_8h_a83577ddc5c34728476f8c0e2e5096e92a364660995e041e97491da4b6b55ff275}\label{camera_8h_a83577ddc5c34728476f8c0e2e5096e92a364660995e041e97491da4b6b55ff275} 
+INVALID\+\_\+\+IMAGE\+\_\+\+HEIGHT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{INVALID\_IMAGE\_WIDTH@{INVALID\_IMAGE\_WIDTH}!camera.h@{camera.h}}\index{camera.h@{camera.h}!INVALID\_IMAGE\_WIDTH@{INVALID\_IMAGE\_WIDTH}}}\Hypertarget{camera_8h_a83577ddc5c34728476f8c0e2e5096e92a9305b1144f51887ff38279c2aecdbf54}\label{camera_8h_a83577ddc5c34728476f8c0e2e5096e92a9305b1144f51887ff38279c2aecdbf54} 
+INVALID\+\_\+\+IMAGE\+\_\+\+WIDTH&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{camera_8h_a5d9d3c726beb2bcb0d9da2ca9c7cbf97}\label{camera_8h_a5d9d3c726beb2bcb0d9da2ca9c7cbf97} 
+\index{camera.h@{camera.h}!RenderError@{RenderError}}
+\index{RenderError@{RenderError}!camera.h@{camera.h}}
+\doxysubsubsection{\texorpdfstring{RenderError}{RenderError}}
+{\footnotesize\ttfamily enum class \mbox{\hyperlink{camera_8h_a5d9d3c726beb2bcb0d9da2ca9c7cbf97}{Render\+Error}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+Error codes for the rendering phase. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GENERAL\_ERROR@{GENERAL\_ERROR}!camera.h@{camera.h}}\index{camera.h@{camera.h}!GENERAL\_ERROR@{GENERAL\_ERROR}}}\Hypertarget{camera_8h_a5d9d3c726beb2bcb0d9da2ca9c7cbf97aebdaebdc4d4c8ee9be6feeea8ee74da6}\label{camera_8h_a5d9d3c726beb2bcb0d9da2ca9c7cbf97aebdaebdc4d4c8ee9be6feeea8ee74da6} 
+GENERAL\+\_\+\+ERROR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{INVALID\_IMAGE\_HEIGHT@{INVALID\_IMAGE\_HEIGHT}!camera.h@{camera.h}}\index{camera.h@{camera.h}!INVALID\_IMAGE\_HEIGHT@{INVALID\_IMAGE\_HEIGHT}}}\Hypertarget{camera_8h_a5d9d3c726beb2bcb0d9da2ca9c7cbf97a364660995e041e97491da4b6b55ff275}\label{camera_8h_a5d9d3c726beb2bcb0d9da2ca9c7cbf97a364660995e041e97491da4b6b55ff275} 
+INVALID\+\_\+\+IMAGE\+\_\+\+HEIGHT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{INVALID\_IMAGE\_WIDTH@{INVALID\_IMAGE\_WIDTH}!camera.h@{camera.h}}\index{camera.h@{camera.h}!INVALID\_IMAGE\_WIDTH@{INVALID\_IMAGE\_WIDTH}}}\Hypertarget{camera_8h_a5d9d3c726beb2bcb0d9da2ca9c7cbf97a9305b1144f51887ff38279c2aecdbf54}\label{camera_8h_a5d9d3c726beb2bcb0d9da2ca9c7cbf97a9305b1144f51887ff38279c2aecdbf54} 
+INVALID\+\_\+\+IMAGE\+\_\+\+WIDTH&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{camera_8h_a74c6422ef1ef6d0728fb33e836c75433}\label{camera_8h_a74c6422ef1ef6d0728fb33e836c75433} 
+\index{camera.h@{camera.h}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!camera.h@{camera.h}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{const \mbox{\hyperlink{camera_8h_a83577ddc5c34728476f8c0e2e5096e92}{Prerender\+Error}} \&}]{error }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{camera_8h_af716f8205b0ee3111646ce1bae73533e}\label{camera_8h_af716f8205b0ee3111646ce1bae73533e} 
+\index{camera.h@{camera.h}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!camera.h@{camera.h}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{const \mbox{\hyperlink{camera_8h_a5d9d3c726beb2bcb0d9da2ca9c7cbf97}{Render\+Error}} \&}]{error }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+

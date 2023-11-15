@@ -1,0 +1,30 @@
+\doxysection{sphere.\+h}
+\hypertarget{sphere_8h_source}{}\label{sphere_8h_source}\index{src/shapes/sphere.h@{src/shapes/sphere.h}}
+\mbox{\hyperlink{sphere_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <optional>}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}../materials/material.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}../vec3/vec3.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}../ray/ray.h"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}../shapes/shape.h"{}}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_sphere}{Sphere}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_shape}{Shape}}\ \{}
+\DoxyCodeLine{00014\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00015\ \ \ \ \ \mbox{\hyperlink{class_sphere_a72b6b1074fae244e6cc7bf8e2cfbdb49}{Sphere}}()\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ \mbox{\hyperlink{class_sphere_a1c371b067e2c18d092091f7d18d8be97}{Sphere}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_vec3}{Point3}}\ \&\mbox{\hyperlink{class_sphere_a66b991e7103dde0fd0457432026362a5}{center}},\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_sphere_a4b363219a3ea099c4d6e59959dcd04ab}{radius}},\ \textcolor{keyword}{const}\ std::shared\_ptr<Material>\&\ material)\ :}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ center\_(\mbox{\hyperlink{class_sphere_a66b991e7103dde0fd0457432026362a5}{center}}),\ radius\_(\mbox{\hyperlink{class_sphere_a4b363219a3ea099c4d6e59959dcd04ab}{radius}})\ \{\ \mbox{\hyperlink{class_shape_a967d06cb16c061a18b421e59e742938a}{material\_}}\ =\ material;\ \}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00023\ \ \ \ \ [[nodiscard]]\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_vec3}{Point3}}\&\ \mbox{\hyperlink{class_sphere_a66b991e7103dde0fd0457432026362a5}{center}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ center\_;\ \}}
+\DoxyCodeLine{00027\ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_sphere_a4b363219a3ea099c4d6e59959dcd04ab}{radius}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ radius\_;\ \}}
+\DoxyCodeLine{00034\ \ \ \ \ [[nodiscard]]\ std::optional<Intersection>\ \mbox{\hyperlink{class_sphere_a13530809cae5e02fce814e56452ebe98}{isIntersecting}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_ray}{Ray}}\&\ ray,\ \mbox{\hyperlink{class_interval}{Interval}}\ interval)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00037\ \ \ \ \ \mbox{\hyperlink{class_vec3}{Point3}}\ center\_\ \{\};}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{double}\ radius\_\ \{\};}
+\DoxyCodeLine{00039\ \};}
+
+\end{DoxyCode}

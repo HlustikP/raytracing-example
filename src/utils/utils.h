@@ -13,15 +13,21 @@ namespace utils {
 
 constexpr double infinity = std::numeric_limits<double>::infinity();
 constexpr auto pi = 3.1415926535897932385;
-inline double degrees_to_radians(double degrees) {
+inline double degrees_to_radians(const double degrees) {
     return degrees * pi / 180.0;
 }
 
+/**
+ * \brief Error codes for readFile
+ */
 enum class ReadFileError {
     GENERIC,
     FILE_DOES_NOT_EXIST
 };
 
+/**
+ * \brief Error codes for writeFile
+ */
 enum class WriteFileError {
     GENERIC,
     CANNOT_OPEN_FILE_STREAM
@@ -29,8 +35,21 @@ enum class WriteFileError {
 
 namespace fs = std::filesystem;
 
+/**
+ * \brief Read a file from the filesystem
+ * \param path the path to the file
+ * \return the file contents on success, or an error code on failure
+ */
 [[nodiscard]] std::expected<std::string, ReadFileError> readFile(const fs::path &path) noexcept;
 
+/**
+ * \brief Write a file to the filesystem
+ * \tparam T the type of the content
+ * \param path the path to the file
+ * \param content a pointer to the content
+ * \param characters_count the number of characters to write
+ * \return the path to the file on success, or an error code on failure
+ */
 template<typename T>
 std::expected<const fs::path*, WriteFileError> writeFile(const fs::path &path,
                                                           const T *content,
@@ -56,18 +75,22 @@ inline static std::mt19937 generator { static_cast<std::mt19937::result_type>(
     std::chrono::steady_clock::now().time_since_epoch().count()
 ) };
 
-// Returns a random real in the range [0, 1]
+/**
+ * \return a random real in the range [0, 1]
+ */
 inline double getRandomNormalDouble() {
     return distribution(generator);
 }
 
-// Returns a random real in the range [min, max]
+/**
+ * \param min the minimum value
+ * \param max the maximum value
+ * \return a random real in the inclusive range [min, max]
+ */
 inline double getRandomDouble(const double min, const double max) {
     assert(min < max);
     return min + (max - min) * getRandomNormalDouble();
 }
-
-int renderImage(int image_width, double aspect_ratio, const fs::path &outfile_path);
 
 // Overload std::cout to print ReadFileError
 inline std::ostream &operator<<(std::ostream &os, const ReadFileError &error) {
@@ -99,12 +122,19 @@ inline std::ostream &operator<<(std::ostream &os, const WriteFileError &error) {
     return os;
 }
 
+/**
+ * \brief Helper Class to handle user input.
+ * \tparam T the type to convert the input to
+ */
 template <typename T>
 class InputHelper {
 public:
     explicit InputHelper(std::string  question, const T& defaultValue = T{})
         : question(std::move(question)), defaultValue(defaultValue) {}
 
+    /**
+     * \return the user input converted to type T, or std::nullopt if the input could not be converted
+     */
     std::optional<T> get() const {
         std::cout << question << " (Press Enter for Default: " << defaultValue << "): ";
 
@@ -128,6 +158,12 @@ private:
     std::string question;
     T defaultValue;
 
+    /**
+     * \brief Parses the user input to type T.
+     * Supported types are int, double, std::string, and const char*
+     * \param userInput the user input
+     * \return the user input converted to type T on success. Throws a compile time error if T is not supported.
+     */
     T parseInput(const std::string& userInput) const {
         if constexpr (std::is_same_v<T, int>) {
             return std::stoi(userInput);

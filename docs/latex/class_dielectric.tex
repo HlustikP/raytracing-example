@@ -1,0 +1,74 @@
+\doxysection{Dielectric Class Reference}
+\hypertarget{class_dielectric}{}\label{class_dielectric}\index{Dielectric@{Dielectric}}
+
+
+Class representing a dielectric material (e.\+g. glass).  
+
+
+
+
+{\ttfamily \#include $<$dielectric.\+h$>$}
+
+Inheritance diagram for Dielectric\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_dielectric}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_dielectric_a9090bdaa73931c58e2ad6939d5743458}{Dielectric}} (const double refractive\+\_\+index)
+\item 
+std\+::optional$<$ \mbox{\hyperlink{struct_scatter_result}{Scatter\+Result}} $>$ \mbox{\hyperlink{class_dielectric_af99f2bea626a2999ba31010d992b1947}{scatter}} (\mbox{\hyperlink{class_ray}{Ray}} incoming\+\_\+ray, \mbox{\hyperlink{class_intersection}{Intersection}} intersect) const override
+\begin{DoxyCompactList}\small\item\em Calculates the color and scattered ray of a given input ray hitting a shape with a certain material. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_material}{Material}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{class_material_a255ba20d0325e6b78ff68ac739df40de}{\texorpdfstring{$\sim$}{\string~}\+Material}} ()=default
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class representing a dielectric material (e.\+g. glass). 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_dielectric_a9090bdaa73931c58e2ad6939d5743458}\label{class_dielectric_a9090bdaa73931c58e2ad6939d5743458} 
+\index{Dielectric@{Dielectric}!Dielectric@{Dielectric}}
+\index{Dielectric@{Dielectric}!Dielectric@{Dielectric}}
+\doxysubsubsection{\texorpdfstring{Dielectric()}{Dielectric()}}
+{\footnotesize\ttfamily Dielectric\+::\+Dielectric (\begin{DoxyParamCaption}\item[{const double}]{refractive\+\_\+index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_dielectric_af99f2bea626a2999ba31010d992b1947}\label{class_dielectric_af99f2bea626a2999ba31010d992b1947} 
+\index{Dielectric@{Dielectric}!scatter@{scatter}}
+\index{scatter@{scatter}!Dielectric@{Dielectric}}
+\doxysubsubsection{\texorpdfstring{scatter()}{scatter()}}
+{\footnotesize\ttfamily std\+::optional$<$ \mbox{\hyperlink{struct_scatter_result}{Scatter\+Result}} $>$ Dielectric\+::scatter (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_ray}{Ray}}}]{incoming\+\_\+ray,  }\item[{\mbox{\hyperlink{class_intersection}{Intersection}}}]{intersect }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Calculates the color and scattered ray of a given input ray hitting a shape with a certain material. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em incoming\+\_\+ray} & the incoming ray \\
+\hline
+{\em intersect} & the intersection between the incoming ray and the shape \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the color and scattered ray on success, otherwise std\+::nullopt if no scatter could be calculated 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_material_aece65bb241712d192286989e2f0ee59e}{Material}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/materials/\mbox{\hyperlink{dielectric_8h}{dielectric.\+h}}\item 
+src/materials/\mbox{\hyperlink{dielectric_8cpp}{dielectric.\+cpp}}\end{DoxyCompactItemize}

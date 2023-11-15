@@ -1,6 +1,6 @@
 # C++23 Raytracing Example
 
-This is a simple raytracing example based on the book [Ray Tracing in One Weekend](https://raytracing.github.io/books/RayTracingInOneWeekend.html) by Peter Shirley.
+This is a simple raytracing example based on the book [Ray Tracing in One Weekend](https://raytracing.github.io/books/RayTracingInOneWeekend.html) by Peter Shirley et al.
 
 It uses modern c++ features from the 17, 20 and 23 standards
 such as `std::optional`, `Class template argument deduction (CTAD)`

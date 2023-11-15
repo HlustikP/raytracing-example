@@ -9,41 +9,99 @@
 using Color = Vec3;
 namespace fs = std::filesystem;
 
+/**
+ * \brief Error codes for the pre-rendering phase
+ */
 enum class PrerenderError {
     GENERAL_ERROR,
     INVALID_IMAGE_HEIGHT,
     INVALID_IMAGE_WIDTH
 };
 
+/**
+ * \brief Error codes for the rendering phase
+ */
 enum class RenderError {
     GENERAL_ERROR,
     INVALID_IMAGE_HEIGHT,
     INVALID_IMAGE_WIDTH
 };
 
+/**
+ * \brief Camera class to handle ray casting and image generation.
+ */
 class Camera {
 public:
     Camera() = delete;
     Camera(const int image_width, const int image_height) : image_width_(image_width), image_height_(image_height) {}
 
+    /**
+     * \brief Renders an image by shooting rays into the scene.
+     * \param world the scene with it's objects to render
+     * \return the rendered image as a string in the ppm format on success, an error code on failure
+     */
     [[nodiscard]] std::expected<std::string, RenderError> renderImage(const ShapeContainer& world);
+    /**
+     * \brief Changes the size of the image to be rendered.
+     * \param image_width the new width of the image
+     * \param image_height the new height of the image
+     */
     void resize(int image_width, int image_height) noexcept;
+    /**
+     * \brief Sets the number of samples per pixel.
+     * \param samples_per_pixel the number of samples per pixel
+     */
     void setSamplesPerPixel(const int samples_per_pixel) noexcept { samples_per_pixel_ = samples_per_pixel; }
+    /**
+     * \brief Sets the maximum number of ray bounces into the scene.
+     * \param max_depth the maximum number of ray bounces into the scene
+     */
     void setMaxDepth(const int max_depth) noexcept { max_depth_ = max_depth; }
+    /**
+     * \brief Moves the camera to a new position.
+     * \param look_from Sets the camera position
+     * \param look_at Sets the point the camera is looking at
+     * \param v_up Sets the camera-relative "up" direction
+     * \param fov Sets the vertical view angle (field of view)
+     */
     void move(Vec3 look_from, Vec3 look_at, const Vec3&v_up, double fov) noexcept;
-    // Returns a random point in the camera defocus disk.
+    /**
+     * \return a random point in the camera defocus disk.
+     */
     [[nodiscard]] Vec3 generateDefocusDiskSample() const;
 
     // Image Infos
     inline constexpr static auto header_size = 9;
     inline constexpr static auto bytes_per_pixel = 3;
 private:
+    /**
+     * \brief Executes the pre-rednering stage
+     * \return void on success, an error code on failure
+     */
     std::expected<void, PrerenderError>prepareRendering() noexcept;
+    /**
+     * \brief Calculates the ray color resulting from the collision of a ray with an object in the scene.
+     * \param ray the ray to cast into the scene
+     * \param depth the current depth of the ray
+     * \param shape the object the ray collided with
+     */
     [[nodiscard]] static Color rayColor(const Ray& ray, int depth, const Shape& shape);
+    /**
+     * \brief Calculates the rendered color of a pixel and writes it to the image file.
+     * \param pixel the raw, unscaled color of the pixel
+     * \param outfile the image file
+     */
     void calculateAndWritePixel(Color pixel, std::string& outfile) const;
-    // Get a randomly sampled camera ray for the pixel at location (x, y), originating from the defocused camera lens.
+    /**
+     * \brief Get a randomly sampled camera ray for the pixel at location (x, y), originating from the defocused camera lens.
+     * \param x the x coordinate of the pixel
+     * \param y the y coordinate of the pixel
+     * \return the shot ray
+     */
     [[nodiscard]] Ray shootRay(int x, int y) const;
-    // Returns a random point in the square surrounding a pixel at the origin.
+    /**
+     * \return a random point in the square surrounding a pixel at the origin.
+     */
     [[nodiscard]] Vec3 generatePixelSample() const;
 
 

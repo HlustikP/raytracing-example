@@ -2,6 +2,9 @@
 
 #include "material.h"
 
+/**
+ * \brief Class representing a lambertian material.
+ */
 class Lambertian final : public Material {
 public:
     explicit Lambertian(const Color& color) : albedo_(color) {}

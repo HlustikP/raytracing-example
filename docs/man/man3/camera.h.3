@@ -1,0 +1,97 @@
+.TH "src/camera/camera.h" 3 "raytracing-example" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src/camera/camera.h
+.SH SYNOPSIS
+.br
+.PP
+\fC#include '\&.\&./ray/ray\&.h'\fP
+.br
+\fC#include '\&.\&./vec3/vec3\&.h'\fP
+.br
+\fC#include '\&.\&./shapes/sphere\&.h'\fP
+.br
+\fC#include '\&.\&./shapes/shape\&.h'\fP
+.br
+\fC#include '\&.\&./shapes/shape_container\&.h'\fP
+.br
+
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "class \fBCamera\fP"
+.br
+.RI "\fBCamera\fP class to handle ray casting and image generation\&. "
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "using \fBColor\fP = \fBVec3\fP"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum class \fBPrerenderError\fP { \fBGENERAL_ERROR\fP, \fBINVALID_IMAGE_HEIGHT\fP, \fBINVALID_IMAGE_WIDTH\fP }"
+.br
+.RI "Error codes for the pre-rendering phase\&. "
+.ti -1c
+.RI "enum class \fBRenderError\fP { \fBGENERAL_ERROR\fP, \fBINVALID_IMAGE_HEIGHT\fP, \fBINVALID_IMAGE_WIDTH\fP }"
+.br
+.RI "Error codes for the rendering phase\&. "
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "std::ostream & \fBoperator<<\fP (std::ostream &os, const \fBRenderError\fP &error)"
+.br
+.ti -1c
+.RI "std::ostream & \fBoperator<<\fP (std::ostream &os, const \fBPrerenderError\fP &error)"
+.br
+.in -1c
+.SH "Typedef Documentation"
+.PP 
+.SS "using \fBColor\fP =  \fBVec3\fP"
+
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum class \fBPrerenderError\fP\fC [strong]\fP"
+
+.PP
+Error codes for the pre-rendering phase\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIGENERAL_ERROR \fP\fP
+.TP
+\fB\fIINVALID_IMAGE_HEIGHT \fP\fP
+.TP
+\fB\fIINVALID_IMAGE_WIDTH \fP\fP
+.SS "enum class \fBRenderError\fP\fC [strong]\fP"
+
+.PP
+Error codes for the rendering phase\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIGENERAL_ERROR \fP\fP
+.TP
+\fB\fIINVALID_IMAGE_HEIGHT \fP\fP
+.TP
+\fB\fIINVALID_IMAGE_WIDTH \fP\fP
+.SH "Function Documentation"
+.PP 
+.SS "std::ostream & operator<< (std::ostream & os, const \fBPrerenderError\fP & error)\fC [inline]\fP"
+
+.SS "std::ostream & operator<< (std::ostream & os, const \fBRenderError\fP & error)\fC [inline]\fP"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for raytracing-example from the source code\&.

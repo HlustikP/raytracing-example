@@ -1,0 +1,172 @@
+.TH "utils" 3 "raytracing-example" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+utils
+.SH SYNOPSIS
+.br
+.PP
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "class \fBInputHelper\fP"
+.br
+.RI "Helper Class to handle user input\&. "
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum class \fBReadFileError\fP { \fBGENERIC\fP, \fBFILE_DOES_NOT_EXIST\fP }"
+.br
+.RI "Error codes for readFile\&. "
+.ti -1c
+.RI "enum class \fBWriteFileError\fP { \fBGENERIC\fP, \fBCANNOT_OPEN_FILE_STREAM\fP }"
+.br
+.RI "Error codes for writeFile\&. "
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "std::expected< std::string, \fBReadFileError\fP > \fBreadFile\fP (const fs::path &path) noexcept"
+.br
+.RI "Read a file from the filesystem\&. "
+.ti -1c
+.RI "double \fBdegrees_to_radians\fP (const double degrees)"
+.br
+.ti -1c
+.RI "template<typename T > std::expected< const fs::path *, \fBWriteFileError\fP > \fBwriteFile\fP (const fs::path &path, const T *content, size_t characters_count) noexcept"
+.br
+.RI "Write a file to the filesystem\&. "
+.ti -1c
+.RI "double \fBgetRandomNormalDouble\fP ()"
+.br
+.ti -1c
+.RI "double \fBgetRandomDouble\fP (const double min, const double max)"
+.br
+.ti -1c
+.RI "std::ostream & \fBoperator<<\fP (std::ostream &os, const \fBReadFileError\fP &error)"
+.br
+.ti -1c
+.RI "std::ostream & \fBoperator<<\fP (std::ostream &os, const \fBWriteFileError\fP &error)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "constexpr double \fBinfinity\fP = std::numeric_limits<double>::infinity()"
+.br
+.ti -1c
+.RI "constexpr auto \fBpi\fP = 3\&.1415926535897932385"
+.br
+.in -1c
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum class \fButils::ReadFileError\fP\fC [strong]\fP"
+
+.PP
+Error codes for readFile\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIGENERIC \fP\fP
+.TP
+\fB\fIFILE_DOES_NOT_EXIST \fP\fP
+.SS "enum class \fButils::WriteFileError\fP\fC [strong]\fP"
+
+.PP
+Error codes for writeFile\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIGENERIC \fP\fP
+.TP
+\fB\fICANNOT_OPEN_FILE_STREAM \fP\fP
+.SH "Function Documentation"
+.PP 
+.SS "double utils::degrees_to_radians (const double degrees)\fC [inline]\fP"
+
+.SS "double utils::getRandomDouble (const double min, const double max)\fC [inline]\fP"
+
+.PP
+\fBParameters\fP
+.RS 4
+\fImin\fP the minimum value 
+.br
+\fImax\fP the maximum value 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+a random real in the inclusive range [min, max] 
+.RE
+.PP
+
+.SS "double utils::getRandomNormalDouble ()\fC [inline]\fP"
+
+.PP
+\fBReturns\fP
+.RS 4
+a random real in the range [0, 1] 
+.RE
+.PP
+
+.SS "std::ostream & utils::operator<< (std::ostream & os, const \fBReadFileError\fP & error)\fC [inline]\fP"
+
+.SS "std::ostream & utils::operator<< (std::ostream & os, const \fBWriteFileError\fP & error)\fC [inline]\fP"
+
+.SS "std::expected< std::string, \fBReadFileError\fP > utils::readFile (const fs::path & path)\fC [noexcept]\fP"
+
+.PP
+Read a file from the filesystem\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIpath\fP the path to the file 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the file contents on success, or an error code on failure 
+.RE
+.PP
+
+.SS "template<typename T > std::expected< const fs::path *, \fBWriteFileError\fP > utils::writeFile (const fs::path & path, const T * content, size_t characters_count)\fC [noexcept]\fP"
+
+.PP
+Write a file to the filesystem\&. 
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIT\fP the type of the content 
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fIpath\fP the path to the file 
+.br
+\fIcontent\fP a pointer to the content 
+.br
+\fIcharacters_count\fP the number of characters to write 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the path to the file on success, or an error code on failure 
+.RE
+.PP
+
+.SH "Variable Documentation"
+.PP 
+.SS "constexpr double utils::infinity = std::numeric_limits<double>::infinity()\fC [constexpr]\fP"
+
+.SS "constexpr auto utils::pi = 3\&.1415926535897932385\fC [constexpr]\fP"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for raytracing-example from the source code\&.

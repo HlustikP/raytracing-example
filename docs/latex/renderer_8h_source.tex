@@ -1,0 +1,27 @@
+\doxysection{renderer.\+h}
+\hypertarget{renderer_8h_source}{}\label{renderer_8h_source}\index{src/renderer/renderer.h@{src/renderer/renderer.h}}
+\mbox{\hyperlink{renderer_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{camera_8h}{camera/Camera.h}}>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{shape__container_8h}{shapes/shape\_container.h}}>}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{keyword}{namespace\ }fs\ =\ std::filesystem;}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_renderer}{Renderer}}\ \{}
+\DoxyCodeLine{00011\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00012\ \ \ \ \ \mbox{\hyperlink{class_renderer_accd958c024da7addffb21d265a2da50f}{Renderer}}()\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00013\ \ \ \ \ \mbox{\hyperlink{class_renderer_accd958c024da7addffb21d265a2da50f}{Renderer}}(\textcolor{keywordtype}{int}\ image\_width,\ \textcolor{keywordtype}{int}\ image\_height,\ fs::path\&\&\ outfile);}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00019\ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_renderer_a1c05dd1886beec944a16671a81c5f20c}{renderImage}}()\ noexcept;}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_renderer_abda30405c71f3697c95f0c537ba4b994}{resize}}(\textcolor{keywordtype}{int}\ image\_width,\ \textcolor{keywordtype}{int}\ image\_height)\ noexcept;}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ private:}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{int}\ image\_width\_;}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{int}\ image\_height\_;}
+\DoxyCodeLine{00030\ \ \ \ \ \mbox{\hyperlink{class_camera}{Camera}}\ camera\_;}
+\DoxyCodeLine{00031\ \ \ \ \ \mbox{\hyperlink{class_shape_container}{ShapeContainer}}\ world\_\ \{\};}
+\DoxyCodeLine{00032\ \ \ \ \ fs::path\ outfile\_;}
+\DoxyCodeLine{00033\ \};}
+
+\end{DoxyCode}

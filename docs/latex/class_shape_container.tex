@@ -1,0 +1,129 @@
+\doxysection{Shape\+Container Class Reference}
+\hypertarget{class_shape_container}{}\label{class_shape_container}\index{ShapeContainer@{ShapeContainer}}
+
+
+Class for storing multiple shapes.  
+
+
+
+
+{\ttfamily \#include $<$shape\+\_\+container.\+h$>$}
+
+Inheritance diagram for Shape\+Container\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_shape_container}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_shape_container_aae60779510d74ad8a7452ab54b5ac22c}{Shape\+Container}} ()=default
+\item 
+\mbox{\hyperlink{class_shape_container_aeecd2f484f9ed06ce8a6f6d742d263cd}{Shape\+Container}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_shape}{Shape}} $>$ \&shape)
+\item 
+void \mbox{\hyperlink{class_shape_container_aee21adc9720836c25a591b093bb268c8}{clear}} ()
+\begin{DoxyCompactList}\small\item\em Clears the shape container. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_shape_container_a81b456d8cfcd75221a86533b44c84063}{add}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_shape}{Shape}} $>$ \&object)
+\begin{DoxyCompactList}\small\item\em Adds a shape to the shape container. \end{DoxyCompactList}\item 
+std\+::optional$<$ \mbox{\hyperlink{class_intersection}{Intersection}} $>$ \mbox{\hyperlink{class_shape_container_abfe06fa0fcdc63301e75d58d7748b2d3}{is\+Intersecting}} (const \mbox{\hyperlink{class_ray}{Ray}} \&ray, \mbox{\hyperlink{class_interval}{Interval}} interval) const override
+\begin{DoxyCompactList}\small\item\em Checks whether a given ray is intersecting with any of the shapes in the shape container within a given interval. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_shape}{Shape}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{class_shape_ac1c78e0b4ce976224029814bd4aacffe}{\texorpdfstring{$\sim$}{\string~}\+Shape}} ()=0
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_shape}{Shape}} $>$ $>$ \mbox{\hyperlink{class_shape_container_a2e7d1e3d0a0fc21aec8ee8c569d5f4dd}{objects}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{class_shape}{Shape}}}
+\begin{DoxyCompactItemize}
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_material}{Material}} $>$ \mbox{\hyperlink{class_shape_a967d06cb16c061a18b421e59e742938a}{material\+\_\+}} \{\}
+\begin{DoxyCompactList}\small\item\em The material of the shape. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for storing multiple shapes. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_shape_container_aae60779510d74ad8a7452ab54b5ac22c}\label{class_shape_container_aae60779510d74ad8a7452ab54b5ac22c} 
+\index{ShapeContainer@{ShapeContainer}!ShapeContainer@{ShapeContainer}}
+\index{ShapeContainer@{ShapeContainer}!ShapeContainer@{ShapeContainer}}
+\doxysubsubsection{\texorpdfstring{ShapeContainer()}{ShapeContainer()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Shape\+Container\+::\+Shape\+Container (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+\Hypertarget{class_shape_container_aeecd2f484f9ed06ce8a6f6d742d263cd}\label{class_shape_container_aeecd2f484f9ed06ce8a6f6d742d263cd} 
+\index{ShapeContainer@{ShapeContainer}!ShapeContainer@{ShapeContainer}}
+\index{ShapeContainer@{ShapeContainer}!ShapeContainer@{ShapeContainer}}
+\doxysubsubsection{\texorpdfstring{ShapeContainer()}{ShapeContainer()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Shape\+Container\+::\+Shape\+Container (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_shape}{Shape}} $>$ \&}]{shape }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_shape_container_a81b456d8cfcd75221a86533b44c84063}\label{class_shape_container_a81b456d8cfcd75221a86533b44c84063} 
+\index{ShapeContainer@{ShapeContainer}!add@{add}}
+\index{add@{add}!ShapeContainer@{ShapeContainer}}
+\doxysubsubsection{\texorpdfstring{add()}{add()}}
+{\footnotesize\ttfamily void Shape\+Container\+::add (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_shape}{Shape}} $>$ \&}]{object }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Adds a shape to the shape container. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em object} & the shape to add \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_shape_container_aee21adc9720836c25a591b093bb268c8}\label{class_shape_container_aee21adc9720836c25a591b093bb268c8} 
+\index{ShapeContainer@{ShapeContainer}!clear@{clear}}
+\index{clear@{clear}!ShapeContainer@{ShapeContainer}}
+\doxysubsubsection{\texorpdfstring{clear()}{clear()}}
+{\footnotesize\ttfamily void Shape\+Container\+::clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Clears the shape container. 
+
+\Hypertarget{class_shape_container_abfe06fa0fcdc63301e75d58d7748b2d3}\label{class_shape_container_abfe06fa0fcdc63301e75d58d7748b2d3} 
+\index{ShapeContainer@{ShapeContainer}!isIntersecting@{isIntersecting}}
+\index{isIntersecting@{isIntersecting}!ShapeContainer@{ShapeContainer}}
+\doxysubsubsection{\texorpdfstring{isIntersecting()}{isIntersecting()}}
+{\footnotesize\ttfamily std\+::optional$<$ \mbox{\hyperlink{class_intersection}{Intersection}} $>$ Shape\+Container\+::is\+Intersecting (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_ray}{Ray}} \&}]{ray,  }\item[{\mbox{\hyperlink{class_interval}{Interval}}}]{interval }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Checks whether a given ray is intersecting with any of the shapes in the shape container within a given interval. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ray} & the ray to check \\
+\hline
+{\em interval} & the interval in which to check for intersections \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The closest intersection on success, otherwise std\+::nullopt if no intersection was found 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_shape_a541d861456a00cbcb55931d230d7ef30}{Shape}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_shape_container_a2e7d1e3d0a0fc21aec8ee8c569d5f4dd}\label{class_shape_container_a2e7d1e3d0a0fc21aec8ee8c569d5f4dd} 
+\index{ShapeContainer@{ShapeContainer}!objects@{objects}}
+\index{objects@{objects}!ShapeContainer@{ShapeContainer}}
+\doxysubsubsection{\texorpdfstring{objects}{objects}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_shape}{Shape}}$>$ $>$ Shape\+Container\+::objects}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/shapes/\mbox{\hyperlink{shape__container_8h}{shape\+\_\+container.\+h}}\end{DoxyCompactItemize}

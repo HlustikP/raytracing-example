@@ -1,0 +1,55 @@
+.TH "src/vec3/vec3.h" 3 "raytracing-example" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src/vec3/vec3.h
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <cmath>\fP
+.br
+\fC#include <utils/utils\&.h>\fP
+.br
+
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "class \fBVec3\fP"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "using \fBPoint3\fP = \fBVec3\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "std::ostream & \fBoperator<<\fP (std::ostream &out, const \fBVec3\fP &v)"
+.br
+.ti -1c
+.RI "double \fBdot\fP (const \fBVec3\fP &u, const \fBVec3\fP &v)"
+.br
+.ti -1c
+.RI "\fBVec3\fP \fBoperator*\fP (double t, const \fBVec3\fP &v)"
+.br
+.in -1c
+.SH "Typedef Documentation"
+.PP 
+.SS "using \fBPoint3\fP =  \fBVec3\fP"
+
+.SH "Function Documentation"
+.PP 
+.SS "double dot (const \fBVec3\fP & u, const \fBVec3\fP & v)\fC [inline]\fP"
+
+.SS "\fBVec3\fP operator* (double t, const \fBVec3\fP & v)\fC [inline]\fP"
+
+.SS "std::ostream & operator<< (std::ostream & out, const \fBVec3\fP & v)\fC [inline]\fP"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for raytracing-example from the source code\&.

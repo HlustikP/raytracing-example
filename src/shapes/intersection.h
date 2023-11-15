@@ -3,6 +3,9 @@
 #include "../ray/ray.h"
 #include "../vec3/vec3.h"
 
+/**
+ * \brief Class representing an intersection between a ray and a shape.
+ */
 class Intersection {
 public:
     Point3 p {};
@@ -11,7 +14,12 @@ public:
     bool front_face {};
     std::shared_ptr<Material> material {};
 
-    // Sets the hit record normal vector.
+    /**
+     * \brief Sets the hit record normal vector.
+     * \param ray the ray that hit the shape
+     * \param outward_normal the normal vector of the shape at the hit point.
+     * It is assumed that the outward_normal has unit length.
+     */
     void setFaceNormal(const Ray& ray, const Vec3& outward_normal) {
         // NOTE: the parameter `outward_normal` is assumed to have unit length.
 

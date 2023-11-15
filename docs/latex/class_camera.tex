@@ -1,0 +1,174 @@
+\doxysection{Camera Class Reference}
+\hypertarget{class_camera}{}\label{class_camera}\index{Camera@{Camera}}
+
+
+\doxylink{class_camera}{Camera} class to handle ray casting and image generation.  
+
+
+
+
+{\ttfamily \#include $<$camera.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_camera_ad37cd8e58ea6fa121de54e91bd6d6724}{Camera}} ()=delete
+\item 
+\mbox{\hyperlink{class_camera_aaf7d8bea53b6c8043ccccbb643e5fc60}{Camera}} (const int image\+\_\+width, const int image\+\_\+height)
+\item 
+std\+::expected$<$ std\+::string, \mbox{\hyperlink{camera_8h_a5d9d3c726beb2bcb0d9da2ca9c7cbf97}{Render\+Error}} $>$ \mbox{\hyperlink{class_camera_a1ffa133335cdae68571ade04d274727d}{render\+Image}} (const \mbox{\hyperlink{class_shape_container}{Shape\+Container}} \&world)
+\begin{DoxyCompactList}\small\item\em Renders an image by shooting rays into the scene. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_camera_aea9122d8f0a70c970fd69c01c5979ad0}{resize}} (int image\+\_\+width, int image\+\_\+height) noexcept
+\begin{DoxyCompactList}\small\item\em Changes the size of the image to be rendered. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_camera_a7f11126be9801f76268c77d693563304}{set\+Samples\+Per\+Pixel}} (const int samples\+\_\+per\+\_\+pixel) noexcept
+\begin{DoxyCompactList}\small\item\em Sets the number of samples per pixel. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_camera_ad2c0301f8b483cb794014f1e722c318f}{set\+Max\+Depth}} (const int max\+\_\+depth) noexcept
+\begin{DoxyCompactList}\small\item\em Sets the maximum number of ray bounces into the scene. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_camera_a8d4fd3eabd23411e4bb28c32bacdcc94}{move}} (\mbox{\hyperlink{class_vec3}{Vec3}} look\+\_\+from, \mbox{\hyperlink{class_vec3}{Vec3}} look\+\_\+at, const \mbox{\hyperlink{class_vec3}{Vec3}} \&v\+\_\+up, double fov) noexcept
+\begin{DoxyCompactList}\small\item\em Moves the camera to a new position. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_vec3}{Vec3}} \mbox{\hyperlink{class_camera_afed8ff856a651c9c1c5002719593df44}{generate\+Defocus\+Disk\+Sample}} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr auto \mbox{\hyperlink{class_camera_a3c2baccc53e601b22edc34eba1adfe4f}{header\+\_\+size}} = 9
+\item 
+static constexpr auto \mbox{\hyperlink{class_camera_a7bbfc1b8520a5c6a9d2a2ed536616512}{bytes\+\_\+per\+\_\+pixel}} = 3
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{class_camera}{Camera} class to handle ray casting and image generation. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_camera_ad37cd8e58ea6fa121de54e91bd6d6724}\label{class_camera_ad37cd8e58ea6fa121de54e91bd6d6724} 
+\index{Camera@{Camera}!Camera@{Camera}}
+\index{Camera@{Camera}!Camera@{Camera}}
+\doxysubsubsection{\texorpdfstring{Camera()}{Camera()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Camera\+::\+Camera (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{class_camera_aaf7d8bea53b6c8043ccccbb643e5fc60}\label{class_camera_aaf7d8bea53b6c8043ccccbb643e5fc60} 
+\index{Camera@{Camera}!Camera@{Camera}}
+\index{Camera@{Camera}!Camera@{Camera}}
+\doxysubsubsection{\texorpdfstring{Camera()}{Camera()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Camera\+::\+Camera (\begin{DoxyParamCaption}\item[{const int}]{image\+\_\+width,  }\item[{const int}]{image\+\_\+height }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_camera_afed8ff856a651c9c1c5002719593df44}\label{class_camera_afed8ff856a651c9c1c5002719593df44} 
+\index{Camera@{Camera}!generateDefocusDiskSample@{generateDefocusDiskSample}}
+\index{generateDefocusDiskSample@{generateDefocusDiskSample}!Camera@{Camera}}
+\doxysubsubsection{\texorpdfstring{generateDefocusDiskSample()}{generateDefocusDiskSample()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_vec3}{Vec3}} Camera\+::generate\+Defocus\+Disk\+Sample (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+a random point in the camera defocus disk. 
+\end{DoxyReturn}
+\Hypertarget{class_camera_a8d4fd3eabd23411e4bb28c32bacdcc94}\label{class_camera_a8d4fd3eabd23411e4bb28c32bacdcc94} 
+\index{Camera@{Camera}!move@{move}}
+\index{move@{move}!Camera@{Camera}}
+\doxysubsubsection{\texorpdfstring{move()}{move()}}
+{\footnotesize\ttfamily void Camera\+::move (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_vec3}{Vec3}}}]{look\+\_\+from,  }\item[{\mbox{\hyperlink{class_vec3}{Vec3}}}]{look\+\_\+at,  }\item[{const \mbox{\hyperlink{class_vec3}{Vec3}} \&}]{v\+\_\+up,  }\item[{double}]{fov }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Moves the camera to a new position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em look\+\_\+from} & Sets the camera position \\
+\hline
+{\em look\+\_\+at} & Sets the point the camera is looking at \\
+\hline
+{\em v\+\_\+up} & Sets the camera-\/relative "{}up"{} direction \\
+\hline
+{\em fov} & Sets the vertical view angle (field of view) \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_camera_a1ffa133335cdae68571ade04d274727d}\label{class_camera_a1ffa133335cdae68571ade04d274727d} 
+\index{Camera@{Camera}!renderImage@{renderImage}}
+\index{renderImage@{renderImage}!Camera@{Camera}}
+\doxysubsubsection{\texorpdfstring{renderImage()}{renderImage()}}
+{\footnotesize\ttfamily std\+::expected$<$ std\+::string, \mbox{\hyperlink{camera_8h_a5d9d3c726beb2bcb0d9da2ca9c7cbf97}{Render\+Error}} $>$ Camera\+::render\+Image (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_shape_container}{Shape\+Container}} \&}]{world }\end{DoxyParamCaption})}
+
+
+
+Renders an image by shooting rays into the scene. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em world} & the scene with it\textquotesingle{}s objects to render \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the rendered image as a string in the ppm format on success, an error code on failure 
+\end{DoxyReturn}
+\Hypertarget{class_camera_aea9122d8f0a70c970fd69c01c5979ad0}\label{class_camera_aea9122d8f0a70c970fd69c01c5979ad0} 
+\index{Camera@{Camera}!resize@{resize}}
+\index{resize@{resize}!Camera@{Camera}}
+\doxysubsubsection{\texorpdfstring{resize()}{resize()}}
+{\footnotesize\ttfamily void Camera\+::resize (\begin{DoxyParamCaption}\item[{int}]{image\+\_\+width,  }\item[{int}]{image\+\_\+height }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Changes the size of the image to be rendered. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em image\+\_\+width} & the new width of the image \\
+\hline
+{\em image\+\_\+height} & the new height of the image \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_camera_ad2c0301f8b483cb794014f1e722c318f}\label{class_camera_ad2c0301f8b483cb794014f1e722c318f} 
+\index{Camera@{Camera}!setMaxDepth@{setMaxDepth}}
+\index{setMaxDepth@{setMaxDepth}!Camera@{Camera}}
+\doxysubsubsection{\texorpdfstring{setMaxDepth()}{setMaxDepth()}}
+{\footnotesize\ttfamily void Camera\+::set\+Max\+Depth (\begin{DoxyParamCaption}\item[{const int}]{max\+\_\+depth }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Sets the maximum number of ray bounces into the scene. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em max\+\_\+depth} & the maximum number of ray bounces into the scene \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_camera_a7f11126be9801f76268c77d693563304}\label{class_camera_a7f11126be9801f76268c77d693563304} 
+\index{Camera@{Camera}!setSamplesPerPixel@{setSamplesPerPixel}}
+\index{setSamplesPerPixel@{setSamplesPerPixel}!Camera@{Camera}}
+\doxysubsubsection{\texorpdfstring{setSamplesPerPixel()}{setSamplesPerPixel()}}
+{\footnotesize\ttfamily void Camera\+::set\+Samples\+Per\+Pixel (\begin{DoxyParamCaption}\item[{const int}]{samples\+\_\+per\+\_\+pixel }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+
+
+Sets the number of samples per pixel. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em samples\+\_\+per\+\_\+pixel} & the number of samples per pixel \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_camera_a7bbfc1b8520a5c6a9d2a2ed536616512}\label{class_camera_a7bbfc1b8520a5c6a9d2a2ed536616512} 
+\index{Camera@{Camera}!bytes\_per\_pixel@{bytes\_per\_pixel}}
+\index{bytes\_per\_pixel@{bytes\_per\_pixel}!Camera@{Camera}}
+\doxysubsubsection{\texorpdfstring{bytes\_per\_pixel}{bytes\_per\_pixel}}
+{\footnotesize\ttfamily constexpr auto Camera\+::bytes\+\_\+per\+\_\+pixel = 3\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+\Hypertarget{class_camera_a3c2baccc53e601b22edc34eba1adfe4f}\label{class_camera_a3c2baccc53e601b22edc34eba1adfe4f} 
+\index{Camera@{Camera}!header\_size@{header\_size}}
+\index{header\_size@{header\_size}!Camera@{Camera}}
+\doxysubsubsection{\texorpdfstring{header\_size}{header\_size}}
+{\footnotesize\ttfamily constexpr auto Camera\+::header\+\_\+size = 9\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/camera/\mbox{\hyperlink{camera_8h}{camera.\+h}}\item 
+src/camera/\mbox{\hyperlink{camera_8cpp}{camera.\+cpp}}\end{DoxyCompactItemize}

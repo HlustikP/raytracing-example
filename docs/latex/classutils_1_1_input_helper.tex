@@ -1,0 +1,58 @@
+\doxysection{utils\+::Input\+Helper\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{classutils_1_1_input_helper}{}\label{classutils_1_1_input_helper}\index{utils::InputHelper$<$ T $>$@{utils::InputHelper$<$ T $>$}}
+
+
+Helper Class to handle user input.  
+
+
+
+
+{\ttfamily \#include $<$utils.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classutils_1_1_input_helper_ac3d633612438c559d265e7c469471577}{Input\+Helper}} (std\+::string question, const T \&default\+Value=T\{\})
+\item 
+std\+::optional$<$ T $>$ \mbox{\hyperlink{classutils_1_1_input_helper_abcfc23393dbf8ecddc482536df36e243}{get}} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\newline
+class utils\+::\+Input\+Helper$<$ T $>$}
+Helper Class to handle user input. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & the type to convert the input to \\
+\hline
+\end{DoxyTemplParams}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classutils_1_1_input_helper_ac3d633612438c559d265e7c469471577}\label{classutils_1_1_input_helper_ac3d633612438c559d265e7c469471577} 
+\index{utils::InputHelper$<$ T $>$@{utils::InputHelper$<$ T $>$}!InputHelper@{InputHelper}}
+\index{InputHelper@{InputHelper}!utils::InputHelper$<$ T $>$@{utils::InputHelper$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{InputHelper()}{InputHelper()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classutils_1_1_input_helper}{utils\+::\+Input\+Helper}}$<$ T $>$\+::\+Input\+Helper (\begin{DoxyParamCaption}\item[{std\+::string}]{question,  }\item[{const T \&}]{default\+Value = {\ttfamily T\{\}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classutils_1_1_input_helper_abcfc23393dbf8ecddc482536df36e243}\label{classutils_1_1_input_helper_abcfc23393dbf8ecddc482536df36e243} 
+\index{utils::InputHelper$<$ T $>$@{utils::InputHelper$<$ T $>$}!get@{get}}
+\index{get@{get}!utils::InputHelper$<$ T $>$@{utils::InputHelper$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::optional$<$ T $>$ \mbox{\hyperlink{classutils_1_1_input_helper}{utils\+::\+Input\+Helper}}$<$ T $>$\+::get (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyReturn}{Returns}
+the user input converted to type T, or std\+::nullopt if the input could not be converted 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/utils/\mbox{\hyperlink{utils_8h}{utils.\+h}}\end{DoxyCompactItemize}

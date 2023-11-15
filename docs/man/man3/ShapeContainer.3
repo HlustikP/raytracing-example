@@ -1,0 +1,111 @@
+.TH "ShapeContainer" 3 "raytracing-example" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ShapeContainer \- Class for storing multiple shapes\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <shape_container\&.h>\fP
+.PP
+Inherits \fBShape\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBShapeContainer\fP ()=default"
+.br
+.ti -1c
+.RI "\fBShapeContainer\fP (const std::shared_ptr< \fBShape\fP > &shape)"
+.br
+.ti -1c
+.RI "void \fBclear\fP ()"
+.br
+.RI "Clears the shape container\&. "
+.ti -1c
+.RI "void \fBadd\fP (const std::shared_ptr< \fBShape\fP > &object)"
+.br
+.RI "Adds a shape to the shape container\&. "
+.ti -1c
+.RI "std::optional< \fBIntersection\fP > \fBisIntersecting\fP (const \fBRay\fP &ray, \fBInterval\fP interval) const override"
+.br
+.RI "Checks whether a given ray is intersecting with any of the shapes in the shape container within a given interval\&. "
+.in -1c
+
+Public Member Functions inherited from \fBShape\fP
+.in +1c
+.ti -1c
+.RI "virtual \fB~Shape\fP ()=0"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "std::vector< std::shared_ptr< \fBShape\fP > > \fBobjects\fP"
+.br
+.in -1c
+
+Public Attributes inherited from \fBShape\fP
+.in +1c
+.ti -1c
+.RI "std::shared_ptr< \fBMaterial\fP > \fBmaterial_\fP {}"
+.br
+.RI "The material of the shape\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Class for storing multiple shapes\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "ShapeContainer::ShapeContainer ()\fC [default]\fP"
+
+.SS "ShapeContainer::ShapeContainer (const std::shared_ptr< \fBShape\fP > & shape)\fC [inline]\fP, \fC [explicit]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void ShapeContainer::add (const std::shared_ptr< \fBShape\fP > & object)\fC [inline]\fP"
+
+.PP
+Adds a shape to the shape container\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIobject\fP the shape to add 
+.RE
+.PP
+
+.SS "void ShapeContainer::clear ()\fC [inline]\fP"
+
+.PP
+Clears the shape container\&. 
+.SS "std::optional< \fBIntersection\fP > ShapeContainer::isIntersecting (const \fBRay\fP & ray, \fBInterval\fP interval) const\fC [inline]\fP, \fC [override]\fP, \fC [virtual]\fP"
+
+.PP
+Checks whether a given ray is intersecting with any of the shapes in the shape container within a given interval\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIray\fP the ray to check 
+.br
+\fIinterval\fP the interval in which to check for intersections 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The closest intersection on success, otherwise std::nullopt if no intersection was found 
+.RE
+.PP
+
+.PP
+Implements \fBShape\fP\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "std::vector<std::shared_ptr<\fBShape\fP> > ShapeContainer::objects"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for raytracing-example from the source code\&.

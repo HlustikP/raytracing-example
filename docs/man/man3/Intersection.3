@@ -1,0 +1,72 @@
+.TH "Intersection" 3 "raytracing-example" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Intersection \- Class representing an intersection between a ray and a shape\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <intersection\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBsetFaceNormal\fP (const \fBRay\fP &ray, const \fBVec3\fP &outward_normal)"
+.br
+.RI "Sets the hit record normal vector\&. "
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBPoint3\fP \fBp\fP {}"
+.br
+.ti -1c
+.RI "\fBVec3\fP \fBnormal\fP {}"
+.br
+.ti -1c
+.RI "double \fBt\fP {}"
+.br
+.ti -1c
+.RI "bool \fBfront_face\fP {}"
+.br
+.ti -1c
+.RI "std::shared_ptr< \fBMaterial\fP > \fBmaterial\fP {}"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Class representing an intersection between a ray and a shape\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "void Intersection::setFaceNormal (const \fBRay\fP & ray, const \fBVec3\fP & outward_normal)\fC [inline]\fP"
+
+.PP
+Sets the hit record normal vector\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIray\fP the ray that hit the shape 
+.br
+\fIoutward_normal\fP the normal vector of the shape at the hit point\&. It is assumed that the outward_normal has unit length\&. 
+.RE
+.PP
+
+.SH "Member Data Documentation"
+.PP 
+.SS "bool Intersection::front_face {}"
+
+.SS "std::shared_ptr<\fBMaterial\fP> Intersection::material {}"
+
+.SS "\fBVec3\fP Intersection::normal {}"
+
+.SS "\fBPoint3\fP Intersection::p {}"
+
+.SS "double Intersection::t {}"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for raytracing-example from the source code\&.

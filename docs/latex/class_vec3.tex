@@ -1,0 +1,411 @@
+\doxysection{Vec3 Class Reference}
+\hypertarget{class_vec3}{}\label{class_vec3}\index{Vec3@{Vec3}}
+
+
+{\ttfamily \#include $<$vec3.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_vec3_aae7a1ffaa1108a30c281da216d1cd312}{Vec3}} ()
+\item 
+\mbox{\hyperlink{class_vec3_a88953d8119d3b4ebdc2d5bef40b4c380}{Vec3}} (double e0, double e1, double e2)
+\item 
+double \mbox{\hyperlink{class_vec3_aa0c360c4d0f99d61709283abbd6deaf9}{x}} () const
+\item 
+double \mbox{\hyperlink{class_vec3_a83d4776aef2cb68f2382e2f7f60fb03d}{y}} () const
+\item 
+double \mbox{\hyperlink{class_vec3_a6e36d3b30e7d9727a57785d3c2b88471}{z}} () const
+\item 
+\mbox{\hyperlink{class_vec3}{Vec3}} \mbox{\hyperlink{class_vec3_ab05753413af282b8cbd879c334c8e5aa}{operator-\/}} () const
+\item 
+double \mbox{\hyperlink{class_vec3_aae563b2815fd03e960b26d6ff41595f1}{operator\mbox{[}$\,$\mbox{]}}} (int i) const
+\item 
+double \& \mbox{\hyperlink{class_vec3_ae05e760b97736dd2d2156eeff6fdc345}{operator\mbox{[}$\,$\mbox{]}}} (int i)
+\item 
+\mbox{\hyperlink{class_vec3}{Vec3}} \& \mbox{\hyperlink{class_vec3_a10e2ed1968402a31090cba6fe8f9250a}{operator+=}} (const \mbox{\hyperlink{class_vec3}{Vec3}} \&v)
+\item 
+\mbox{\hyperlink{class_vec3}{Vec3}} \& \mbox{\hyperlink{class_vec3_ad01631dbecfa59d3949d334d1e817714}{operator\texorpdfstring{$\ast$}{*}=}} (double t)
+\item 
+\mbox{\hyperlink{class_vec3}{Vec3}} \& \mbox{\hyperlink{class_vec3_a6f3fdbab7c86bfdf3f9be16cf5f23406}{operator/=}} (double t)
+\item 
+\mbox{\hyperlink{class_vec3}{Vec3}} \mbox{\hyperlink{class_vec3_afc46ae6022e89d29fe5456cab636d804}{operator+}} (const \mbox{\hyperlink{class_vec3}{Vec3}} \&v) const
+\item 
+\mbox{\hyperlink{class_vec3}{Vec3}} \mbox{\hyperlink{class_vec3_ab16ba241e199e6604928cd5ae66e37d4}{operator-\/}} (const \mbox{\hyperlink{class_vec3}{Vec3}} \&v) const
+\item 
+\mbox{\hyperlink{class_vec3}{Vec3}} \mbox{\hyperlink{class_vec3_a4967832c6e91775b16d530ce2120a64e}{operator\texorpdfstring{$\ast$}{*}}} (const \mbox{\hyperlink{class_vec3}{Vec3}} \&v) const
+\item 
+\mbox{\hyperlink{class_vec3}{Vec3}} \mbox{\hyperlink{class_vec3_aa782bfc9f6d0b2f4e9c4fa162f1f307a}{operator\texorpdfstring{$\ast$}{*}}} (const double t) const
+\item 
+\mbox{\hyperlink{class_vec3}{Vec3}} \mbox{\hyperlink{class_vec3_a37e29b3cdb469053af096a0f95ac0f1b}{operator/}} (const double t) const
+\item 
+double \mbox{\hyperlink{class_vec3_ac82f0ecee8016e4cce60acec4f638abc}{length}} () const
+\item 
+double \mbox{\hyperlink{class_vec3_a8c2fe2e57ff4ee96164097bc7e527a58}{length\+Squared}} () const
+\item 
+bool \mbox{\hyperlink{class_vec3_a76d6b3062eeab75366f9a24d93d61e81}{is\+Near\+Zero}} () const
+\begin{DoxyCompactList}\small\item\em approximate 0-\/equality check \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_vec3}{Vec3}} \mbox{\hyperlink{class_vec3_a3de5d897549752b916899b7f8f2d5e22}{reflect}} (const \mbox{\hyperlink{class_vec3}{Vec3}} unit\+\_\+vec) const
+\begin{DoxyCompactList}\small\item\em Calculate the reflection of this vector off a surface with the given normal. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_vec3}{Vec3}} \mbox{\hyperlink{class_vec3_a444e5da4766d1e1f2daa46c56b398bb4}{cross}} (const \mbox{\hyperlink{class_vec3}{Vec3}} \&v) const
+\begin{DoxyCompactList}\small\item\em Calculate the cross product of the vector with another vector. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_vec3}{Vec3}} \mbox{\hyperlink{class_vec3_a1ee1df3e5a443ac90ab6d0d0299e336c}{refract}} (\mbox{\hyperlink{class_vec3}{Vec3}} unit\+\_\+vec, \mbox{\hyperlink{class_vec3}{Vec3}} normal\+\_\+vec, double etai\+\_\+over\+\_\+etat)
+\begin{DoxyCompactList}\small\item\em Calculate the refraction of this vector off a surface. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{class_vec3}{Vec3}} \mbox{\hyperlink{class_vec3_abf25a1a1930deafd58a50905a0af3c02}{generate\+Random\+Vec3}} ()
+\item 
+static \mbox{\hyperlink{class_vec3}{Vec3}} \mbox{\hyperlink{class_vec3_a3b4acdd0d61e98128da0412352139b75}{generate\+Random\+Vec3}} (const double min, const double max)
+\item 
+static \mbox{\hyperlink{class_vec3}{Vec3}} \mbox{\hyperlink{class_vec3_ad618d44e155d403081687ad99f47aa79}{generate\+Random\+Vec3\+In\+Unit\+Sphere}} ()
+\begin{DoxyCompactList}\small\item\em Generate a random vector in the unit sphere using the rejection method (brute force) \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{class_vec3}{Vec3}} \mbox{\hyperlink{class_vec3_a657ba352bfb564480b2d5838bbc6afe8}{get\+Unit\+Vector}} (const \mbox{\hyperlink{class_vec3}{Vec3}} vec)
+\item 
+static \mbox{\hyperlink{class_vec3}{Vec3}} \mbox{\hyperlink{class_vec3_ac026cf1c8e56342af692d20d623d1f01}{generate\+Random\+Unit\+Vector}} ()
+\item 
+static \mbox{\hyperlink{class_vec3}{Vec3}} \mbox{\hyperlink{class_vec3_a522d981ed351aad588e7b6efe07f176d}{generate\+Random\+Vec3\+In\+Hemisphere}} (const \mbox{\hyperlink{class_vec3}{Vec3}} normal)
+\begin{DoxyCompactList}\small\item\em Generate a random vector in the unit hemisphere using the rejection method (brute force) \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{class_vec3}{Vec3}} \mbox{\hyperlink{class_vec3_a50620ce8b60a659453450e54899ffc79}{generate\+\_\+random\+\_\+vec\+\_\+in\+\_\+unit\+\_\+sphere}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{class_vec3_adf2612e2f65ed9a2aecbd48eabb273f3}{data\+\_\+}} \mbox{[}3\mbox{]}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \mbox{\hyperlink{class_vec3_abec2f2292177914c3697541000f05c65}{operator$<$$<$}} (std\+::ostream \&out, const \mbox{\hyperlink{class_vec3}{Vec3}} \&v)
+\item 
+double \mbox{\hyperlink{class_vec3_a1934dc329a0b663fb009e8032b65a496}{dot}} (const \mbox{\hyperlink{class_vec3}{Vec3}} \&u, const \mbox{\hyperlink{class_vec3}{Vec3}} \&v)
+\item 
+\mbox{\hyperlink{class_vec3}{Vec3}} \mbox{\hyperlink{class_vec3_a4ec7b2bacb0f7294b62b8138bb7e8409}{operator\texorpdfstring{$\ast$}{*}}} (double t, const \mbox{\hyperlink{class_vec3}{Vec3}} \&v)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class representing a 3D vector. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_vec3_aae7a1ffaa1108a30c281da216d1cd312}\label{class_vec3_aae7a1ffaa1108a30c281da216d1cd312} 
+\index{Vec3@{Vec3}!Vec3@{Vec3}}
+\index{Vec3@{Vec3}!Vec3@{Vec3}}
+\doxysubsubsection{\texorpdfstring{Vec3()}{Vec3()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Vec3\+::\+Vec3 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_vec3_a88953d8119d3b4ebdc2d5bef40b4c380}\label{class_vec3_a88953d8119d3b4ebdc2d5bef40b4c380} 
+\index{Vec3@{Vec3}!Vec3@{Vec3}}
+\index{Vec3@{Vec3}!Vec3@{Vec3}}
+\doxysubsubsection{\texorpdfstring{Vec3()}{Vec3()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Vec3\+::\+Vec3 (\begin{DoxyParamCaption}\item[{double}]{e0,  }\item[{double}]{e1,  }\item[{double}]{e2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_vec3_a444e5da4766d1e1f2daa46c56b398bb4}\label{class_vec3_a444e5da4766d1e1f2daa46c56b398bb4} 
+\index{Vec3@{Vec3}!cross@{cross}}
+\index{cross@{cross}!Vec3@{Vec3}}
+\doxysubsubsection{\texorpdfstring{cross()}{cross()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_vec3}{Vec3}} Vec3\+::cross (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_vec3}{Vec3}} \&}]{v }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Calculate the cross product of the vector with another vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & the other vector \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the cross product 
+\end{DoxyReturn}
+\Hypertarget{class_vec3_a50620ce8b60a659453450e54899ffc79}\label{class_vec3_a50620ce8b60a659453450e54899ffc79} 
+\index{Vec3@{Vec3}!generate\_random\_vec\_in\_unit\_sphere@{generate\_random\_vec\_in\_unit\_sphere}}
+\index{generate\_random\_vec\_in\_unit\_sphere@{generate\_random\_vec\_in\_unit\_sphere}!Vec3@{Vec3}}
+\doxysubsubsection{\texorpdfstring{generate\_random\_vec\_in\_unit\_sphere()}{generate\_random\_vec\_in\_unit\_sphere()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_vec3}{Vec3}} Vec3\+::generate\+\_\+random\+\_\+vec\+\_\+in\+\_\+unit\+\_\+sphere (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+\begin{DoxyReturn}{Returns}
+a random vector in the unit sphere using the rejection method (brute force) 
+\end{DoxyReturn}
+\Hypertarget{class_vec3_ac026cf1c8e56342af692d20d623d1f01}\label{class_vec3_ac026cf1c8e56342af692d20d623d1f01} 
+\index{Vec3@{Vec3}!generateRandomUnitVector@{generateRandomUnitVector}}
+\index{generateRandomUnitVector@{generateRandomUnitVector}!Vec3@{Vec3}}
+\doxysubsubsection{\texorpdfstring{generateRandomUnitVector()}{generateRandomUnitVector()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_vec3}{Vec3}} Vec3\+::generate\+Random\+Unit\+Vector (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+\begin{DoxyReturn}{Returns}
+a random unit vector 
+\end{DoxyReturn}
+\Hypertarget{class_vec3_abf25a1a1930deafd58a50905a0af3c02}\label{class_vec3_abf25a1a1930deafd58a50905a0af3c02} 
+\index{Vec3@{Vec3}!generateRandomVec3@{generateRandomVec3}}
+\index{generateRandomVec3@{generateRandomVec3}!Vec3@{Vec3}}
+\doxysubsubsection{\texorpdfstring{generateRandomVec3()}{generateRandomVec3()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_vec3}{Vec3}} Vec3\+::generate\+Random\+Vec3 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+\begin{DoxyReturn}{Returns}
+a random vector with each component in the range \mbox{[}0, 1\mbox{]} 
+\end{DoxyReturn}
+\Hypertarget{class_vec3_a3b4acdd0d61e98128da0412352139b75}\label{class_vec3_a3b4acdd0d61e98128da0412352139b75} 
+\index{Vec3@{Vec3}!generateRandomVec3@{generateRandomVec3}}
+\index{generateRandomVec3@{generateRandomVec3}!Vec3@{Vec3}}
+\doxysubsubsection{\texorpdfstring{generateRandomVec3()}{generateRandomVec3()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_vec3}{Vec3}} Vec3\+::generate\+Random\+Vec3 (\begin{DoxyParamCaption}\item[{const double}]{min,  }\item[{const double}]{max }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em min} & the minimum value for each component \\
+\hline
+{\em max} & the maximum value for each component \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a random vector with each component in the inclusive range \mbox{[}min, max\mbox{]} 
+\end{DoxyReturn}
+\Hypertarget{class_vec3_a522d981ed351aad588e7b6efe07f176d}\label{class_vec3_a522d981ed351aad588e7b6efe07f176d} 
+\index{Vec3@{Vec3}!generateRandomVec3InHemisphere@{generateRandomVec3InHemisphere}}
+\index{generateRandomVec3InHemisphere@{generateRandomVec3InHemisphere}!Vec3@{Vec3}}
+\doxysubsubsection{\texorpdfstring{generateRandomVec3InHemisphere()}{generateRandomVec3InHemisphere()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_vec3}{Vec3}} Vec3\+::generate\+Random\+Vec3\+In\+Hemisphere (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_vec3}{Vec3}}}]{normal }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Generate a random vector in the unit hemisphere using the rejection method (brute force) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em normal} & the normal vector of the sphere \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the random vector in the unit hemisphere 
+\end{DoxyReturn}
+\Hypertarget{class_vec3_ad618d44e155d403081687ad99f47aa79}\label{class_vec3_ad618d44e155d403081687ad99f47aa79} 
+\index{Vec3@{Vec3}!generateRandomVec3InUnitSphere@{generateRandomVec3InUnitSphere}}
+\index{generateRandomVec3InUnitSphere@{generateRandomVec3InUnitSphere}!Vec3@{Vec3}}
+\doxysubsubsection{\texorpdfstring{generateRandomVec3InUnitSphere()}{generateRandomVec3InUnitSphere()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_vec3}{Vec3}} Vec3\+::generate\+Random\+Vec3\+In\+Unit\+Sphere (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Generate a random vector in the unit sphere using the rejection method (brute force) 
+
+\begin{DoxyReturn}{Returns}
+a random vector in the unit sphere 
+\end{DoxyReturn}
+\Hypertarget{class_vec3_a657ba352bfb564480b2d5838bbc6afe8}\label{class_vec3_a657ba352bfb564480b2d5838bbc6afe8} 
+\index{Vec3@{Vec3}!getUnitVector@{getUnitVector}}
+\index{getUnitVector@{getUnitVector}!Vec3@{Vec3}}
+\doxysubsubsection{\texorpdfstring{getUnitVector()}{getUnitVector()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_vec3}{Vec3}} Vec3\+::get\+Unit\+Vector (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_vec3}{Vec3}}}]{vec }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em vec} & the vector to get the unit vector of \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the unit vector of the given vector 
+\end{DoxyReturn}
+\Hypertarget{class_vec3_a76d6b3062eeab75366f9a24d93d61e81}\label{class_vec3_a76d6b3062eeab75366f9a24d93d61e81} 
+\index{Vec3@{Vec3}!isNearZero@{isNearZero}}
+\index{isNearZero@{isNearZero}!Vec3@{Vec3}}
+\doxysubsubsection{\texorpdfstring{isNearZero()}{isNearZero()}}
+{\footnotesize\ttfamily bool Vec3\+::is\+Near\+Zero (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+approximate 0-\/equality check 
+
+\begin{DoxyReturn}{Returns}
+true if the vector is near zero in all dimensions 
+\end{DoxyReturn}
+\Hypertarget{class_vec3_ac82f0ecee8016e4cce60acec4f638abc}\label{class_vec3_ac82f0ecee8016e4cce60acec4f638abc} 
+\index{Vec3@{Vec3}!length@{length}}
+\index{length@{length}!Vec3@{Vec3}}
+\doxysubsubsection{\texorpdfstring{length()}{length()}}
+{\footnotesize\ttfamily double Vec3\+::length (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyReturn}{Returns}
+the length of the vector 
+\end{DoxyReturn}
+\Hypertarget{class_vec3_a8c2fe2e57ff4ee96164097bc7e527a58}\label{class_vec3_a8c2fe2e57ff4ee96164097bc7e527a58} 
+\index{Vec3@{Vec3}!lengthSquared@{lengthSquared}}
+\index{lengthSquared@{lengthSquared}!Vec3@{Vec3}}
+\doxysubsubsection{\texorpdfstring{lengthSquared()}{lengthSquared()}}
+{\footnotesize\ttfamily double Vec3\+::length\+Squared (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyReturn}{Returns}
+the squared length of the vector 
+\end{DoxyReturn}
+\Hypertarget{class_vec3_aa782bfc9f6d0b2f4e9c4fa162f1f307a}\label{class_vec3_aa782bfc9f6d0b2f4e9c4fa162f1f307a} 
+\index{Vec3@{Vec3}!operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}}
+\index{operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}!Vec3@{Vec3}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_vec3}{Vec3}} Vec3\+::operator\texorpdfstring{$\ast$}{*} (\begin{DoxyParamCaption}\item[{const double}]{t }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_vec3_a4967832c6e91775b16d530ce2120a64e}\label{class_vec3_a4967832c6e91775b16d530ce2120a64e} 
+\index{Vec3@{Vec3}!operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}}
+\index{operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}!Vec3@{Vec3}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_vec3}{Vec3}} Vec3\+::operator\texorpdfstring{$\ast$}{*} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_vec3}{Vec3}} \&}]{v }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_vec3_ad01631dbecfa59d3949d334d1e817714}\label{class_vec3_ad01631dbecfa59d3949d334d1e817714} 
+\index{Vec3@{Vec3}!operator\texorpdfstring{$\ast$}{*}=@{operator\texorpdfstring{$\ast$}{*}=}}
+\index{operator\texorpdfstring{$\ast$}{*}=@{operator\texorpdfstring{$\ast$}{*}=}!Vec3@{Vec3}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}=()}{operator*=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_vec3}{Vec3}} \& Vec3\+::operator\texorpdfstring{$\ast$}{*}= (\begin{DoxyParamCaption}\item[{double}]{t }\end{DoxyParamCaption})}
+
+\Hypertarget{class_vec3_afc46ae6022e89d29fe5456cab636d804}\label{class_vec3_afc46ae6022e89d29fe5456cab636d804} 
+\index{Vec3@{Vec3}!operator+@{operator+}}
+\index{operator+@{operator+}!Vec3@{Vec3}}
+\doxysubsubsection{\texorpdfstring{operator+()}{operator+()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_vec3}{Vec3}} Vec3\+::operator+ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_vec3}{Vec3}} \&}]{v }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_vec3_a10e2ed1968402a31090cba6fe8f9250a}\label{class_vec3_a10e2ed1968402a31090cba6fe8f9250a} 
+\index{Vec3@{Vec3}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!Vec3@{Vec3}}
+\doxysubsubsection{\texorpdfstring{operator+=()}{operator+=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_vec3}{Vec3}} \& Vec3\+::operator+= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_vec3}{Vec3}} \&}]{v }\end{DoxyParamCaption})}
+
+\Hypertarget{class_vec3_ab05753413af282b8cbd879c334c8e5aa}\label{class_vec3_ab05753413af282b8cbd879c334c8e5aa} 
+\index{Vec3@{Vec3}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!Vec3@{Vec3}}
+\doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_vec3}{Vec3}} Vec3\+::operator-\/ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_vec3_ab16ba241e199e6604928cd5ae66e37d4}\label{class_vec3_ab16ba241e199e6604928cd5ae66e37d4} 
+\index{Vec3@{Vec3}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!Vec3@{Vec3}}
+\doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_vec3}{Vec3}} Vec3\+::operator-\/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_vec3}{Vec3}} \&}]{v }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_vec3_a37e29b3cdb469053af096a0f95ac0f1b}\label{class_vec3_a37e29b3cdb469053af096a0f95ac0f1b} 
+\index{Vec3@{Vec3}!operator/@{operator/}}
+\index{operator/@{operator/}!Vec3@{Vec3}}
+\doxysubsubsection{\texorpdfstring{operator/()}{operator/()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_vec3}{Vec3}} Vec3\+::operator/ (\begin{DoxyParamCaption}\item[{const double}]{t }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_vec3_a6f3fdbab7c86bfdf3f9be16cf5f23406}\label{class_vec3_a6f3fdbab7c86bfdf3f9be16cf5f23406} 
+\index{Vec3@{Vec3}!operator/=@{operator/=}}
+\index{operator/=@{operator/=}!Vec3@{Vec3}}
+\doxysubsubsection{\texorpdfstring{operator/=()}{operator/=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_vec3}{Vec3}} \& Vec3\+::operator/= (\begin{DoxyParamCaption}\item[{double}]{t }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_vec3_ae05e760b97736dd2d2156eeff6fdc345}\label{class_vec3_ae05e760b97736dd2d2156eeff6fdc345} 
+\index{Vec3@{Vec3}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!Vec3@{Vec3}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily double \& Vec3\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_vec3_aae563b2815fd03e960b26d6ff41595f1}\label{class_vec3_aae563b2815fd03e960b26d6ff41595f1} 
+\index{Vec3@{Vec3}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!Vec3@{Vec3}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily double Vec3\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_vec3_a3de5d897549752b916899b7f8f2d5e22}\label{class_vec3_a3de5d897549752b916899b7f8f2d5e22} 
+\index{Vec3@{Vec3}!reflect@{reflect}}
+\index{reflect@{reflect}!Vec3@{Vec3}}
+\doxysubsubsection{\texorpdfstring{reflect()}{reflect()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_vec3}{Vec3}} Vec3\+::reflect (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_vec3}{Vec3}}}]{unit\+\_\+vec }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Calculate the reflection of this vector off a surface with the given normal. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em unit\+\_\+vec} & the unit vector to reflect off of \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the vector representing the reflection 
+\end{DoxyReturn}
+\Hypertarget{class_vec3_a1ee1df3e5a443ac90ab6d0d0299e336c}\label{class_vec3_a1ee1df3e5a443ac90ab6d0d0299e336c} 
+\index{Vec3@{Vec3}!refract@{refract}}
+\index{refract@{refract}!Vec3@{Vec3}}
+\doxysubsubsection{\texorpdfstring{refract()}{refract()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_vec3}{Vec3}} Vec3\+::refract (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_vec3}{Vec3}}}]{unit\+\_\+vec,  }\item[{\mbox{\hyperlink{class_vec3}{Vec3}}}]{normal\+\_\+vec,  }\item[{double}]{etai\+\_\+over\+\_\+etat }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Calculate the refraction of this vector off a surface. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em unit\+\_\+vec} & the unit vector to refract off of \\
+\hline
+{\em normal\+\_\+vec} & the normal vector of the surface \\
+\hline
+{\em etai\+\_\+over\+\_\+etat} & the ratio of the refractive indices of the material \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the vector representing the refraction 
+\end{DoxyReturn}
+\Hypertarget{class_vec3_aa0c360c4d0f99d61709283abbd6deaf9}\label{class_vec3_aa0c360c4d0f99d61709283abbd6deaf9} 
+\index{Vec3@{Vec3}!x@{x}}
+\index{x@{x}!Vec3@{Vec3}}
+\doxysubsubsection{\texorpdfstring{x()}{x()}}
+{\footnotesize\ttfamily double Vec3\+::x (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyReturn}{Returns}
+the x component of the vector 
+\end{DoxyReturn}
+\Hypertarget{class_vec3_a83d4776aef2cb68f2382e2f7f60fb03d}\label{class_vec3_a83d4776aef2cb68f2382e2f7f60fb03d} 
+\index{Vec3@{Vec3}!y@{y}}
+\index{y@{y}!Vec3@{Vec3}}
+\doxysubsubsection{\texorpdfstring{y()}{y()}}
+{\footnotesize\ttfamily double Vec3\+::y (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyReturn}{Returns}
+the y component of the vector 
+\end{DoxyReturn}
+\Hypertarget{class_vec3_a6e36d3b30e7d9727a57785d3c2b88471}\label{class_vec3_a6e36d3b30e7d9727a57785d3c2b88471} 
+\index{Vec3@{Vec3}!z@{z}}
+\index{z@{z}!Vec3@{Vec3}}
+\doxysubsubsection{\texorpdfstring{z()}{z()}}
+{\footnotesize\ttfamily double Vec3\+::z (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyReturn}{Returns}
+the z component of the vector 
+\end{DoxyReturn}
+
+
+\doxysubsection{Friends And Related Symbol Documentation}
+\Hypertarget{class_vec3_a1934dc329a0b663fb009e8032b65a496}\label{class_vec3_a1934dc329a0b663fb009e8032b65a496} 
+\index{Vec3@{Vec3}!dot@{dot}}
+\index{dot@{dot}!Vec3@{Vec3}}
+\doxysubsubsection{\texorpdfstring{dot}{dot}}
+{\footnotesize\ttfamily double dot (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_vec3}{Vec3}} \&}]{u,  }\item[{const \mbox{\hyperlink{class_vec3}{Vec3}} \&}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+\Hypertarget{class_vec3_a4ec7b2bacb0f7294b62b8138bb7e8409}\label{class_vec3_a4ec7b2bacb0f7294b62b8138bb7e8409} 
+\index{Vec3@{Vec3}!operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}}
+\index{operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}!Vec3@{Vec3}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}}{operator*}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_vec3}{Vec3}} operator\texorpdfstring{$\ast$}{*} (\begin{DoxyParamCaption}\item[{double}]{t,  }\item[{const \mbox{\hyperlink{class_vec3}{Vec3}} \&}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+\Hypertarget{class_vec3_abec2f2292177914c3697541000f05c65}\label{class_vec3_abec2f2292177914c3697541000f05c65} 
+\index{Vec3@{Vec3}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Vec3@{Vec3}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily std\+::ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{out,  }\item[{const \mbox{\hyperlink{class_vec3}{Vec3}} \&}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_vec3_adf2612e2f65ed9a2aecbd48eabb273f3}\label{class_vec3_adf2612e2f65ed9a2aecbd48eabb273f3} 
+\index{Vec3@{Vec3}!data\_@{data\_}}
+\index{data\_@{data\_}!Vec3@{Vec3}}
+\doxysubsubsection{\texorpdfstring{data\_}{data\_}}
+{\footnotesize\ttfamily double Vec3\+::data\+\_\+\mbox{[}3\mbox{]}\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/vec3/\mbox{\hyperlink{vec3_8h}{vec3.\+h}}\item 
+src/vec3/\mbox{\hyperlink{vec3_8cpp}{vec3.\+cpp}}\end{DoxyCompactItemize}

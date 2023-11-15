@@ -1,0 +1,26 @@
+\doxysection{intersection.\+h}
+\hypertarget{intersection_8h_source}{}\label{intersection_8h_source}\index{src/shapes/intersection.h@{src/shapes/intersection.h}}
+\mbox{\hyperlink{intersection_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}../ray/ray.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}../vec3/vec3.h"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_intersection}{Intersection}}\ \{}
+\DoxyCodeLine{00010\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00011\ \ \ \ \ \mbox{\hyperlink{class_vec3}{Point3}}\ \mbox{\hyperlink{class_intersection_a5518161e8e147120405907eb0baea818}{p}}\ \{\};}
+\DoxyCodeLine{00012\ \ \ \ \ \mbox{\hyperlink{class_vec3}{Vec3}}\ \mbox{\hyperlink{class_intersection_a114a38d6cbda5361b113096701cdf0ba}{normal}}\ \{\};}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_intersection_a033072b1892bec18444dbb580063b00a}{t}}\ \{\};}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_intersection_ae0ea17cf468cca1505a6753d2901d86f}{front\_face}}\ \{\};}
+\DoxyCodeLine{00015\ \ \ \ \ std::shared\_ptr<Material>\ \mbox{\hyperlink{class_intersection_a2e0b46c76dbd5b5ca8ef2a9eb81c991d}{material}}\ \{\};}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_intersection_ad0496bbdba6be90b12dbb9c2e8927181}{setFaceNormal}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_ray}{Ray}}\&\ ray,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_vec3}{Vec3}}\&\ outward\_normal)\ \{}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ NOTE:\ the\ parameter\ \`{}outward\_normal`\ is\ assumed\ to\ have\ unit\ length.}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_intersection_ae0ea17cf468cca1505a6753d2901d86f}{front\_face}}\ =\ \mbox{\hyperlink{vec3_8h_a1934dc329a0b663fb009e8032b65a496}{dot}}(ray.\mbox{\hyperlink{class_ray_a725a907d4c9b65c55930a3e4f5d01d48}{direction}}(),\ outward\_normal)\ <\ 0;}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_intersection_a114a38d6cbda5361b113096701cdf0ba}{normal}}\ =\ \mbox{\hyperlink{class_intersection_ae0ea17cf468cca1505a6753d2901d86f}{front\_face}}\ ?\ outward\_normal\ :\ -\/outward\_normal;}
+\DoxyCodeLine{00028\ \ \ \ \ \}}
+\DoxyCodeLine{00029\ \};}
+
+\end{DoxyCode}

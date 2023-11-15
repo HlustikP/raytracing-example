@@ -1,0 +1,80 @@
+.TH "Ray" 3 "raytracing-example" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Ray \- Class representing a ray shot into the scene from a camera\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <ray\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBRay\fP ()=delete"
+.br
+.ti -1c
+.RI "\fBRay\fP (const \fBPoint3\fP &\fBorigin\fP, const \fBVec3\fP &\fBdirection\fP)"
+.br
+.ti -1c
+.RI "\fBPoint3\fP \fBorigin\fP () const"
+.br
+.ti -1c
+.RI "\fBVec3\fP \fBdirection\fP () const"
+.br
+.ti -1c
+.RI "\fBPoint3\fP \fBat\fP (const double distance) const"
+.br
+.RI "Calculates a point along the ray given a distance from the origin\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Class representing a ray shot into the scene from a camera\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Ray::Ray ()\fC [delete]\fP"
+
+.SS "Ray::Ray (const \fBPoint3\fP & origin, const \fBVec3\fP & direction)\fC [inline]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBPoint3\fP Ray::at (const double distance) const\fC [inline]\fP"
+
+.PP
+Calculates a point along the ray given a distance from the origin\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdistance\fP the distance from the origin 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the point on ray 
+.RE
+.PP
+
+.SS "\fBVec3\fP Ray::direction () const\fC [inline]\fP"
+
+.PP
+\fBReturns\fP
+.RS 4
+the direction of the ray 
+.RE
+.PP
+
+.SS "\fBPoint3\fP Ray::origin () const\fC [inline]\fP"
+
+.PP
+\fBReturns\fP
+.RS 4
+the origin of the ray 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for raytracing-example from the source code\&.

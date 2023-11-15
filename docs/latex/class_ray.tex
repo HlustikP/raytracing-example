@@ -1,0 +1,86 @@
+\doxysection{Ray Class Reference}
+\hypertarget{class_ray}{}\label{class_ray}\index{Ray@{Ray}}
+
+
+Class representing a ray shot into the scene from a camera.  
+
+
+
+
+{\ttfamily \#include $<$ray.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_ray_a5ab8dccf075394c0cfb550d1c1d74b64}{Ray}} ()=delete
+\item 
+\mbox{\hyperlink{class_ray_a1f229bfde83d8fa9c050253d405fdd8d}{Ray}} (const \mbox{\hyperlink{vec3_8h_aeef95635e817fbf8cf22cd14c8d88fc5}{Point3}} \&\mbox{\hyperlink{class_ray_a5a5f3e64a35548dbb990ebb8c11a9188}{origin}}, const \mbox{\hyperlink{class_vec3}{Vec3}} \&\mbox{\hyperlink{class_ray_a725a907d4c9b65c55930a3e4f5d01d48}{direction}})
+\item 
+\mbox{\hyperlink{vec3_8h_aeef95635e817fbf8cf22cd14c8d88fc5}{Point3}} \mbox{\hyperlink{class_ray_a5a5f3e64a35548dbb990ebb8c11a9188}{origin}} () const
+\item 
+\mbox{\hyperlink{class_vec3}{Vec3}} \mbox{\hyperlink{class_ray_a725a907d4c9b65c55930a3e4f5d01d48}{direction}} () const
+\item 
+\mbox{\hyperlink{vec3_8h_aeef95635e817fbf8cf22cd14c8d88fc5}{Point3}} \mbox{\hyperlink{class_ray_a68cfeb526485b7fca6e19cd0292f8d5c}{at}} (const double distance) const
+\begin{DoxyCompactList}\small\item\em Calculates a point along the ray given a distance from the origin. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class representing a ray shot into the scene from a camera. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_ray_a5ab8dccf075394c0cfb550d1c1d74b64}\label{class_ray_a5ab8dccf075394c0cfb550d1c1d74b64} 
+\index{Ray@{Ray}!Ray@{Ray}}
+\index{Ray@{Ray}!Ray@{Ray}}
+\doxysubsubsection{\texorpdfstring{Ray()}{Ray()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Ray\+::\+Ray (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{class_ray_a1f229bfde83d8fa9c050253d405fdd8d}\label{class_ray_a1f229bfde83d8fa9c050253d405fdd8d} 
+\index{Ray@{Ray}!Ray@{Ray}}
+\index{Ray@{Ray}!Ray@{Ray}}
+\doxysubsubsection{\texorpdfstring{Ray()}{Ray()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Ray\+::\+Ray (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{vec3_8h_aeef95635e817fbf8cf22cd14c8d88fc5}{Point3}} \&}]{origin,  }\item[{const \mbox{\hyperlink{class_vec3}{Vec3}} \&}]{direction }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_ray_a68cfeb526485b7fca6e19cd0292f8d5c}\label{class_ray_a68cfeb526485b7fca6e19cd0292f8d5c} 
+\index{Ray@{Ray}!at@{at}}
+\index{at@{at}!Ray@{Ray}}
+\doxysubsubsection{\texorpdfstring{at()}{at()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{vec3_8h_aeef95635e817fbf8cf22cd14c8d88fc5}{Point3}} Ray\+::at (\begin{DoxyParamCaption}\item[{const double}]{distance }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Calculates a point along the ray given a distance from the origin. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em distance} & the distance from the origin \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the point on ray 
+\end{DoxyReturn}
+\Hypertarget{class_ray_a725a907d4c9b65c55930a3e4f5d01d48}\label{class_ray_a725a907d4c9b65c55930a3e4f5d01d48} 
+\index{Ray@{Ray}!direction@{direction}}
+\index{direction@{direction}!Ray@{Ray}}
+\doxysubsubsection{\texorpdfstring{direction()}{direction()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_vec3}{Vec3}} Ray\+::direction (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyReturn}{Returns}
+the direction of the ray 
+\end{DoxyReturn}
+\Hypertarget{class_ray_a5a5f3e64a35548dbb990ebb8c11a9188}\label{class_ray_a5a5f3e64a35548dbb990ebb8c11a9188} 
+\index{Ray@{Ray}!origin@{origin}}
+\index{origin@{origin}!Ray@{Ray}}
+\doxysubsubsection{\texorpdfstring{origin()}{origin()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{vec3_8h_aeef95635e817fbf8cf22cd14c8d88fc5}{Point3}} Ray\+::origin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyReturn}{Returns}
+the origin of the ray 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/ray/\mbox{\hyperlink{ray_8h}{ray.\+h}}\end{DoxyCompactItemize}
