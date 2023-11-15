@@ -1,7 +1,7 @@
 name: raytracing-ci
 on:
   push:
-    branches: [ "master", "Workflows" ]
+    branches: [ "master", "Workflows", "Workflows-Tests" ]
   pull_request:
     branches: [ "master" ]
 
@@ -34,3 +34,7 @@ jobs:
 
     - name: Build
       run: ninja -C ./bin/linux-x64-release
+
+    - name: Tests
+      working-directory: ${{github.workspace}}/bin/linux-x64-release/tests
+      run: ctest
