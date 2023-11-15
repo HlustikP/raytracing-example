@@ -24,3 +24,6 @@ public:
      */
     std::shared_ptr<Material> material_ {};
 };
+
+// Add a default destructor to avoid linking error
+inline Shape::~Shape() = default;
