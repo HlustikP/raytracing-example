@@ -1,0 +1,36 @@
+name: raytracing-ci
+on:
+  push:
+    branches: [ "master", "Workflows" ]
+  pull_request:
+    branches: [ "master" ]
+
+env:
+  BUILD_TYPE: Release
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Set up GCC
+      uses: egor-tensin/setup-gcc@v1
+      with:
+        version: 13
+        platform: x64
+
+    - name: Setup Ninja
+      uses: ashutoshvarma/setup-ninja@master
+      with:
+        version: 1.10.0
+
+    - name: Configure CMake
+      run: cmake --preset linux-x64-release
+
+    - name: Get gcc version
+      run: g++ -v
+
+    - name: Build
+      run: ninja -C ./bin/linux-x64-release

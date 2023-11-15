@@ -8,6 +8,7 @@
 #include <expected>
 #include <random>
 #include <utility>
+#include <optional>
 
 namespace utils {
 
