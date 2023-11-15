@@ -11,7 +11,6 @@ protected:
 TEST(UtilsTest, WriteFile) {
     std::filesystem::path outputPath("test_output.txt");
 
-    // Your test data
     constexpr auto testData = "Hello\n this is a test message.";
 
     const auto result = utils::writeFile(outputPath, testData, strlen(testData));
@@ -21,7 +20,6 @@ TEST(UtilsTest, WriteFile) {
 }
 
 TEST(UtilsTest, ReadFile) {
-    // Replace "path/to/your/test/file.txt" with an existing file path for testing
     std::filesystem::path filePath("test_input.txt");
 
     const auto result = utils::readFile(filePath);
